@@ -204,7 +204,7 @@ Date: _________________________
 ---
 
 **Bravo AI**  
-[ADDRESS]  
-[PHONE]  
+13351 Montana  
+El Paso, Texas 79938  
 mario@bravoai.co  
 www.bravoai.co

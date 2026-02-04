@@ -7,8 +7,8 @@
 This Master Service Agreement ("Agreement") is entered into as of [DATE] ("Effective Date") by and between:
 
 **Bravo AI** ("Consultant")  
-[ADDRESS]  
-[CITY, STATE ZIP]
+13351 Montana  
+El Paso, Texas 79938
 
 and
 

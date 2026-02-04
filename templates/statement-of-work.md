@@ -4,7 +4,7 @@
 
 ---
 
-This Statement of Work ("SOW") is entered into pursuant to the Master Service Agreement dated [MSA DATE] between DB Consulting ("Consultant") and [CLIENT NAME] ("Client").
+This Statement of Work ("SOW") is entered into pursuant to the Master Service Agreement dated [MSA DATE] between Bravo AI ("Consultant") and [CLIENT NAME] ("Client").
 
 **SOW Effective Date:** [DATE]
 
@@ -132,8 +132,8 @@ Client agrees to:
 
 | Milestone | Percentage | Amount | Due |
 |-----------|------------|--------|-----|
-| Project Kickoff | 50% | $[AMOUNT] | Upon SOW execution |
-| Go-Live | 50% | $[AMOUNT] | Upon deployment |
+| Project Kickoff | 50% | $[AMOUNT] | Upon SOW execution (non-refundable) |
+| Training Complete | 50% | $[AMOUNT] | Upon completion of training/implementation |
 
 ### 6.3 Ongoing Support (if applicable)
 
@@ -209,7 +209,7 @@ This SOW is based on the following assumptions:
 
 By signing below, both parties agree to the terms of this Statement of Work.
 
-**DB CONSULTING**
+**BRAVO AI**
 
 Signature: _________________________
 

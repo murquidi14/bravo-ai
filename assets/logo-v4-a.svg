@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60">
+  <defs>
+    <linearGradient id="v4a1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Thicker, bolder beam -->
+  <g transform="translate(5, 3)">
+    <polygon points="0,0 52,0 46,12 6,12" fill="#1e40af"/>
+    <polygon points="6,42 46,42 52,54 0,54" fill="#991b1b"/>
+    <rect x="18" y="12" width="16" height="30" fill="url(#v4a1)"/>
+    
+    <!-- Larger center node -->
+    <circle cx="26" cy="27" r="8" fill="#ffffff"/>
+    <circle cx="26" cy="27" r="4" fill="#1e40af"/>
+    
+    <!-- Data pulses -->
+    <circle cx="26" cy="6" r="4" fill="#3b82f6"/>
+    <circle cx="26" cy="48" r="4" fill="#dc2626"/>
+    
+    <!-- Horizontal data lines -->
+    <line x1="0" y1="27" x2="18" y2="27" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+    <line x1="34" y1="27" x2="52" y2="27" stroke="#dc2626" stroke-width="3" opacity="0.6"/>
+  </g>
+  
+  <text x="68" y="44" font-family="'Arial Black', sans-serif" font-weight="900" font-size="40" fill="#ffffff">BRAVO</text>
+  <text x="208" y="44" font-family="'Arial Black', sans-serif" font-weight="900" font-size="40" fill="#dc2626">AI</text>
+</svg>

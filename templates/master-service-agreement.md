@@ -1,12 +1,12 @@
 # Master Service Agreement
 
-**DB CONSULTING MASTER SERVICE AGREEMENT**
+**BRAVO AI MASTER SERVICE AGREEMENT**
 
 ---
 
 This Master Service Agreement ("Agreement") is entered into as of [DATE] ("Effective Date") by and between:
 
-**DB Consulting** ("Consultant")  
+**Bravo AI** ("Consultant")  
 [ADDRESS]  
 [CITY, STATE ZIP]
 
@@ -37,7 +37,8 @@ Consultant will perform Services in a professional and workmanlike manner consis
 Client agrees to pay Consultant the fees specified in each SOW.
 
 ### 2.2 Payment Terms
-- Invoices are due within **thirty (30) days** of receipt
+- **50% of total project fee due upon signing** (non-refundable deposit)
+- **50% due upon completion of training/implementation**
 - Late payments accrue interest at **1.5% per month**
 - Client is responsible for all costs of collection, including reasonable attorneys' fees
 
@@ -215,7 +216,7 @@ Failure to enforce a provision is not a waiver of future enforcement.
 
 ## SIGNATURES
 
-**DB CONSULTING**
+**BRAVO AI**
 
 Signature: _________________________
 

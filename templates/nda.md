@@ -4,7 +4,7 @@
 
 This Mutual Non-Disclosure Agreement ("Agreement") is entered into as of [DATE] ("Effective Date") by and between:
 
-**DB Consulting** ("Party A")  
+**Bravo AI** ("Party A")  
 [ADDRESS]  
 [CITY, STATE ZIP]
 
@@ -157,7 +157,7 @@ The Parties acknowledge that breach of this Agreement may cause irreparable harm
 
 IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.
 
-**DB CONSULTING**
+**BRAVO AI**
 
 Signature: _________________________
 

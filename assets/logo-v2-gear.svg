@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60">
+  <defs>
+    <linearGradient id="gearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#172554"/>
+      <stop offset="50%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="gearGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Gear with neural network inside -->
+  <g transform="translate(8, 6)">
+    <!-- Outer gear teeth -->
+    <polygon points="24,0 28,0 28,4 24,4" fill="url(#gearGrad)"/>
+    <polygon points="24,44 28,44 28,48 24,48" fill="url(#gearGrad)"/>
+    <polygon points="0,22 0,26 4,26 4,22" fill="url(#gearGrad)"/>
+    <polygon points="48,22 48,26 44,26 44,22" fill="url(#gearGrad)"/>
+    
+    <!-- Diagonal teeth -->
+    <polygon points="8,6 12,2 15,5 11,9" fill="url(#gearGrad)"/>
+    <polygon points="37,6 41,2 44,5 40,9" fill="url(#gearGrad)"/>
+    <polygon points="8,42 12,46 15,43 11,39" fill="url(#gearGrad)"/>
+    <polygon points="37,42 41,46 44,43 40,39" fill="url(#gearGrad)"/>
+    
+    <!-- Main gear circle -->
+    <circle cx="26" cy="24" r="20" fill="none" stroke="url(#gearGrad)" stroke-width="4"/>
+    
+    <!-- Inner neural network -->
+    <circle cx="26" cy="14" r="4" fill="#1e3a8a"/>
+    <circle cx="16" cy="28" r="3.5" fill="url(#gearGrad2)"/>
+    <circle cx="36" cy="28" r="3.5" fill="#991b1b"/>
+    <circle cx="26" cy="34" r="3" fill="url(#gearGrad2)"/>
+    <circle cx="26" cy="24" r="3" fill="#ffffff"/>
+    
+    <!-- Neural connections -->
+    <line x1="26" y1="14" x2="26" y2="21" stroke="url(#gearGrad2)" stroke-width="2"/>
+    <line x1="26" y1="27" x2="26" y2="34" stroke="url(#gearGrad2)" stroke-width="2"/>
+    <line x1="16" y1="28" x2="23" y2="24" stroke="url(#gearGrad2)" stroke-width="2"/>
+    <line x1="36" y1="28" x2="29" y2="24" stroke="url(#gearGrad2)" stroke-width="2"/>
+    <line x1="26" y1="14" x2="16" y2="28" stroke="url(#gearGrad2)" stroke-width="1" opacity="0.5"/>
+    <line x1="26" y1="14" x2="36" y2="28" stroke="url(#gearGrad2)" stroke-width="1" opacity="0.5"/>
+  </g>
+  
+  <!-- BRAVO text - bold industrial -->
+  <text x="65" y="40" font-family="'Arial Black', sans-serif" font-weight="900" font-size="32" fill="#ffffff" letter-spacing="2">BRAVO</text>
+  
+  <!-- AI - accent color -->
+  <text x="178" y="40" font-family="'Arial Black', sans-serif" font-weight="900" font-size="32" fill="url(#gearGrad2)">AI</text>
+</svg>

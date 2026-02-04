@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, sans-serif;
+            background: #0a0a0f; 
+            color: white;
+            padding: 1.5rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #888;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .option {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .option h2 {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+        .logo-box {
+            background: #0a0a0f;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+        }
+        .logo-box img { height: 50px; }
+    </style>
+</head>
+<body>
+    <h1>Option B Variations</h1>
+    <div class="grid">
+        <div class="option">
+            <h2>A: Bolder + Larger Core</h2>
+            <div class="logo-box"><img src="assets/logo-v4-a.svg"></div>
+        </div>
+        <div class="option">
+            <h2>B: Sleek + Corner Dots</h2>
+            <div class="logo-box"><img src="assets/logo-v4-b.svg"></div>
+        </div>
+        <div class="option">
+            <h2>C: Sharp Angles + Processor</h2>
+            <div class="logo-box"><img src="assets/logo-v4-c.svg"></div>
+        </div>
+        <div class="option">
+            <h2>D: Solid Beam + Circuit Ring</h2>
+            <div class="logo-box"><img src="assets/logo-v4-d.svg"></div>
+        </div>
+    </div>
+</body>
+</html>

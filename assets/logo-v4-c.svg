@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60">
+  <defs>
+    <linearGradient id="v4c1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Aggressive angular beam -->
+  <g transform="translate(5, 4)">
+    <!-- Top flange - sharp angles -->
+    <polygon points="4,0 48,0 52,10 0,10" fill="#1e40af"/>
+    <!-- Bottom flange -->
+    <polygon points="0,42 52,42 48,52 4,52" fill="#b91c1c"/>
+    <!-- Web with taper -->
+    <polygon points="20,10 32,10 30,42 22,42" fill="url(#v4c1)"/>
+    
+    <!-- Central processor node -->
+    <rect x="16" y="21" width="20" height="10" rx="2" fill="#0f172a"/>
+    <circle cx="22" cy="26" r="3" fill="#3b82f6"/>
+    <circle cx="30" cy="26" r="3" fill="#ef4444"/>
+    
+    <!-- Vertical data streams -->
+    <line x1="26" y1="0" x2="26" y2="21" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="26" y1="31" x2="26" y2="52" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+  </g>
+  
+  <text x="66" y="43" font-family="'Arial Black', sans-serif" font-weight="900" font-size="38" fill="#ffffff">BRAVO</text>
+  <text x="200" y="43" font-family="'Arial Black', sans-serif" font-weight="900" font-size="38" fill="#dc2626">AI</text>
+</svg>

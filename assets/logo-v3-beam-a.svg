@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60">
+  <defs>
+    <linearGradient id="beamA1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="beamA2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Clean I-beam mark -->
+  <g transform="translate(5, 6)">
+    <!-- Top flange -->
+    <rect x="0" y="0" width="44" height="10" rx="1" fill="url(#beamA1)"/>
+    <!-- Web -->
+    <rect x="17" y="10" width="10" height="28" fill="url(#beamA1)"/>
+    <!-- Bottom flange -->
+    <rect x="0" y="38" width="44" height="10" rx="1" fill="url(#beamA1)"/>
+    
+    <!-- Circuit accents - minimalist -->
+    <circle cx="8" cy="5" r="3" fill="#3b82f6"/>
+    <circle cx="36" cy="5" r="3" fill="#3b82f6"/>
+    <circle cx="22" cy="24" r="4" fill="#ffffff"/>
+    <circle cx="8" cy="43" r="3" fill="#ef4444"/>
+    <circle cx="36" cy="43" r="3" fill="#ef4444"/>
+    
+    <!-- Subtle connecting lines -->
+    <line x1="8" y1="8" x2="8" y2="40" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+    <line x1="36" y1="8" x2="36" y2="40" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="60" y="42" font-family="'Arial Black', sans-serif" font-weight="900" font-size="36" fill="#ffffff" letter-spacing="1">BRAVO</text>
+  <text x="195" y="42" font-family="'Arial', sans-serif" font-weight="400" font-size="36" fill="url(#beamA2)">AI</text>
+</svg>

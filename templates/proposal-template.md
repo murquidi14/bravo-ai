@@ -1,11 +1,11 @@
 # Project Proposal
 
-![DB Consulting](logo-placeholder)
+![Bravo AI](logo-placeholder)
 
 ---
 
 **Prepared for:** [CLIENT COMPANY NAME]  
-**Prepared by:** DB Consulting  
+**Prepared by:** Bravo AI  
 **Date:** [DATE]  
 **Valid until:** [DATE + 30 DAYS]  
 **Proposal #:** [PROPOSAL-XXXX]
@@ -112,8 +112,8 @@ Based on your current operations:
 
 | Milestone | Amount | Due |
 |-----------|--------|-----|
-| Project Kickoff | 50% ($[AMOUNT]) | Upon signing |
-| Go-Live | 50% ($[AMOUNT]) | At deployment |
+| Project Kickoff | 50% ($[AMOUNT]) | Upon signing (non-refundable) |
+| Training Complete | 50% ($[AMOUNT]) | Upon completion of training |
 
 ### Ongoing Support (Optional but Recommended)
 
@@ -153,9 +153,9 @@ We stand behind our work. If you don't see measurable improvement in your operat
 
 ---
 
-## About DB Consulting
+## About Bravo AI
 
-DB Consulting specializes in AI solutions for the construction industry. We're not just technologists — we're operators who understand the unique challenges of running a construction business.
+Bravo AI specializes in AI solutions for the construction industry. We're not just technologists — we're operators who understand the unique challenges of running a construction business.
 
 **Our Approach:**
 - Solutions built for construction, not adapted from other industries
@@ -174,7 +174,7 @@ DB Consulting specializes in AI solutions for the construction industry. We're n
 
 ## Acceptance
 
-By signing below, [CLIENT COMPANY NAME] agrees to engage DB Consulting for the services outlined in this proposal.
+By signing below, [CLIENT COMPANY NAME] agrees to engage Bravo AI for the services outlined in this proposal.
 
 **For [CLIENT COMPANY NAME]:**
 
@@ -187,7 +187,7 @@ Title: _________________________
 Date: _________________________
 
 
-**For DB Consulting:**
+**For Bravo AI:**
 
 Signature: _________________________
 
@@ -203,8 +203,8 @@ Date: _________________________
 
 ---
 
-**DB Consulting**  
+**Bravo AI**  
 [ADDRESS]  
 [PHONE]  
-hello@dbconsulting.ai  
-www.dbconsulting.ai
+mario@bravoai.co  
+www.bravoai.co

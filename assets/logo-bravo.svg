@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="bravoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#172554"/>
+      <stop offset="50%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="bravoGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <filter id="bravoGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- AI Brain/Neural Icon -->
+  <g transform="translate(8, 10)">
+    <!-- Hexagon -->
+    <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="url(#bravoGrad1)" stroke-width="2"/>
+    
+    <!-- Neural nodes -->
+    <circle cx="20" cy="12" r="4" fill="url(#bravoGrad1)" filter="url(#bravoGlow)"/>
+    <circle cx="11" cy="22" r="3" fill="#1e3a8a"/>
+    <circle cx="29" cy="22" r="3" fill="#991b1b"/>
+    <circle cx="20" cy="30" r="3" fill="url(#bravoGrad2)"/>
+    
+    <!-- Connections -->
+    <line x1="20" y1="12" x2="11" y2="22" stroke="url(#bravoGrad2)" stroke-width="1.5" opacity="0.7"/>
+    <line x1="20" y1="12" x2="29" y2="22" stroke="url(#bravoGrad2)" stroke-width="1.5" opacity="0.7"/>
+    <line x1="11" y1="22" x2="20" y2="30" stroke="url(#bravoGrad2)" stroke-width="1.5" opacity="0.7"/>
+    <line x1="29" y1="22" x2="20" y2="30" stroke="url(#bravoGrad2)" stroke-width="1.5" opacity="0.7"/>
+    <line x1="11" y1="22" x2="29" y2="22" stroke="url(#bravoGrad2)" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Pulse dots -->
+    <circle cx="4" cy="20" r="2" fill="#1e3a8a" opacity="0.6"/>
+    <circle cx="36" cy="20" r="2" fill="#991b1b" opacity="0.6"/>
+  </g>
+  
+  <!-- BRAVO text -->
+  <text x="54" y="32" font-family="'Space Grotesk', 'Arial Black', sans-serif" font-weight="700" font-size="26" fill="url(#bravoGrad2)">BRAVO</text>
+  
+  <!-- AI text -->
+  <text x="156" y="32" font-family="'Inter', 'Arial', sans-serif" font-weight="300" font-size="22" fill="#ffffff">AI</text>
+</svg>

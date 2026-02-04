@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Consulting - Logo Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: white;
+            min-height: 100vh;
+            padding: 3rem;
+        }
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #b91c1c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-grid {
+            display: grid;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo-option {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .logo-option h2 {
+            font-size: 1rem;
+            color: #a1a1aa;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .logo-option img, .logo-option svg {
+            max-width: 100%;
+            height: auto;
+        }
+        .option-1 img { height: 60px; }
+        .option-2 img { height: 80px; }
+        .option-3 img { height: 70px; }
+        
+        .dark-bg {
+            background: #0a0a0f;
+            padding: 2rem;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        .light-bg {
+            background: #1a1a24;
+            padding: 2rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .variants {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Logo Options</h1>
+    
+    <div class="logo-grid">
+        <div class="logo-option option-1">
+            <h2>Option 1: Neural Network + Wordmark</h2>
+            <div class="variants">
+                <div class="dark-bg">
+                    <img src="assets/logo.svg" alt="Logo Option 1">
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-option option-2">
+            <h2>Option 2: Hexagon Icon (for app icons, favicons)</h2>
+            <div class="variants">
+                <div class="dark-bg">
+                    <img src="assets/logo-icon.svg" alt="Logo Icon">
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-option option-3">
+            <h2>Option 3: AI Chip + Stacked Text</h2>
+            <div class="variants">
+                <div class="dark-bg">
+                    <img src="assets/logo-alt.svg" alt="Logo Alt">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,30 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
   <defs>
-    <linearGradient id="iconGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e40af"/>
-      <stop offset="100%" style="stop-color:#b91c1c"/>
-    </linearGradient>
-    <linearGradient id="iconGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="beam-grad-icon" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#1e3a8a"/>
       <stop offset="100%" style="stop-color:#b91c1c"/>
     </linearGradient>
   </defs>
   
-  <!-- Outer hexagon -->
-  <polygon points="30,3 52,16 52,44 30,57 8,44 8,16" fill="none" stroke="url(#iconGrad1)" stroke-width="2.5"/>
-  
-  <!-- Inner DB letters stylized as circuit -->
-  <text x="14" y="40" font-family="'Arial Black', sans-serif" font-weight="900" font-size="28" fill="url(#iconGrad2)">DB</text>
-  
-  <!-- Neural dots at corners -->
-  <circle cx="30" cy="3" r="3" fill="#3b82f6"/>
-  <circle cx="52" cy="16" r="2.5" fill="url(#iconGrad1)"/>
-  <circle cx="52" cy="44" r="2.5" fill="url(#iconGrad1)"/>
-  <circle cx="30" cy="57" r="3" fill="#b91c1c"/>
-  <circle cx="8" cy="44" r="2.5" fill="url(#iconGrad1)"/>
-  <circle cx="8" cy="16" r="2.5" fill="url(#iconGrad1)"/>
-  
-  <!-- Data pulse lines -->
-  <line x1="30" y1="3" x2="30" y2="12" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
-  <line x1="30" y1="48" x2="30" y2="57" stroke="#b91c1c" stroke-width="1.5" opacity="0.6"/>
+  <!-- Sleek I-beam with glowing core -->
+  <g transform="translate(6, 5)">
+    <rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/>
+    <rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/>
+    <rect x="19" y="10" width="10" height="30" fill="url(#beam-grad-icon)"/>
+    
+    <!-- Glowing core -->
+    <circle cx="24" cy="25" r="10" fill="none" stroke="url(#beam-grad-icon)" stroke-width="2"/>
+    <circle cx="24" cy="25" r="5" fill="#ffffff"/>
+    
+    <!-- Corner dots -->
+    <circle cx="5" cy="5" r="3" fill="#60a5fa"/>
+    <circle cx="43" cy="5" r="3" fill="#60a5fa"/>
+    <circle cx="5" cy="45" r="3" fill="#f87171"/>
+    <circle cx="43" cy="45" r="3" fill="#f87171"/>
+  </g>
 </svg>

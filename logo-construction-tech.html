@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - Futuristic + Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700;800;900&family=Exo+2:wght@700;800;900&family=Oxanium:wght@600;700;800&family=Rajdhani:wght@600;700&family=Teko:wght@500;600;700&family=Anton&family=Oswald:wght@500;600;700&family=Barlow+Condensed:wght@600;700;800&family=Industry:wght@500;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: #a1a1aa;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #52525b;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 1rem;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: rgba(249, 115, 22, 0.5);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .logo-container {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-name {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .concept-note {
+            font-size: 0.85rem;
+            color: #71717a;
+        }
+
+        /* ========== INDUSTRIAL + TECH LOGOS ========== */
+
+        /* 1. Bebas Industrial with Tech Glow */
+        .logo-bebas-glow {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            letter-spacing: 6px;
+        }
+        .logo-bebas-glow .bravo { color: #ffffff; }
+        .logo-bebas-glow .ai { 
+            color: #ef4444;
+            text-shadow: 0 0 30px rgba(239, 68, 68, 0.8), 0 0 60px rgba(239, 68, 68, 0.4);
+        }
+
+        /* 2. Teko Bold - Construction feel */
+        .logo-teko {
+            font-family: 'Teko', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+        .logo-teko .bravo { color: #ffffff; }
+        .logo-teko .ai { 
+            color: #f97316;
+            text-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+        }
+
+        /* 3. Barlow Condensed - Structural */
+        .logo-barlow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+        .logo-barlow .bravo { color: #ffffff; }
+        .logo-barlow .ai { 
+            color: #ef4444;
+        }
+
+        /* 4. Oswald Heavy */
+        .logo-oswald {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+        .logo-oswald .bravo { color: #ffffff; }
+        .logo-oswald .ai { color: #ef4444; }
+
+        /* 5. Exo 2 Tech */
+        .logo-exo-tech {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+        .logo-exo-tech .bravo { color: #ffffff; }
+        .logo-exo-tech .ai { 
+            color: #ef4444;
+            text-shadow: 0 0 25px rgba(239, 68, 68, 0.7);
+        }
+
+        /* 6. Rajdhani Angular */
+        .logo-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .logo-rajdhani .bravo { color: #ffffff; }
+        .logo-rajdhani .ai { color: #ef4444; }
+
+        /* 7. Chakra Petch */
+        .logo-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .logo-chakra .bravo { color: #ffffff; }
+        .logo-chakra .ai { 
+            color: #ef4444;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+        }
+
+        /* 8. Anton Bold */
+        .logo-anton {
+            font-family: 'Anton', sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: 4px;
+        }
+        .logo-anton .bravo { color: #ffffff; }
+        .logo-anton .ai { color: #ef4444; }
+
+        /* ========== WITH STRUCTURAL ELEMENTS ========== */
+
+        /* I-Beam Top Border */
+        .logo-beam-border {
+            position: relative;
+            padding-top: 20px;
+        }
+        .logo-beam-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #ef4444 100%);
+            border-radius: 2px;
+        }
+        .logo-beam-border .text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: 5px;
+        }
+        .logo-beam-border .bravo { color: #ffffff; }
+        .logo-beam-border .ai { color: #ef4444; }
+
+        /* Steel Plate Style */
+        .logo-plate {
+            background: linear-gradient(180deg, #27272a 0%, #18181b 100%);
+            border: 2px solid #3f3f46;
+            border-radius: 4px;
+            padding: 15px 35px;
+            display: inline-block;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .logo-plate .text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+        }
+        .logo-plate .bravo { color: #e4e4e7; }
+        .logo-plate .ai { 
+            color: #ef4444;
+            text-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Welding Spark */
+        .logo-weld {
+            font-family: 'Teko', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            position: relative;
+        }
+        .logo-weld .bravo { color: #ffffff; }
+        .logo-weld .ai { 
+            color: #f97316;
+            position: relative;
+        }
+        .logo-weld .ai::after {
+            content: '⚡';
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px #f97316);
+        }
+
+        /* I-Beam Icon + Text */
+        .logo-icon-combo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-icon-combo .beam {
+            width: 45px;
+            height: 55px;
+            position: relative;
+        }
+        .logo-icon-combo .beam::before,
+        .logo-icon-combo .beam::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+        .logo-icon-combo .beam::before { top: 0; }
+        .logo-icon-combo .beam::after { bottom: 0; background: #ef4444; }
+        .logo-icon-combo .beam-web {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 10px;
+            bottom: 10px;
+            width: 8px;
+            background: linear-gradient(180deg, #3b82f6, #ef4444);
+        }
+        .logo-icon-combo .text {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .logo-icon-combo .bravo { color: #ffffff; }
+        .logo-icon-combo .ai { color: #ef4444; }
+
+        /* Structural Frame */
+        .logo-frame {
+            border: 3px solid #3f3f46;
+            border-radius: 0;
+            padding: 12px 30px;
+            display: inline-block;
+            position: relative;
+        }
+        .logo-frame::before,
+        .logo-frame::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 3px solid #ef4444;
+        }
+        .logo-frame::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+        .logo-frame::after { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+        .logo-frame .text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+        .logo-frame .bravo { color: #ffffff; }
+        .logo-frame .ai { color: #ef4444; }
+
+        /* Gradient Bar Below */
+        .logo-underbar {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .logo-underbar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, #3b82f6, #ef4444);
+            border-radius: 3px;
+        }
+        .logo-underbar .text {
+            font-family: 'Teko', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+        .logo-underbar .bravo { color: #ffffff; }
+        .logo-underbar .ai { color: #ef4444; }
+
+        /* Circuit Nodes */
+        .logo-circuit {
+            position: relative;
+            display: inline-block;
+        }
+        .logo-circuit .text {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .logo-circuit .bravo { color: #ffffff; }
+        .logo-circuit .ai { 
+            color: #ef4444;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+        .logo-circuit .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #3b82f6;
+        }
+        .logo-circuit .node-1 { top: 5px; left: 0; }
+        .logo-circuit .node-2 { top: 5px; right: 0; }
+        .logo-circuit .node-3 { bottom: 5px; left: 30%; }
+        .logo-circuit .node-4 { bottom: 5px; right: 10%; }
+
+    </style>
+</head>
+<body>
+    <h1>🏗️ BRAVO AI - Futuristic + Construction 🤖</h1>
+    <p class="subtitle">Industrial strength meets tech innovation</p>
+
+    <p class="section-title">Bold Industrial Fonts</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-bebas-glow"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Bebas Neue + Glow</div>
+            <div class="concept-note">Industrial height, tech glow on AI</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-teko"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Teko Bold</div>
+            <div class="concept-note">Condensed power, orange fire</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-barlow"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Barlow Condensed</div>
+            <div class="concept-note">Structural, strong, clean</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-oswald"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Oswald</div>
+            <div class="concept-note">Classic industrial</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-exo-tech"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Exo 2 Tech</div>
+            <div class="concept-note">Geometric future, neon accent</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-chakra"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Chakra Petch</div>
+            <div class="concept-note">Angular, techy, sharp</div>
+        </div>
+    </div>
+
+    <p class="section-title">With Structural Elements</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-beam-border">
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">Steel Beam Header</div>
+            <div class="concept-note">Gradient beam caps the logo</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-underbar">
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">Foundation Bar</div>
+            <div class="concept-note">Solid base, brand gradient</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-plate">
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">Steel Plate Badge</div>
+            <div class="concept-note">Metal plate with tech glow</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-frame">
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">Structural Frame</div>
+            <div class="concept-note">Corner brackets, blueprint feel</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-icon-combo">
+                    <div class="beam"><div class="beam-web"></div></div>
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">I-Beam Icon</div>
+            <div class="concept-note">Steel + tech gradient</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-circuit">
+                    <span class="node node-1"></span>
+                    <span class="node node-2"></span>
+                    <span class="node node-3"></span>
+                    <span class="node node-4"></span>
+                    <div class="text"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+                </div>
+            </div>
+            <div class="concept-name">Circuit Nodes</div>
+            <div class="concept-note">Connection points, network feel</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-weld"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Welding Spark</div>
+            <div class="concept-note">Fabrication + energy</div>
+        </div>
+    </div>
+
+</body>
+</html>

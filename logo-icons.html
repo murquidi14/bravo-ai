@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - Logo Icons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        h1 { text-align: center; margin-bottom: 0.5rem; font-size: 1.5rem; color: #a1a1aa; }
+        .sub { text-align: center; color: #52525b; margin-bottom: 3rem; font-size: 0.9rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 1.5rem;
+            min-height: 120px;
+        }
+        .icon-only {
+            justify-content: center;
+        }
+        .name { font-size: 1rem; color: #fff; font-weight: 700; margin-bottom: 4px; }
+        .note { font-size: 0.8rem; color: #52525b; }
+        
+        .text { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 4px; }
+        .text .b { color: #fff; }
+        .text .a { color: #ef4444; }
+
+        /* Icon container */
+        .icon { width: 80px; height: 80px; position: relative; }
+        .icon-lg { width: 100px; height: 100px; }
+
+    </style>
+</head>
+<body>
+    <h1>🏗️ BRAVO AI - Logo Icon Concepts 🤖</h1>
+    <p class="sub">Construction + AI visual symbols with wordmark</p>
+    <div class="grid">
+
+        <!-- 1. I-Beam with Neural Core -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- I-Beam -->
+                    <rect x="10" y="5" width="80" height="15" rx="2" fill="#3b82f6"/>
+                    <rect x="10" y="80" width="80" height="15" rx="2" fill="#ef4444"/>
+                    <rect x="40" y="20" width="20" height="60" fill="url(#grad1)"/>
+                    <!-- Neural core -->
+                    <circle cx="50" cy="50" r="15" fill="#0a0a0f" stroke="#fff" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="6" fill="#ef4444">
+                        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- Connection nodes -->
+                    <circle cx="20" cy="12" r="4" fill="#60a5fa"/>
+                    <circle cx="80" cy="12" r="4" fill="#60a5fa"/>
+                    <circle cx="20" cy="88" r="4" fill="#f87171"/>
+                    <circle cx="80" cy="88" r="4" fill="#f87171"/>
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6"/>
+                            <stop offset="100%" stop-color="#ef4444"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">I-Beam Neural Core</div>
+            <div class="note">Steel beam + AI brain center</div>
+        </div>
+
+        <!-- 2. Hexagon Beam -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                    <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#ef4444" stroke-width="2"/>
+                    <!-- I inside -->
+                    <rect x="35" y="30" width="30" height="6" fill="#fff"/>
+                    <rect x="35" y="64" width="30" height="6" fill="#fff"/>
+                    <rect x="45" y="36" width="10" height="28" fill="#fff"/>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Hex Beam</div>
+            <div class="note">Hexagon frame + I-beam inside</div>
+        </div>
+
+        <!-- 3. Circuit Board Beam -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- I-Beam base -->
+                    <rect x="15" y="10" width="70" height="12" rx="1" fill="#3b82f6"/>
+                    <rect x="15" y="78" width="70" height="12" rx="1" fill="#ef4444"/>
+                    <rect x="40" y="22" width="20" height="56" fill="#71717a"/>
+                    <!-- Circuit lines -->
+                    <line x1="15" y1="16" x2="0" y2="16" stroke="#3b82f6" stroke-width="2"/>
+                    <line x1="85" y1="16" x2="100" y2="16" stroke="#3b82f6" stroke-width="2"/>
+                    <line x1="15" y1="84" x2="0" y2="84" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="85" y1="84" x2="100" y2="84" stroke="#ef4444" stroke-width="2"/>
+                    <!-- Nodes -->
+                    <circle cx="50" cy="50" r="8" fill="#fff"/>
+                    <circle cx="25" cy="50" r="4" fill="#3b82f6"/>
+                    <circle cx="75" cy="50" r="4" fill="#ef4444"/>
+                    <line x1="33" y1="50" x2="42" y2="50" stroke="#fff" stroke-width="2"/>
+                    <line x1="58" y1="50" x2="67" y2="50" stroke="#fff" stroke-width="2"/>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Circuit Beam</div>
+            <div class="note">I-beam as circuit board</div>
+        </div>
+
+        <!-- 4. Bold B Mark -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon-lg" viewBox="0 0 100 100">
+                    <rect x="5" y="5" width="90" height="90" rx="12" fill="url(#grad2)"/>
+                    <text x="50" y="72" text-anchor="middle" font-family="Bebas Neue, sans-serif" font-size="70" fill="#fff">B</text>
+                    <!-- Tech accent -->
+                    <circle cx="75" cy="25" r="8" fill="#fff" opacity="0.9"/>
+                    <circle cx="75" cy="25" r="4" fill="#ef4444"/>
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e3a8a"/>
+                            <stop offset="100%" stop-color="#991b1b"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">B Badge</div>
+            <div class="note">Bold letter mark + AI node</div>
+        </div>
+
+        <!-- 5. Beam Cross Section -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Wide flange cross section -->
+                    <path d="M20,15 L80,15 L80,30 L60,30 L60,70 L80,70 L80,85 L20,85 L20,70 L40,70 L40,30 L20,30 Z" 
+                          fill="url(#grad3)" stroke="#fff" stroke-width="2"/>
+                    <!-- Glow center -->
+                    <circle cx="50" cy="50" r="10" fill="#ef4444" opacity="0.8">
+                        <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6"/>
+                            <stop offset="100%" stop-color="#1e3a8a"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Wide Flange</div>
+            <div class="note">Beam cross-section + energy core</div>
+        </div>
+
+        <!-- 6. Structural Frame -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Outer frame -->
+                    <rect x="10" y="10" width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="4"/>
+                    <!-- Corner gussets -->
+                    <path d="M10,10 L30,10 L10,30 Z" fill="#3b82f6"/>
+                    <path d="M90,10 L90,30 L70,10 Z" fill="#3b82f6"/>
+                    <path d="M10,90 L10,70 L30,90 Z" fill="#ef4444"/>
+                    <path d="M90,90 L70,90 L90,70 Z" fill="#ef4444"/>
+                    <!-- AI text center -->
+                    <text x="50" y="62" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="28" font-weight="bold" fill="#fff">AI</text>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Structural Frame</div>
+            <div class="note">Steel frame + gusset plates</div>
+        </div>
+
+        <!-- 7. Bolt Head -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Hex bolt -->
+                    <polygon points="50,8 85,28 85,72 50,92 15,72 15,28" fill="#27272a" stroke="#3f3f46" stroke-width="2"/>
+                    <polygon points="50,18 75,33 75,67 50,82 25,67 25,33" fill="#18181b"/>
+                    <!-- Center mark -->
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="#ef4444" stroke-width="3"/>
+                    <text x="50" y="56" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">B</text>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Bolt Head</div>
+            <div class="note">Hex bolt + B brand mark</div>
+        </div>
+
+        <!-- 8. Building + Brain -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Building frame -->
+                    <rect x="20" y="30" width="60" height="65" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                    <line x1="20" y1="50" x2="80" y2="50" stroke="#3b82f6" stroke-width="2"/>
+                    <line x1="20" y1="70" x2="80" y2="70" stroke="#3b82f6" stroke-width="2"/>
+                    <line x1="40" y1="30" x2="40" y2="95" stroke="#3b82f6" stroke-width="2"/>
+                    <line x1="60" y1="30" x2="60" y2="95" stroke="#3b82f6" stroke-width="2"/>
+                    <!-- Brain/chip on top -->
+                    <rect x="35" y="8" width="30" height="22" rx="3" fill="#ef4444"/>
+                    <circle cx="42" cy="15" r="2" fill="#fff"/>
+                    <circle cx="50" cy="15" r="2" fill="#fff"/>
+                    <circle cx="58" cy="15" r="2" fill="#fff"/>
+                    <circle cx="42" cy="23" r="2" fill="#fff"/>
+                    <circle cx="50" cy="23" r="2" fill="#fff"/>
+                    <circle cx="58" cy="23" r="2" fill="#fff"/>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Smart Building</div>
+            <div class="note">Structure + AI chip brain</div>
+        </div>
+
+        <!-- 9. Crane Hook -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Hook -->
+                    <path d="M50,5 L50,35 Q50,55 35,60 Q20,65 20,50" fill="none" stroke="#f97316" stroke-width="6" stroke-linecap="round"/>
+                    <!-- Connection point -->
+                    <circle cx="50" cy="5" r="8" fill="#3b82f6"/>
+                    <!-- Lifted block -->
+                    <rect x="25" y="65" width="50" height="30" rx="3" fill="url(#grad4)"/>
+                    <text x="50" y="86" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="18" font-weight="bold" fill="#fff">AI</text>
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e3a8a"/>
+                            <stop offset="100%" stop-color="#991b1b"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Crane Hook</div>
+            <div class="note">Lifting AI into place</div>
+        </div>
+
+        <!-- 10. Gear + Circuit -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Gear outline -->
+                    <path d="M50,10 L55,10 L57,20 L67,23 L73,15 L78,20 L72,28 L77,37 L87,37 L87,43 L77,45 L77,55 L87,57 L87,63 L77,63 L72,72 L78,80 L73,85 L67,77 L57,80 L55,90 L45,90 L43,80 L33,77 L27,85 L22,80 L28,72 L23,63 L13,63 L13,57 L23,55 L23,45 L13,43 L13,37 L23,37 L28,28 L22,20 L27,15 L33,23 L43,20 L45,10 Z" 
+                          fill="none" stroke="#3b82f6" stroke-width="2"/>
+                    <!-- Inner circle -->
+                    <circle cx="50" cy="50" r="18" fill="#18181b" stroke="#ef4444" stroke-width="3"/>
+                    <!-- AI center -->
+                    <text x="50" y="56" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">AI</text>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Gear Brain</div>
+            <div class="note">Industrial gear + AI core</div>
+        </div>
+
+        <!-- 11. Minimalist BA -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon-lg" viewBox="0 0 120 100">
+                    <text x="0" y="75" font-family="Bebas Neue, sans-serif" font-size="80" fill="#fff">B</text>
+                    <text x="55" y="75" font-family="Orbitron, sans-serif" font-size="55" font-weight="900" fill="#ef4444">A</text>
+                    <!-- Connection line -->
+                    <line x1="48" y1="50" x2="58" y2="50" stroke="#3b82f6" stroke-width="3"/>
+                    <circle cx="53" cy="50" r="4" fill="#3b82f6"/>
+                </svg>
+                <div class="text" style="margin-left: 20px;"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">BA Monogram</div>
+            <div class="note">Letters connected by node</div>
+        </div>
+
+        <!-- 12. Shield -->
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 100 100">
+                    <!-- Shield shape -->
+                    <path d="M50,5 L90,20 L90,55 Q90,85 50,95 Q10,85 10,55 L10,20 Z" fill="url(#grad5)" stroke="#fff" stroke-width="2"/>
+                    <!-- I-Beam inside -->
+                    <rect x="30" y="25" width="40" height="8" fill="#fff"/>
+                    <rect x="30" y="67" width="40" height="8" fill="#fff"/>
+                    <rect x="45" y="33" width="10" height="34" fill="#fff"/>
+                    <defs>
+                        <linearGradient id="grad5" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#1e3a8a"/>
+                            <stop offset="100%" stop-color="#991b1b"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Steel Shield</div>
+            <div class="note">Protection + I-beam</div>
+        </div>
+
+    </div>
+</body>
+</html>

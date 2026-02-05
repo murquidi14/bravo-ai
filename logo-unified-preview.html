@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - Unified Logo Concepts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@400;500;600;700;800&family=Michroma&family=Oxanium:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: #a1a1aa;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #52525b;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 1rem;
+            color: #ef4444;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .logo-container {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-name {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .concept-note {
+            font-size: 0.8rem;
+            color: #52525b;
+        }
+
+        /* ========== UNIFIED FONT LOGOS ========== */
+        
+        /* Space Grotesk - Same font, color difference */
+        .logo-space {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .logo-space .bravo { color: #ffffff; }
+        .logo-space .ai { color: #ef4444; }
+
+        /* Space Grotesk - Weight difference */
+        .logo-space-weight {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: -1px;
+        }
+        .logo-space-weight .bravo { color: #ffffff; font-weight: 500; }
+        .logo-space-weight .ai { color: #ef4444; font-weight: 700; }
+
+        /* Orbitron Full */
+        .logo-orbitron {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .logo-orbitron .bravo { color: #ffffff; }
+        .logo-orbitron .ai { color: #ef4444; }
+
+        /* Orbitron with glow on AI */
+        .logo-orbitron-glow {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .logo-orbitron-glow .bravo { color: #ffffff; }
+        .logo-orbitron-glow .ai { 
+            color: #ef4444; 
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.7), 0 0 40px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Exo 2 */
+        .logo-exo {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-exo .bravo { color: #ffffff; }
+        .logo-exo .ai { color: #ef4444; }
+
+        /* Outfit */
+        .logo-outfit {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .logo-outfit .bravo { color: #ffffff; }
+        .logo-outfit .ai { color: #ef4444; }
+
+        /* Sora */
+        .logo-sora {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 0px;
+        }
+        .logo-sora .bravo { color: #ffffff; }
+        .logo-sora .ai { color: #ef4444; }
+
+        /* Montserrat */
+        .logo-mont {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .logo-mont .bravo { color: #ffffff; }
+        .logo-mont .ai { color: #ef4444; }
+
+        /* Poppins */
+        .logo-poppins {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 0px;
+        }
+        .logo-poppins .bravo { color: #ffffff; }
+        .logo-poppins .ai { color: #ef4444; }
+
+        /* Inter */
+        .logo-inter {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .logo-inter .bravo { color: #ffffff; }
+        .logo-inter .ai { color: #ef4444; }
+
+        /* Bebas Neue */
+        .logo-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5rem;
+            letter-spacing: 4px;
+        }
+        .logo-bebas .bravo { color: #ffffff; }
+        .logo-bebas .ai { color: #ef4444; }
+
+        /* Oxanium */
+        .logo-oxanium {
+            font-family: 'Oxanium', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-oxanium .bravo { color: #ffffff; }
+        .logo-oxanium .ai { color: #ef4444; }
+
+        /* Michroma */
+        .logo-michroma {
+            font-family: 'Michroma', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+        }
+        .logo-michroma .bravo { color: #ffffff; }
+        .logo-michroma .ai { color: #ef4444; }
+
+        /* ========== SUBTLE VARIATIONS ========== */
+
+        /* Gradient AI only */
+        .logo-gradient-ai {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .logo-gradient-ai .bravo { color: #ffffff; }
+        .logo-gradient-ai .ai { 
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Italic AI */
+        .logo-italic-ai {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .logo-italic-ai .bravo { color: #ffffff; }
+        .logo-italic-ai .ai { 
+            color: #ef4444; 
+            font-style: italic;
+        }
+
+        /* Underline AI */
+        .logo-underline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .logo-underline .bravo { color: #ffffff; }
+        .logo-underline .ai { 
+            color: #ef4444;
+            text-decoration: underline;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 6px;
+        }
+
+        /* Blue accent dot */
+        .logo-dot {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .logo-dot .bravo { color: #ffffff; }
+        .logo-dot .ai { color: #ef4444; }
+        .logo-dot .dot { 
+            color: #3b82f6;
+            margin-left: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>BRAVO AI - Unified Typography</h1>
+    <p class="subtitle">Same font family throughout - cohesive & professional</p>
+
+    <p class="section-title">Modern & Clean</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-space"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Space Grotesk</div>
+            <div class="concept-note">Current site font - clean, geometric</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-outfit"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Outfit</div>
+            <div class="concept-note">Modern, friendly, bold</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-sora"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Sora</div>
+            <div class="concept-note">Sleek, contemporary</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-inter"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Inter</div>
+            <div class="concept-note">Ultra clean, tech standard</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-poppins"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Poppins</div>
+            <div class="concept-note">Rounded, approachable</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-mont"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Montserrat</div>
+            <div class="concept-note">Classic, versatile</div>
+        </div>
+    </div>
+
+    <p class="section-title">Tech & Futuristic</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-orbitron"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Orbitron</div>
+            <div class="concept-note">Sci-fi, futuristic</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-orbitron-glow"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Orbitron + Glow</div>
+            <div class="concept-note">Neon AI accent</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-exo"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Exo 2</div>
+            <div class="concept-note">Geometric, techy</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-oxanium"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Oxanium</div>
+            <div class="concept-note">Gaming, cyber</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-michroma"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Michroma</div>
+            <div class="concept-note">Space, technical</div>
+        </div>
+    </div>
+
+    <p class="section-title">Bold & Industrial</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-bebas"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Bebas Neue</div>
+            <div class="concept-note">Tall, condensed, powerful</div>
+        </div>
+    </div>
+
+    <p class="section-title">Subtle AI Accents (Space Grotesk base)</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-gradient-ai"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Gradient AI</div>
+            <div class="concept-note">Red to orange gradient</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-underline"><span class="bravo">BRAVO</span><span class="ai">AI</span></div>
+            </div>
+            <div class="concept-name">Underlined AI</div>
+            <div class="concept-note">Emphasis line</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-container">
+                <div class="logo-dot"><span class="bravo">BRAVO</span><span class="ai">AI</span><span class="dot">.</span></div>
+            </div>
+            <div class="concept-name">Blue Dot Accent</div>
+            <div class="concept-note">Brand color punctuation</div>
+        </div>
+    </div>
+
+</body>
+</html>

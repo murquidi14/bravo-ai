@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - Original Icon + Text Variations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Bebas+Neue&family=Exo+2:wght@600;700;800&family=Teko:wght@500;600;700&family=Orbitron:wght@600;700;800&family=Barlow+Condensed:wght@600;700&family=Oswald:wght@500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        h1 { text-align: center; margin-bottom: 0.5rem; font-size: 1.4rem; color: #a1a1aa; }
+        .sub { text-align: center; color: #52525b; margin-bottom: 3rem; font-size: 0.9rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .card:hover { border-color: rgba(239,68,68,0.3); }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 1.5rem;
+            min-height: 100px;
+        }
+        .name { font-size: 1.1rem; color: #fff; font-weight: 700; margin-bottom: 4px; }
+        .note { font-size: 0.8rem; color: #52525b; }
+
+        /* Original Icon */
+        .icon {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        /* Text Styles */
+        .t-space { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; letter-spacing: -1px; }
+        .t-bebas { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 4px; }
+        .t-exo { font-family: 'Exo 2', sans-serif; font-size: 2.6rem; font-weight: 800; letter-spacing: 2px; }
+        .t-teko { font-family: 'Teko', sans-serif; font-size: 3.5rem; font-weight: 600; letter-spacing: 3px; }
+        .t-orbitron { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; font-weight: 700; letter-spacing: 2px; }
+        .t-barlow { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; letter-spacing: 3px; }
+        .t-oswald { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 600; letter-spacing: 3px; }
+        .t-chakra { font-family: 'Chakra Petch', sans-serif; font-size: 2.6rem; font-weight: 700; letter-spacing: 2px; }
+
+        .b { color: #ffffff; }
+        .a { color: #ef4444; }
+        .a-glow { color: #ef4444; text-shadow: 0 0 20px rgba(239,68,68,0.6); }
+        .a-gradient { 
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Stacked variations */
+        .stacked {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 0.9;
+        }
+        .stacked .bravo { font-size: 2.5rem; }
+        .stacked .ai { font-size: 1.8rem; }
+
+        .section { 
+            text-align: center; 
+            margin: 3rem 0 1.5rem; 
+            font-size: 0.9rem; 
+            color: #f97316; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🏗️ Original Icon + Text Variations 🤖</h1>
+    <p class="sub">Same I-beam icon, different typography pairings</p>
+
+    <div class="section">Industrial + Bold</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs>
+                        <linearGradient id="beam-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6"/>
+                            <stop offset="50%" stop-color="#1e3a8a"/>
+                            <stop offset="100%" stop-color="#b91c1c"/>
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(6, 5)">
+                        <rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/>
+                        <rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/>
+                        <rect x="19" y="10" width="10" height="30" fill="url(#beam-grad)"/>
+                        <circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/>
+                        <circle cx="24" cy="25" r="4" fill="#ef4444"/>
+                        <circle cx="5" cy="5" r="3" fill="#60a5fa"/>
+                        <circle cx="43" cy="5" r="3" fill="#60a5fa"/>
+                        <circle cx="5" cy="45" r="3" fill="#f87171"/>
+                        <circle cx="43" cy="45" r="3" fill="#f87171"/>
+                    </g>
+                </svg>
+                <div class="t-bebas"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Bebas Neue</div>
+            <div class="note">Tall, industrial, billboard</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg1)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-teko"><span class="b">BRAVO</span><span class="a-glow">AI</span></div>
+            </div>
+            <div class="name">Teko + Glow</div>
+            <div class="note">Condensed power, neon AI</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg2)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-oswald"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Oswald</div>
+            <div class="note">Classic industrial</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg3)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-barlow"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Barlow Condensed</div>
+            <div class="note">Structural, strong</div>
+        </div>
+
+    </div>
+
+    <div class="section">Tech + Futuristic</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg4" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg4)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-orbitron"><span class="b">BRAVO</span><span class="a-glow">AI</span></div>
+            </div>
+            <div class="name">Orbitron + Glow</div>
+            <div class="note">Full sci-fi, neon accent</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg5" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg5)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-exo"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Exo 2</div>
+            <div class="note">Geometric, modern tech</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg6" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg6)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-chakra"><span class="b">BRAVO</span><span class="a-glow">AI</span></div>
+            </div>
+            <div class="name">Chakra Petch</div>
+            <div class="note">Angular, sharp tech</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg7" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg7)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-exo"><span class="b">BRAVO</span><span class="a-gradient">AI</span></div>
+            </div>
+            <div class="name">Exo 2 + Gradient</div>
+            <div class="note">Red → orange fire AI</div>
+        </div>
+
+    </div>
+
+    <div class="section">Clean + Modern</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg8" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg8)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-space"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Space Grotesk (Current)</div>
+            <div class="note">Clean, matches site font</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="bg9" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg9)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="t-space"><span class="b">BRAVO</span><span class="a-glow">AI</span></div>
+            </div>
+            <div class="name">Space Grotesk + Glow</div>
+            <div class="note">Current + neon accent</div>
+        </div>
+
+    </div>
+
+    <div class="section">Stacked Layouts</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60" style="width: 60px; height: 60px;">
+                    <defs><linearGradient id="bg10" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg10)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="stacked t-bebas">
+                    <span class="bravo b">BRAVO</span>
+                    <span class="ai a">AI</span>
+                </div>
+            </div>
+            <div class="name">Stacked Bebas</div>
+            <div class="note">Vertical arrangement</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60" style="width: 60px; height: 60px;">
+                    <defs><linearGradient id="bg11" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#bg11)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="stacked t-exo">
+                    <span class="bravo b">BRAVO</span>
+                    <span class="ai a-glow">AI</span>
+                </div>
+            </div>
+            <div class="name">Stacked Exo + Glow</div>
+            <div class="note">Tech vertical</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

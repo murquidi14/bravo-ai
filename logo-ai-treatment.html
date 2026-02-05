@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - AI Text Treatments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        h1 { text-align: center; margin-bottom: 0.5rem; font-size: 1.4rem; color: #a1a1aa; }
+        .sub { text-align: center; color: #52525b; margin-bottom: 3rem; font-size: 0.9rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .card:hover { border-color: rgba(239,68,68,0.4); }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 1.5rem;
+        }
+        .name { font-size: 1.1rem; color: #fff; font-weight: 600; margin-bottom: 4px; }
+        .note { font-size: 0.8rem; color: #52525b; }
+
+        .icon { width: 55px; height: 55px; flex-shrink: 0; }
+
+        /* Base text - Space Grotesk */
+        .text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .bravo { color: #ffffff; }
+
+        /* AI Treatments */
+        .ai-solid { color: #ef4444; }
+        
+        .ai-glow { 
+            color: #ef4444; 
+            text-shadow: 0 0 20px rgba(239,68,68,0.7), 0 0 40px rgba(239,68,68,0.4); 
+        }
+        
+        .ai-bright-glow { 
+            color: #f87171; 
+            text-shadow: 0 0 25px rgba(248,113,113,0.9), 0 0 50px rgba(239,68,68,0.5), 0 0 80px rgba(239,68,68,0.3); 
+        }
+
+        .ai-gradient-fire {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-gradient-brand {
+            background: linear-gradient(135deg, #ef4444 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-gradient-hot {
+            background: linear-gradient(180deg, #fbbf24 0%, #ef4444 50%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #ef4444;
+        }
+
+        .ai-outline-glow {
+            color: transparent;
+            -webkit-text-stroke: 2px #ef4444;
+            filter: drop-shadow(0 0 8px rgba(239,68,68,0.8));
+        }
+
+        .ai-white-red {
+            color: #ffffff;
+            text-shadow: 3px 3px 0 #ef4444;
+        }
+
+        .ai-underline {
+            color: #ef4444;
+            text-decoration: underline;
+            text-decoration-color: #3b82f6;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 6px;
+        }
+
+        .ai-box {
+            color: #ffffff;
+            background: #ef4444;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .ai-box-gradient {
+            color: #ffffff;
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-left: 4px;
+        }
+
+        .ai-italic {
+            color: #ef4444;
+            font-style: italic;
+        }
+
+        .ai-italic-glow {
+            color: #ef4444;
+            font-style: italic;
+            text-shadow: 0 0 20px rgba(239,68,68,0.7);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>🎨 Original Logo - AI Text Treatments</h1>
+    <p class="sub">Same icon + BRAVO text, different "AI" styles</p>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g1)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-solid">AI</span></div>
+            </div>
+            <div class="name">Current (Solid Red)</div>
+            <div class="note">What's on the site now</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g2)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-glow">AI</span></div>
+            </div>
+            <div class="name">Neon Glow</div>
+            <div class="note">Soft red glow</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g3)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-bright-glow">AI</span></div>
+            </div>
+            <div class="name">Bright Neon</div>
+            <div class="note">Intense electric glow</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g4" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g4)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-gradient-fire">AI</span></div>
+            </div>
+            <div class="name">Fire Gradient</div>
+            <div class="note">Red → Orange</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g5" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g5)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-gradient-hot">AI</span></div>
+            </div>
+            <div class="name">Hot Metal</div>
+            <div class="note">Yellow → Red → Dark</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g6" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g6)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-gradient-brand">AI</span></div>
+            </div>
+            <div class="name">Brand Gradient</div>
+            <div class="note">Red → Blue (brand colors)</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g7" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g7)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-outline">AI</span></div>
+            </div>
+            <div class="name">Outline</div>
+            <div class="note">Hollow stroke</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g8" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g8)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-outline-glow">AI</span></div>
+            </div>
+            <div class="name">Outline + Glow</div>
+            <div class="note">Hollow with neon</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g9" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g9)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-box">AI</span></div>
+            </div>
+            <div class="name">Boxed Badge</div>
+            <div class="note">AI in red box</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g10" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g10)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-underline">AI</span></div>
+            </div>
+            <div class="name">Blue Underline</div>
+            <div class="note">Tech accent line</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g11" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g11)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-italic-glow">AI</span></div>
+            </div>
+            <div class="name">Italic Glow</div>
+            <div class="note">Slanted + neon</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-area">
+                <svg class="icon" viewBox="0 0 60 60">
+                    <defs><linearGradient id="g12" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#1e3a8a"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs>
+                    <g transform="translate(6, 5)"><rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/><rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/><rect x="19" y="10" width="10" height="30" fill="url(#g12)"/><circle cx="24" cy="25" r="8" fill="#0a0a0f" stroke="#fff" stroke-width="1.5"/><circle cx="24" cy="25" r="4" fill="#ef4444"/><circle cx="5" cy="5" r="3" fill="#60a5fa"/><circle cx="43" cy="5" r="3" fill="#60a5fa"/><circle cx="5" cy="45" r="3" fill="#f87171"/><circle cx="43" cy="45" r="3" fill="#f87171"/></g>
+                </svg>
+                <div class="text"><span class="bravo">BRAVO</span><span class="ai-white-red">AI</span></div>
+            </div>
+            <div class="name">3D Shadow</div>
+            <div class="note">White with red offset</div>
+        </div>
+
+    </div>
+</body>
+</html>

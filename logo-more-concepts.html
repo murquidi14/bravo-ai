@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - More Logo Concepts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700;800;900&family=Exo+2:wght@700;800;900&family=Teko:wght@500;600;700&family=Oswald:wght@500;600;700&family=Barlow+Condensed:wght@600;700;800&family=Chakra+Petch:wght@600;700&family=Saira+Condensed:wght@600;700;800&family=Staatliches&family=Black+Ops+One&family=Quantico:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        h1 { text-align: center; margin-bottom: 2rem; font-size: 1.3rem; color: #71717a; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .logo-box { min-height: 90px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+        .name { font-size: 0.95rem; color: #fff; font-weight: 600; }
+        .note { font-size: 0.75rem; color: #52525b; margin-top: 4px; }
+
+        /* ===== LOGO STYLES ===== */
+
+        /* Staatliches - Poster style */
+        .l1 { font-family: 'Staatliches', sans-serif; font-size: 4.5rem; letter-spacing: 6px; }
+        .l1 .b { color: #fff; }
+        .l1 .a { color: #ef4444; }
+
+        /* Saira Condensed */
+        .l2 { font-family: 'Saira Condensed', sans-serif; font-size: 4rem; font-weight: 800; letter-spacing: 4px; }
+        .l2 .b { color: #fff; }
+        .l2 .a { color: #f97316; text-shadow: 0 0 30px rgba(249,115,22,0.7); }
+
+        /* Quantico Military */
+        .l3 { font-family: 'Quantico', sans-serif; font-size: 3rem; font-weight: 700; letter-spacing: 3px; }
+        .l3 .b { color: #fff; }
+        .l3 .a { color: #22c55e; text-shadow: 0 0 20px rgba(34,197,94,0.6); }
+
+        /* Black Ops */
+        .l4 { font-family: 'Black Ops One', sans-serif; font-size: 2.8rem; letter-spacing: 2px; }
+        .l4 .b { color: #fff; }
+        .l4 .a { color: #ef4444; }
+
+        /* Share Tech Mono - Terminal */
+        .l5 { font-family: 'Share Tech Mono', monospace; font-size: 3rem; letter-spacing: 4px; }
+        .l5 .b { color: #22c55e; }
+        .l5 .a { color: #fff; background: #22c55e; padding: 2px 8px; }
+
+        /* Orbitron Full Gradient */
+        .l6 { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: 3px;
+              background: linear-gradient(90deg, #fff 0%, #fff 60%, #ef4444 75%, #f97316 100%);
+              -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Teko with Yellow Construction */
+        .l7 { font-family: 'Teko', sans-serif; font-size: 4.5rem; font-weight: 700; letter-spacing: 3px; }
+        .l7 .b { color: #facc15; }
+        .l7 .a { color: #fff; }
+
+        /* Stacked Industrial */
+        .l8 { display: flex; flex-direction: column; align-items: center; line-height: 0.85; }
+        .l8 .b { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: #fff; letter-spacing: 12px; }
+        .l8 .a { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 800; color: #ef4444; letter-spacing: 20px; }
+
+        /* Hexagon Badge */
+        .l9-wrap { display: flex; align-items: center; gap: 15px; }
+        .l9-hex {
+            width: 60px; height: 52px;
+            background: linear-gradient(135deg, #1e3a8a, #991b1b);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 900; color: #fff;
+        }
+        .l9-text { font-family: 'Exo 2', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: 2px; }
+        .l9-text .b { color: #fff; }
+        .l9-text .a { color: #ef4444; }
+
+        /* Double Line */
+        .l10 { position: relative; padding: 10px 0; }
+        .l10::before, .l10::after {
+            content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+            width: 250px; height: 3px; background: linear-gradient(90deg, #3b82f6, #ef4444);
+        }
+        .l10::before { top: 0; }
+        .l10::after { bottom: 0; }
+        .l10 span { font-family: 'Oswald', sans-serif; font-size: 3.5rem; font-weight: 600; letter-spacing: 5px; }
+        .l10 .b { color: #fff; }
+        .l10 .a { color: #ef4444; }
+
+        /* Bolt Icon */
+        .l11-wrap { display: flex; align-items: center; gap: 12px; }
+        .l11-bolt { font-size: 3rem; filter: drop-shadow(0 0 15px #f97316); }
+        .l11-text { font-family: 'Teko', sans-serif; font-size: 4rem; font-weight: 700; letter-spacing: 3px; }
+        .l11-text .b { color: #fff; }
+        .l11-text .a { color: #f97316; }
+
+        /* Slash Divider */
+        .l12 { font-family: 'Barlow Condensed', sans-serif; font-size: 4rem; font-weight: 700; letter-spacing: 3px; }
+        .l12 .b { color: #fff; }
+        .l12 .slash { color: #3b82f6; margin: 0 5px; }
+        .l12 .a { color: #ef4444; }
+
+        /* Brackets */
+        .l13 { font-family: 'Share Tech Mono', monospace; font-size: 2.5rem; }
+        .l13 .br { color: #3b82f6; }
+        .l13 .b { color: #fff; }
+        .l13 .a { color: #ef4444; }
+
+        /* Dot Matrix Style */
+        .l14 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 700; letter-spacing: 8px; }
+        .l14 .b { color: #fff; }
+        .l14 .dot { color: #3b82f6; margin: 0 3px; }
+        .l14 .a { color: #ef4444; }
+
+        /* Exo Stencil Look */
+        .l15 { font-family: 'Exo 2', sans-serif; font-size: 3.5rem; font-weight: 900; letter-spacing: 6px;
+               -webkit-text-stroke: 2px #fff; color: transparent; }
+        .l15 .a { -webkit-text-stroke-color: #ef4444; }
+
+        /* Warning Stripes Badge */
+        .l16-wrap { position: relative; display: inline-block; padding: 15px 30px;
+                    background: repeating-linear-gradient(45deg, #000, #000 10px, #facc15 10px, #facc15 20px);
+                    border-radius: 4px; }
+        .l16-inner { background: #18181b; padding: 10px 25px; border-radius: 2px; }
+        .l16 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 5px; }
+        .l16 .b { color: #fff; }
+        .l16 .a { color: #ef4444; }
+
+        /* Rivets */
+        .l17-wrap { position: relative; display: inline-block; }
+        .l17 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; font-weight: 700; letter-spacing: 4px; }
+        .l17 .b { color: #fff; }
+        .l17 .a { color: #ef4444; }
+        .l17-wrap .rivet {
+            position: absolute; width: 8px; height: 8px;
+            background: radial-gradient(circle at 30% 30%, #71717a, #27272a);
+            border-radius: 50%; border: 1px solid #3f3f46;
+        }
+        .l17-wrap .r1 { top: 5px; left: -15px; }
+        .l17-wrap .r2 { top: 5px; right: -15px; }
+        .l17-wrap .r3 { bottom: 5px; left: -15px; }
+        .l17-wrap .r4 { bottom: 5px; right: -15px; }
+
+        /* Tagline Version */
+        .l18 { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .l18-main { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 5px; }
+        .l18-main .b { color: #fff; }
+        .l18-main .a { color: #ef4444; }
+        .l18-tag { font-family: 'Exo 2', sans-serif; font-size: 0.9rem; color: #71717a; letter-spacing: 4px; text-transform: uppercase; }
+
+    </style>
+</head>
+<body>
+    <h1>🔥 MORE LOGO CONCEPTS - Futuristic + Construction 🔥</h1>
+    <div class="grid">
+
+        <div class="card">
+            <div class="logo-box"><div class="l1"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Staatliches</div>
+            <div class="note">Poster / Billboard style</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l2"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Saira + Fire Glow</div>
+            <div class="note">Industrial heat</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l3"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Quantico Military</div>
+            <div class="note">Tactical / Matrix green</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l4"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Black Ops One</div>
+            <div class="note">Heavy / Stencil</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l5"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Terminal Style</div>
+            <div class="note">Code / Hacker vibe</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l6">BRAVOAI</div></div>
+            <div class="name">Orbitron Gradient</div>
+            <div class="note">Smooth white → red flow</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l7"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Construction Yellow</div>
+            <div class="note">Caution tape vibes</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l8"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Stacked Split</div>
+            <div class="note">BRAVO over AI</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l9-wrap">
+                    <div class="l9-hex">B</div>
+                    <div class="l9-text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+                </div>
+            </div>
+            <div class="name">Hexagon Badge</div>
+            <div class="note">Icon + wordmark</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l10"><span class="b">BRAVO</span><span class="a">AI</span></div>
+            </div>
+            <div class="name">Double Rail</div>
+            <div class="note">Top & bottom beams</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l11-wrap">
+                    <span class="l11-bolt">⚡</span>
+                    <div class="l11-text"><span class="b">BRAVO</span><span class="a">AI</span></div>
+                </div>
+            </div>
+            <div class="name">Bolt Power</div>
+            <div class="note">Energy + industrial</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l12"><span class="b">BRAVO</span><span class="slash">/</span><span class="a">AI</span></div></div>
+            <div class="name">Slash Separator</div>
+            <div class="note">Division / paths</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l13"><span class="br">[</span><span class="b">BRAVO</span><span class="a">AI</span><span class="br">]</span></div></div>
+            <div class="name">Code Brackets</div>
+            <div class="note">Developer / tech</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l14"><span class="b">BRAVO</span><span class="dot">•</span><span class="a">AI</span></div></div>
+            <div class="name">Dot Separator</div>
+            <div class="note">Clean tech</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box"><div class="l15"><span class="b">BRAVO</span><span class="a">AI</span></div></div>
+            <div class="name">Outline Stencil</div>
+            <div class="note">Blueprint / hollow</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l16-wrap"><div class="l16-inner"><div class="l16"><span class="b">BRAVO</span><span class="a">AI</span></div></div></div>
+            </div>
+            <div class="name">Warning Stripes</div>
+            <div class="note">Construction zone</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l17-wrap">
+                    <span class="rivet r1"></span><span class="rivet r2"></span>
+                    <span class="rivet r3"></span><span class="rivet r4"></span>
+                    <div class="l17"><span class="b">BRAVO</span><span class="a">AI</span></div>
+                </div>
+            </div>
+            <div class="name">Steel Rivets</div>
+            <div class="note">Bolted plate</div>
+        </div>
+
+        <div class="card">
+            <div class="logo-box">
+                <div class="l18">
+                    <div class="l18-main"><span class="b">BRAVO</span><span class="a">AI</span></div>
+                    <div class="l18-tag">Built for Construction</div>
+                </div>
+            </div>
+            <div class="name">With Tagline</div>
+            <div class="note">Full lockup</div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -10,38 +10,38 @@ This Statement of Work ("SOW") is entered into pursuant to the Master Service Ag
 
 ---
 
-## 1. PROJECT OVERVIEW
+## 1. Project Overview
 
 ### 1.1 Project Name
 [PROJECT NAME]
 
-### 1.2 Project Description
-[BRIEF DESCRIPTION OF WHAT WILL BE BUILT/DELIVERED]
+### 1.2 What We're Building
+[BRIEF DESCRIPTION - e.g., "Custom AI operations system for shop floor management and automated documentation"]
 
-### 1.3 Business Objectives
-- [OBJECTIVE 1]
-- [OBJECTIVE 2]
-- [OBJECTIVE 3]
+### 1.3 Business Goals
+- [GOAL 1 - e.g., "Reduce time spent answering status questions by 80%"]
+- [GOAL 2 - e.g., "Automate BOL generation"]
+- [GOAL 3 - e.g., "Give field crews visibility into fab status"]
 
 ---
 
-## 2. SCOPE OF WORK
+## 2. Scope of Work
 
-### 2.1 In-Scope
+### 2.1 What's Included
 
 #### AI Assistants
-| Assistant Name | Description | Access Channels |
-|----------------|-------------|-----------------|
-| [NAME] | [DESCRIPTION] | [TELEGRAM/SMS/WEB] |
-| [NAME] | [DESCRIPTION] | [TELEGRAM/SMS/WEB] |
+| Assistant | What It Does | Access Via |
+|-----------|--------------|------------|
+| [NAME] | [DESCRIPTION] | Telegram / SMS |
+| [NAME] | [DESCRIPTION] | Telegram / SMS |
 
 #### System Integrations
-| System | Type | Description |
-|--------|------|-------------|
+| System | Connection Type | What It Enables |
+|--------|----------------|-----------------|
 | [SYSTEM] | [READ/WRITE/SYNC] | [DESCRIPTION] |
 | [SYSTEM] | [READ/WRITE/SYNC] | [DESCRIPTION] |
 
-#### Features & Capabilities
+#### Features
 - [ ] [FEATURE 1]
 - [ ] [FEATURE 2]
 - [ ] [FEATURE 3]
@@ -49,153 +49,166 @@ This Statement of Work ("SOW") is entered into pursuant to the Master Service Ag
 - [ ] [FEATURE 5]
 
 #### Training & Documentation
-- [ ] Team training session ([X] hours)
-- [ ] User documentation
-- [ ] Admin guide
-- [ ] Quick-start guide
+- [ ] Hands-on training session(s) — [X] days ([X] hours total)
+- [ ] User quick-reference guide
+- [ ] Admin documentation
+- [ ] Video walkthrough (if applicable)
 
-### 2.2 Out-of-Scope
-The following items are explicitly excluded from this SOW:
-- [EXCLUSION 1]
-- [EXCLUSION 2]
-- [EXCLUSION 3]
+### 2.2 What's NOT Included
 
-*Any out-of-scope work requested will require a change order.*
+The following are explicitly outside this SOW:
+- [EXCLUSION 1 - e.g., "Accounting/financial system integrations"]
+- [EXCLUSION 2 - e.g., "Hardware or mobile devices"]
+- [EXCLUSION 3 - e.g., "Third-party software subscriptions"]
 
----
-
-## 3. DELIVERABLES
-
-| # | Deliverable | Description | Due |
-|---|-------------|-------------|-----|
-| 1 | [DELIVERABLE] | [DESCRIPTION] | [DATE/MILESTONE] |
-| 2 | [DELIVERABLE] | [DESCRIPTION] | [DATE/MILESTONE] |
-| 3 | [DELIVERABLE] | [DESCRIPTION] | [DATE/MILESTONE] |
-| 4 | [DELIVERABLE] | [DESCRIPTION] | [DATE/MILESTONE] |
+*Work outside this scope requires a change order.*
 
 ---
 
-## 4. TIMELINE
+## 3. Deliverables
 
-### 4.1 Project Schedule
+| # | What You Get | Description | When |
+|---|--------------|-------------|------|
+| 1 | [DELIVERABLE] | [DESCRIPTION] | [MILESTONE] |
+| 2 | [DELIVERABLE] | [DESCRIPTION] | [MILESTONE] |
+| 3 | [DELIVERABLE] | [DESCRIPTION] | [MILESTONE] |
+| 4 | [DELIVERABLE] | [DESCRIPTION] | [MILESTONE] |
 
-| Phase | Activities | Duration | Start | End |
-|-------|------------|----------|-------|-----|
-| **Phase 1: Discovery** | Kickoff, requirements, access setup | [X] days | [DATE] | [DATE] |
-| **Phase 2: Development** | Build, configure, integrate | [X] days | [DATE] | [DATE] |
-| **Phase 3: Testing** | QA, UAT, refinements | [X] days | [DATE] | [DATE] |
-| **Phase 4: Deployment** | Go-live, training | [X] days | [DATE] | [DATE] |
-| **Phase 5: Support** | Post-launch optimization | [X] days | [DATE] | [DATE] |
+---
+
+## 4. Timeline
+
+### 4.1 Schedule
+
+| Phase | What Happens | Duration | Dates |
+|-------|--------------|----------|-------|
+| **Discovery** | Kickoff, learn your operation, get system access | [X] days | [START] - [END] |
+| **Build** | Configure AI, connect systems, internal testing | [X] days | [START] - [END] |
+| **Testing** | Run real scenarios, fix issues, refine | [X] days | [START] - [END] |
+| **Training** | Hands-on training with your team | [X] days | [START] - [END] |
+| **Go-Live** | Deploy to production, support | [X] days | [START] - [END] |
 
 **Total Duration:** [X] weeks
 
 ### 4.2 Key Milestones
 
-| Milestone | Target Date | Criteria |
-|-----------|-------------|----------|
-| Project Kickoff | [DATE] | Kickoff meeting completed |
-| Development Complete | [DATE] | All features built |
-| User Acceptance | [DATE] | Client sign-off on testing |
-| Go-Live | [DATE] | System deployed to production |
+| Milestone | Target Date | How We Know It's Done |
+|-----------|-------------|----------------------|
+| Project Kickoff | [DATE] | Kickoff meeting complete, access granted |
+| Build Complete | [DATE] | All features working in test environment |
+| Training Complete | [DATE] | Team trained, sign-off received |
+| Go-Live | [DATE] | System live in production |
 | Project Close | [DATE] | Support period complete |
 
 ---
 
-## 5. CLIENT RESPONSIBILITIES
+## 5. What We Need From You
 
 Client agrees to:
 
-- [ ] Designate a project point of contact with decision-making authority
-- [ ] Provide timely access to required systems and credentials
-- [ ] Provide sample documents, workflows, and data as requested
-- [ ] Participate in scheduled meetings and reviews
-- [ ] Complete user acceptance testing within [X] business days
-- [ ] Provide feedback within [X] business days of request
-- [ ] Ensure team availability for training sessions
+- [ ] Assign a point person who can make decisions
+- [ ] Provide system access and credentials within [X] days of kickoff
+- [ ] Provide sample data, documents, and workflows as requested
+- [ ] Attend scheduled meetings and training sessions
+- [ ] Complete testing and provide feedback within [X] business days
+- [ ] Make team available for training
 
-**Delays caused by Client may extend timeline and may incur additional fees.**
+**Note:** Delays on your side may push out the timeline or require additional work.
 
 ---
 
-## 6. FEES AND PAYMENT
+## 6. Pricing & Payment
 
-### 6.1 Project Fees
+### 6.1 Package Selected
 
-| Item | Amount |
-|------|--------|
-| [PACKAGE/SERVICE] | $[AMOUNT] |
-| [ADDITIONAL ITEM] | $[AMOUNT] |
-| [ADDITIONAL ITEM] | $[AMOUNT] |
-| **Total Project Fee** | **$[TOTAL]** |
+| | |
+|---|---|
+| **Package** | [STARTER / PROFESSIONAL / ENTERPRISE] |
+| **Total Investment** | $[AMOUNT] |
+| **Included Hours** | [40 / 70 / 130] hours |
+| **Timeline** | [3 / 6 / 10] weeks |
+| **Training** | [2 / 2.5 / 5] days |
+| **Support Included** | 1 month |
+
+#### Package Reference
+
+| Package | Price | Hours | Timeline | Training |
+|---------|-------|-------|----------|----------|
+| Starter | $12,500 | 40 hrs | 3 weeks | 2 days (8 hrs) |
+| Professional | $22,000 | 70 hrs | 6 weeks | 2.5 days (12 hrs) |
+| Enterprise | $40,000 | 130 hrs | 10 weeks | 5 days (20 hrs) |
 
 ### 6.2 Payment Schedule
 
-| Milestone | Percentage | Amount | Due |
-|-----------|------------|--------|-----|
-| Project Kickoff | 50% | $[AMOUNT] | Upon SOW execution (non-refundable) |
-| Training Complete | 50% | $[AMOUNT] | Upon completion of training/implementation |
+| When | Percentage | Amount | Notes |
+|------|------------|--------|-------|
+| **Project Kickoff** | 50% | $[AMOUNT] | Due upon SOW execution — **non-refundable deposit** |
+| **Training Complete** | 50% | $[AMOUNT] | Due upon completion of training |
 
-### 6.3 Ongoing Support (if applicable)
+### 6.3 Additional Work
 
-| Plan | Monthly Fee | Start Date |
-|------|-------------|------------|
-| [PLAN NAME] | $[AMOUNT] | [DATE] |
+Work beyond the included hours or outside the defined scope will be billed at **$275/hour** via change order.
+
+### 6.4 Ongoing Support (After Month 1)
+
+| Plan | Monthly | What's Included |
+|------|---------|-----------------|
+| Maintenance | $1,500 | Updates, monitoring, 2 hrs consulting |
+| Growth | $3,500 | Optimization, new features, 5 hrs consulting |
+| Managed | $7,500 | Full management, unlimited support |
 
 *First month included with implementation.*
 
 ---
 
-## 7. ACCEPTANCE CRITERIA
+## 7. Acceptance
 
-### 7.1 Deliverable Acceptance
-Each deliverable is deemed accepted when:
-- Consultant delivers the item and notifies Client
-- Client completes review within [5] business days
-- Client provides written acceptance OR fails to provide written rejection with specific deficiencies
+### 7.1 How Deliverables Get Accepted
+- We deliver and notify you it's ready
+- You review within [5] business days
+- You either approve OR tell us specifically what's wrong
+- No response within [5] days = accepted
 
-### 7.2 Project Acceptance
-Project is deemed complete when:
+### 7.2 Project Completion
+Project is complete when:
 - All deliverables accepted
-- Go-live successfully completed
+- System live in production
 - Training delivered
-- Client signs off on completion
+- Client signs off
 
 ---
 
-## 8. CHANGE ORDERS
+## 8. Change Orders
 
-### 8.1 Process
-Changes to scope require a written Change Order signed by both parties.
+### 8.1 If Scope Changes
+Changes happen. When they do:
+- We document what's changing
+- We tell you the impact on timeline and cost
+- You approve in writing
+- Then we do the work
 
-### 8.2 Change Order Content
-Each Change Order will specify:
-- Description of change
-- Impact on timeline
-- Impact on fees
-- Impact on other deliverables
-
-### 8.3 Pricing
-Additional work will be billed at $275/hour unless otherwise specified.
+### 8.2 Change Order Rate
+Additional work: **$275/hour**
 
 ---
 
-## 9. ASSUMPTIONS
+## 9. Assumptions
 
-This SOW is based on the following assumptions:
-- [ASSUMPTION 1]
-- [ASSUMPTION 2]
-- [ASSUMPTION 3]
-- [ASSUMPTION 4]
+This SOW assumes:
+- [ASSUMPTION 1 - e.g., "Client has active PowerFab subscription with API access"]
+- [ASSUMPTION 2 - e.g., "Team members have smartphones with Telegram installed"]
+- [ASSUMPTION 3 - e.g., "Client will provide system credentials within 5 business days"]
+- [ASSUMPTION 4 - e.g., "Key personnel available for training sessions"]
 
-*If assumptions prove incorrect, timeline and fees may be adjusted via Change Order.*
+*If these don't hold true, we'll work out adjustments via change order.*
 
 ---
 
-## 10. CONTACTS
+## 10. Contacts
 
-### Consultant
-**Project Lead:** [NAME]  
-**Email:** [EMAIL]  
+### Bravo AI
+**Project Lead:** Mario Urquidi  
+**Email:** mario@bravoai.co  
 **Phone:** [PHONE]
 
 ### Client
@@ -205,9 +218,9 @@ This SOW is based on the following assumptions:
 
 ---
 
-## SIGNATURES
+## Signatures
 
-By signing below, both parties agree to the terms of this Statement of Work.
+By signing, both parties agree to this Statement of Work.
 
 **BRAVO AI**
 
@@ -232,4 +245,4 @@ Date: _________________________
 
 ---
 
-*This SOW is governed by the Master Service Agreement dated [MSA DATE] between the parties.*
+*This SOW is governed by the Master Service Agreement dated [MSA DATE].*

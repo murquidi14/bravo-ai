@@ -1,7 +1,5 @@
 # Project Proposal
 
-![Bravo AI](logo-placeholder)
-
 ---
 
 **Prepared for:** [CLIENT COMPANY NAME]  
@@ -14,116 +12,126 @@
 
 ## Executive Summary
 
-[CLIENT COMPANY NAME] is looking to streamline their construction operations through intelligent automation. After our discovery call on [DATE], we've identified several opportunities to reduce manual work, improve accuracy, and give your team more time to focus on what matters.
+[CLIENT COMPANY NAME] is looking to run a tighter operation — less time chasing information, less paperwork, more time actually getting work done.
 
-This proposal outlines our recommended solution, timeline, and investment.
+After our conversation on [DATE], we've identified several ways AI can take work off your team's plate and give you better visibility into your operation.
 
----
-
-## Understanding Your Challenges
-
-Based on our conversation, your key pain points include:
-
-1. **[CHALLENGE 1]**
-   - Current impact: [DESCRIPTION]
-   - Time/cost spent: [ESTIMATE]
-
-2. **[CHALLENGE 2]**
-   - Current impact: [DESCRIPTION]
-   - Time/cost spent: [ESTIMATE]
-
-3. **[CHALLENGE 3]**
-   - Current impact: [DESCRIPTION]
-   - Time/cost spent: [ESTIMATE]
+This proposal outlines what we'll build, how long it takes, and what it costs.
 
 ---
 
-## Proposed Solution
+## What We Heard
 
-### Overview
+Based on our conversation, here's what's eating up your time:
 
-We will implement [PACKAGE NAME] customized for [CLIENT]'s specific needs, including:
+### 1. [CHALLENGE 1]
+- **What's happening:** [DESCRIPTION]
+- **What it's costing you:** [TIME/MONEY ESTIMATE]
+
+### 2. [CHALLENGE 2]
+- **What's happening:** [DESCRIPTION]
+- **What it's costing you:** [TIME/MONEY ESTIMATE]
+
+### 3. [CHALLENGE 3]
+- **What's happening:** [DESCRIPTION]
+- **What it's costing you:** [TIME/MONEY ESTIMATE]
+
+---
+
+## What We'll Build
+
+### The Solution: [PACKAGE NAME] Package
+
+We'll build a custom AI system around the way [CLIENT] actually operates — not some off-the-shelf software you have to adapt to.
 
 ### AI Assistants
 
-| Assistant | Purpose | Access Method |
-|-----------|---------|---------------|
+| Assistant | What It Does | How Your Team Accesses It |
+|-----------|--------------|---------------------------|
 | [NAME] | [DESCRIPTION] | Telegram / SMS / Web |
 | [NAME] | [DESCRIPTION] | Telegram / SMS / Web |
 
-### System Integrations
+### System Connections
 
-| System | Integration Type | Data Flow |
-|--------|------------------|-----------|
+| Your System | What We Connect | What It Enables |
+|-------------|-----------------|-----------------|
 | [SYSTEM] | [READ/WRITE/SYNC] | [DESCRIPTION] |
 | [SYSTEM] | [READ/WRITE/SYNC] | [DESCRIPTION] |
 
-### Key Features
+### What Your Team Will Be Able To Do
 
-- ✅ [FEATURE 1]
-- ✅ [FEATURE 2]
-- ✅ [FEATURE 3]
-- ✅ [FEATURE 4]
-
----
-
-## Expected Outcomes
-
-| Metric | Current State | Expected Improvement |
-|--------|---------------|---------------------|
-| Time spent on [TASK] | [X] hours/week | [Y]% reduction |
-| [METRIC] | [CURRENT] | [EXPECTED] |
-| [METRIC] | [CURRENT] | [EXPECTED] |
-
-### Estimated Annual Savings
-
-Based on your current operations:
-- Labor hours saved: **[X] hours/year**
-- At $[RATE]/hour: **$[AMOUNT]/year**
-- ROI: **[X]x return on investment in Year 1**
+- ✅ [FEATURE 1 - e.g., "Ask for job status and get instant answers"]
+- ✅ [FEATURE 2 - e.g., "Generate BOLs automatically"]
+- ✅ [FEATURE 3 - e.g., "Track materials with heat numbers"]
+- ✅ [FEATURE 4 - e.g., "Pull QC docs on demand"]
 
 ---
 
-## Implementation Timeline
+## What You'll Get Out of It
 
-| Phase | Duration | Activities |
-|-------|----------|------------|
-| **Discovery & Planning** | Week 1 | Requirements gathering, system access, integration planning |
-| **Development** | Weeks 2-3 | AI training, integration development, testing |
-| **Deployment** | Week 4 | Go-live, team training, documentation |
-| **Optimization** | Weeks 5-8 | Fine-tuning, feedback implementation, support |
+| What Changes | Now | After |
+|--------------|-----|-------|
+| Time spent on [TASK] | [X] hours/week | [Y]% less |
+| [METRIC] | [CURRENT] | [EXPECTED] |
+| [METRIC] | [CURRENT] | [EXPECTED] |
 
-**Total Timeline:** [X] weeks from signed agreement
+### The ROI
+
+Based on what you told us:
+- **Hours saved:** [X] hours/year
+- **At $[RATE]/hour (loaded):** $[AMOUNT]/year back in your pocket
+- **Payback period:** [X] months
+
+---
+
+## Timeline
+
+| Phase | Time | What Happens |
+|-------|------|--------------|
+| **Discovery** | Week 1 | We learn your operation — jobs, systems, terminology, workflows |
+| **Build** | Weeks 2-[X] | AI setup, integrations, configuration, internal testing |
+| **Training** | Week [X] | Hands-on training with your team ([X] days) |
+| **Go-Live + Support** | Week [X]+ | Deploy to production, 1 month of included support |
+
+**Total time:** [X] weeks from signed agreement to fully operational
 
 ---
 
 ## Investment
 
-### Implementation
+### Recommended Package: [STARTER / PROFESSIONAL / ENTERPRISE]
 
-| Item | Amount |
-|------|--------|
-| [PACKAGE NAME] Package | $[AMOUNT] |
-| Additional: [ITEM] | $[AMOUNT] |
-| Additional: [ITEM] | $[AMOUNT] |
-| **Total Implementation** | **$[TOTAL]** |
+| | Starter | Professional | Enterprise |
+|--|---------|--------------|------------|
+| **Investment** | $12,500 | $22,000 | $40,000 |
+| **Included Hours** | 40 hrs | 70 hrs | 130 hrs |
+| **Timeline** | 3 weeks | 6 weeks | 10 weeks |
+| **Training** | 2 days (8 hrs) | 2.5 days (12 hrs) | 5 days (20 hrs) |
+| **Support Included** | 1 month | 1 month | 1 month |
+| **Best For** | Single department, 1-2 assistants | Multiple teams, 3-5 assistants | Full operation, complex integrations |
+
+**Recommended for [CLIENT]:** [PACKAGE] — $[AMOUNT]
 
 ### Payment Schedule
 
-| Milestone | Amount | Due |
-|-----------|--------|-----|
-| Project Kickoff | 50% ($[AMOUNT]) | Upon signing (non-refundable) |
-| Training Complete | 50% ($[AMOUNT]) | Upon completion of training |
+| When | Amount | Notes |
+|------|--------|-------|
+| **Project Kickoff** | 50% ($[AMOUNT]) | Due upon signing — non-refundable deposit |
+| **Training Complete** | 50% ($[AMOUNT]) | Due upon completion of training |
 
-### Ongoing Support (Optional but Recommended)
+### Additional Work
 
-| Plan | Monthly | Includes |
-|------|---------|----------|
-| Maintenance | $1,500 | Updates, monitoring, 2 hrs consulting |
-| Growth | $3,500 | Optimization, new features, 5 hrs consulting |
-| Managed | $7,500 | Full management, unlimited support |
+Work outside the original scope: **$275/hour** (via change order)
 
-**Recommended:** [PLAN] plan — $[AMOUNT]/month
+---
+
+## After Month 1: Ongoing Support Options
+
+| Plan | Monthly | What's Included |
+|------|---------|-----------------|
+| **Maintenance** | $1,500 | Updates, monitoring, 2 hrs/month consulting |
+| **Growth** | $3,500 | Optimization, new features, 5 hrs/month consulting |
+| **Managed** | $7,500 | Full management, unlimited support |
 
 *First month included free with implementation.*
 
@@ -131,44 +139,49 @@ Based on your current operations:
 
 ## What's Included
 
-✅ All software and AI model costs  
-✅ Full setup and configuration  
+✅ All AI software and model costs  
+✅ Full setup and configuration for your operation  
 ✅ System integrations as specified  
-✅ Team training session(s)  
-✅ Documentation and user guides  
-✅ [X] days post-launch support  
-✅ Ongoing updates during support period  
+✅ Hands-on training for your team  
+✅ Documentation and quick-reference guides  
+✅ 1 month post-launch support  
 
 ## What's Not Included
 
-❌ Third-party software subscriptions (QuickBooks, etc.)  
+❌ Third-party software subscriptions you don't already have  
 ❌ Hardware or mobile devices  
-❌ Changes to scope after project start (change order process available)  
+❌ Work outside agreed scope (change order process available)  
 
 ---
 
 ## Our Guarantee
 
-We stand behind our work. If you don't see measurable improvement in your operations within 60 days of go-live, we'll continue working at no additional charge until you do.
+**60-Day Results Guarantee**
+
+If you don't see measurable improvement in your operations within 60 days of go-live, we keep working at no additional charge until you do.
+
+We're not here to sell you software and disappear. We're here to make your operation run better.
 
 ---
 
 ## About Bravo AI
 
-Bravo AI specializes in AI solutions for the construction industry. We're not just technologists — we're operators who understand the unique challenges of running a construction business.
+We're not consultants who've never set foot on a job site.
 
-**Our Approach:**
-- Solutions built for construction, not adapted from other industries
-- Hands-on implementation, not just recommendations
-- Long-term partnership, not one-time projects
+We own and operate a steel fabrication facility and erection company. We built AI systems for ourselves first — to solve the same problems you're dealing with. Then we realized every shop has these problems.
+
+**Our approach:**
+- Built for construction, not adapted from other industries
+- We implement it with you, not just hand you a report
+- Long-term partnership, not a one-time project
 
 ---
 
 ## Next Steps
 
-1. **Review** this proposal and let us know any questions
-2. **Sign** the attached agreement to lock in your spot
-3. **Kickoff** — We'll schedule our first planning session within 48 hours
+1. **Questions?** — Let's talk through anything that's not clear
+2. **Ready to move?** — Sign the attached agreement
+3. **Kickoff** — We'll schedule our first working session within 48 hours
 
 ---
 
@@ -176,7 +189,7 @@ Bravo AI specializes in AI solutions for the construction industry. We're not ju
 
 By signing below, [CLIENT COMPANY NAME] agrees to engage Bravo AI for the services outlined in this proposal.
 
-**For [CLIENT COMPANY NAME]:**
+**[CLIENT COMPANY NAME]**
 
 Signature: _________________________
 
@@ -187,7 +200,7 @@ Title: _________________________
 Date: _________________________
 
 
-**For Bravo AI:**
+**Bravo AI**
 
 Signature: _________________________
 
@@ -199,12 +212,14 @@ Date: _________________________
 
 ---
 
-*This proposal is valid for 30 days from the date above. Pricing and availability subject to change after expiration.*
+*This proposal is valid for 30 days. Pricing and availability subject to change after expiration.*
 
 ---
 
 **Bravo AI**  
-13351 Montana  
+13351 Montana Ave  
 El Paso, Texas 79938  
 mario@bravoai.co  
 www.bravoai.co
+
+*Built by fabricators. For fabricators.*

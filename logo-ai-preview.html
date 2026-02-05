@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAVO AI - Logo Font Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Orbitron:wght@700;900&family=Audiowide&family=Exo+2:wght@700;800&family=Rajdhani:wght@700&family=Michroma&family=Oxanium:wght@700&family=Electrolize&family=Chakra+Petch:wght@700&family=Black+Ops+One&family=Teko:wght@700&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: #a1a1aa;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #52525b;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .logo-preview {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .bravo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .ai-orbitron { font-family: 'Orbitron', sans-serif; font-weight: 900; }
+        .ai-audiowide { font-family: 'Audiowide', sans-serif; }
+        .ai-exo { font-family: 'Exo 2', sans-serif; font-weight: 800; }
+        .ai-rajdhani { font-family: 'Rajdhani', sans-serif; font-weight: 700; }
+        .ai-michroma { font-family: 'Michroma', sans-serif; }
+        .ai-oxanium { font-family: 'Oxanium', sans-serif; font-weight: 700; }
+        .ai-electrolize { font-family: 'Electrolize', sans-serif; }
+        .ai-chakra { font-family: 'Chakra Petch', sans-serif; font-weight: 700; }
+        .ai-blackops { font-family: 'Black Ops One', sans-serif; }
+        .ai-teko { font-family: 'Teko', sans-serif; font-weight: 700; }
+        .ai-russo { font-family: 'Russo One', sans-serif; }
+        .ai-space { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+
+        .ai {
+            color: #ef4444;
+        }
+
+        .ai-glow {
+            color: #ef4444;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3);
+        }
+
+        .ai-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .font-name {
+            font-size: 1rem;
+            color: #a1a1aa;
+            margin-bottom: 0.25rem;
+        }
+
+        .font-note {
+            font-size: 0.8rem;
+            color: #52525b;
+        }
+
+        /* Effects section */
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+        }
+
+        /* Special styles */
+        .ai-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #ef4444;
+        }
+
+        .ai-gradient-blue {
+            background: linear-gradient(135deg, #ef4444 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ai-italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>BRAVO<span style="color: #ef4444">AI</span> Logo - Font Options</h1>
+    <p class="subtitle">Click to see which "AI" font feels right</p>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-space">AI</span>
+            </div>
+            <div class="font-name">Space Grotesk (Current)</div>
+            <div class="font-note">Clean & consistent</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-orbitron">AI</span>
+            </div>
+            <div class="font-name">Orbitron</div>
+            <div class="font-note">Futuristic / Sci-fi</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-audiowide">AI</span>
+            </div>
+            <div class="font-name">Audiowide</div>
+            <div class="font-note">Bold / Tech</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-exo">AI</span>
+            </div>
+            <div class="font-name">Exo 2</div>
+            <div class="font-note">Modern / Geometric</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-rajdhani">AI</span>
+            </div>
+            <div class="font-name">Rajdhani</div>
+            <div class="font-note">Sharp / Industrial</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-michroma">AI</span>
+            </div>
+            <div class="font-name">Michroma</div>
+            <div class="font-note">Space / Technical</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-oxanium">AI</span>
+            </div>
+            <div class="font-name">Oxanium</div>
+            <div class="font-note">Gaming / Cyber</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-electrolize">AI</span>
+            </div>
+            <div class="font-name">Electrolize</div>
+            <div class="font-note">Digital / Matrix</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-chakra">AI</span>
+            </div>
+            <div class="font-name">Chakra Petch</div>
+            <div class="font-note">Thai-tech / Angular</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-teko">AI</span>
+            </div>
+            <div class="font-name">Teko</div>
+            <div class="font-note">Condensed / Bold</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-russo">AI</span>
+            </div>
+            <div class="font-name">Russo One</div>
+            <div class="font-note">Strong / Sporty</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai ai-blackops">AI</span>
+            </div>
+            <div class="font-name">Black Ops One</div>
+            <div class="font-note">Military / Heavy</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">✨ Effect Options (with Orbitron)</h2>
+
+    <div class="options">
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai-glow ai-orbitron">AI</span>
+            </div>
+            <div class="font-name">Red Glow</div>
+            <div class="font-note">Neon / Electric</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai-gradient ai-orbitron">AI</span>
+            </div>
+            <div class="font-name">Red → Orange Gradient</div>
+            <div class="font-note">Fire / Energy</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai-gradient-blue ai-orbitron">AI</span>
+            </div>
+            <div class="font-name">Red → Blue Gradient</div>
+            <div class="font-note">Brand colors</div>
+        </div>
+
+        <div class="option">
+            <div class="logo-preview">
+                <span class="bravo">BRAVO</span><span class="ai-outline ai-orbitron">AI</span>
+            </div>
+            <div class="font-name">Outline Only</div>
+            <div class="font-note">Hollow / Techy</div>
+        </div>
+    </div>
+
+</body>
+</html>

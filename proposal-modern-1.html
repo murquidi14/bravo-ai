@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Space Grotesk', sans-serif; 
+      background: #fff;
+      color: #1a1a2e;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    
+    /* Cover */
+    .cover {
+      height: 100vh;
+      background: linear-gradient(160deg, #172554 0%, #1e3a5f 40%, #172554 100%);
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      page-break-after: always;
+    }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .logo .ai { color: #f87171; }
+    .cover-meta { text-align: right; font-size: 13px; opacity: 0.8; }
+    .cover-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+    }
+    .cover-main h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cover-main h1 span { color: #f87171; }
+    .cover-main p { font-size: 18px; opacity: 0.85; margin-bottom: 40px; }
+    .cover-client {
+      font-size: 16px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .cover-client strong { font-size: 22px; display: block; margin-top: 8px; }
+    .cover-bottom { font-size: 13px; opacity: 0.6; }
+    
+    /* Page */
+    .page { padding: 50px; max-width: 850px; margin: 0 auto; }
+    
+    /* Section */
+    .section { margin-bottom: 40px; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #172554;
+    }
+    .section-num {
+      background: #172554;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .section-title { font-size: 20px; font-weight: 700; color: #172554; }
+    
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th {
+      background: #f8fafc;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
+    
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .price-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .price-card.featured {
+      border: 2px solid #7f1d1d;
+      position: relative;
+    }
+    .price-card.featured::after {
+      content: "RECOMMENDED";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #7f1d1d;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .price-card h4 { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+    .price-card .amount { font-size: 32px; font-weight: 700; color: #172554; margin: 12px 0; }
+    .price-card .details { font-size: 13px; color: #64748b; line-height: 1.8; }
+    
+    /* Scope */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .scope-col h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid;
+    }
+    .scope-col.included h4 { color: #059669; border-color: #059669; }
+    .scope-col.excluded h4 { color: #7f1d1d; border-color: #7f1d1d; }
+    .scope-col ul { list-style: none; }
+    .scope-col li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .scope-col.included li::before { content: "✓"; color: #059669; font-weight: bold; }
+    .scope-col.excluded li::before { content: "→"; color: #7f1d1d; }
+    
+    /* Guarantee */
+    .guarantee {
+      background: #172554;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .guarantee-icon { font-size: 40px; }
+    .guarantee h4 { font-size: 18px; margin-bottom: 6px; }
+    .guarantee p { opacity: 0.85; font-size: 14px; }
+    
+    /* Signatures */
+    .sig-section { page-break-before: always; padding-top: 50px; }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      margin-top: 40px;
+    }
+    .sig-box h4 { font-size: 16px; color: #172554; margin-bottom: 24px; }
+    .sig-line { padding: 12px 0; border-bottom: 1px solid #cbd5e1; font-size: 13px; color: #64748b; }
+    
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      padding: 30px;
+      background: #f8fafc;
+      border-radius: 12px;
+    }
+    .footer .logo { justify-content: center; margin-bottom: 12px; }
+    .footer p { font-size: 13px; color: #64748b; }
+    
+    /* Print */
+    @media print {
+      .cover { page-break-after: always; }
+      .sig-section { page-break-before: always; }
+      .pricing-grid, .scope-grid, .guarantee, table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-top">
+      <div class="logo">
+        <svg viewBox="0 0 48 50" width="36" height="38">
+          <rect x="0" y="0" width="48" height="10" rx="2" fill="#ffffff"/>
+          <rect x="0" y="40" width="48" height="10" rx="2" fill="#f87171"/>
+          <rect x="19" y="10" width="10" height="30" fill="url(#g1)"/>
+          <defs><linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#f87171"/></linearGradient></defs>
+          <circle cx="24" cy="25" r="4" fill="#172554"/>
+        </svg>
+        BRAVO<span class="ai">AI</span>
+      </div>
+      <div class="cover-meta">Proposal #[XXXX]<br>[DATE]</div>
+    </div>
+    <div class="cover-main">
+      <h1>AI Operations <span>Implementation</span></h1>
+      <p>Custom AI systems built around the way your shop actually works.</p>
+      <div class="cover-client">
+        Prepared for<br>
+        <strong>[CLIENT COMPANY NAME]</strong>
+      </div>
+    </div>
+    <div class="cover-bottom">bravoai.co • Built by fabricators, for fabricators.</div>
+  </div>
+  
+  <!-- CONTENT -->
+  <div class="page">
+    
+    <!-- Challenges -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">1</div>
+        <div class="section-title">The Challenges</div>
+      </div>
+      <table>
+        <tr><th>Problem</th><th>Impact</th></tr>
+        <tr><td><strong>[CHALLENGE 1]</strong></td><td>[X] hours/week</td></tr>
+        <tr><td><strong>[CHALLENGE 2]</strong></td><td>[X] hours/week</td></tr>
+        <tr><td><strong>[CHALLENGE 3]</strong></td><td>[X] hours/week</td></tr>
+      </table>
+    </div>
+    
+    <!-- Solution -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">2</div>
+        <div class="section-title">The Solution</div>
+      </div>
+      <table>
+        <tr><th>AI Assistant</th><th>Function</th><th>Access</th></tr>
+        <tr><td><strong>[NAME]</strong></td><td>[DESCRIPTION]</td><td>Telegram / SMS</td></tr>
+        <tr><td><strong>[NAME]</strong></td><td>[DESCRIPTION]</td><td>Telegram / SMS</td></tr>
+      </table>
+    </div>
+    
+    <!-- Investment -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">3</div>
+        <div class="section-title">Investment</div>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h4>Starter</h4>
+          <div class="amount">$12,500</div>
+          <div class="details">40 hours • 3 weeks<br>2 days training<br>1 month support</div>
+        </div>
+        <div class="price-card featured">
+          <h4>Professional</h4>
+          <div class="amount">$22,000</div>
+          <div class="details">70 hours • 6 weeks<br>2.5 days training<br>1 month support</div>
+        </div>
+        <div class="price-card">
+          <h4>Enterprise</h4>
+          <div class="amount">$40,000</div>
+          <div class="details">130 hours • 10 weeks<br>5 days training<br>1 month support</div>
+        </div>
+      </div>
+      <table>
+        <tr><th>Payment</th><th>Amount</th><th>When</th></tr>
+        <tr><td>Deposit</td><td><strong>50%</strong></td><td>Upon signing (non-refundable)</td></tr>
+        <tr><td>Final</td><td><strong>50%</strong></td><td>Upon training completion</td></tr>
+      </table>
+    </div>
+    
+    <!-- Guarantee -->
+    <div class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <h4>60-Day Results Guarantee</h4>
+        <p>If you don't see measurable improvement within 60 days of go-live, we keep working at no additional charge until you do.</p>
+      </div>
+    </div>
+    
+    <!-- Scope -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-num">4</div>
+        <div class="section-title">Scope</div>
+      </div>
+      <div class="scope-grid">
+        <div class="scope-col included">
+          <h4>What We Provide</h4>
+          <ul>
+            <li>Full setup & configuration</li>
+            <li>System integrations (PowerFab, etc.)</li>
+            <li>Hands-on training</li>
+            <li>Documentation & guides</li>
+            <li>1 month post-launch support</li>
+            <li>Communication channels setup</li>
+          </ul>
+        </div>
+        <div class="scope-col excluded">
+          <h4>What You Provide</h4>
+          <ul>
+            <li>AI platform subscription ($50-300/mo)</li>
+            <li>Existing software licenses</li>
+            <li>Hardware & devices</li>
+            <li>System access & credentials</li>
+            <li>Travel expenses if on-site</li>
+            <li>Decision-maker availability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signatures -->
+    <div class="sig-section">
+      <div class="section-head">
+        <div class="section-num">5</div>
+        <div class="section-title">Agreement</div>
+      </div>
+      <p style="color: #64748b; margin-bottom: 30px;">By signing below, both parties agree to the terms outlined in this proposal.</p>
+      <div class="sig-grid">
+        <div class="sig-box">
+          <h4>[CLIENT COMPANY]</h4>
+          <div class="sig-line">Signature: _______________________</div>
+          <div class="sig-line">Name: _______________________</div>
+          <div class="sig-line">Title: _______________________</div>
+          <div class="sig-line">Date: _______________________</div>
+        </div>
+        <div class="sig-box">
+          <h4>Bravo AI</h4>
+          <div class="sig-line">Signature: _______________________</div>
+          <div class="sig-line">Name: Mario Urquidi</div>
+          <div class="sig-line">Title: Principal</div>
+          <div class="sig-line">Date: _______________________</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="logo">
+        <svg viewBox="0 0 48 50" width="28" height="30">
+          <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+          <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+          <rect x="19" y="10" width="10" height="30" fill="#475569"/>
+          <circle cx="24" cy="25" r="4" fill="#94a3b8"/>
+        </svg>
+        <span style="color:#172554; font-weight:700;">BRAVO</span><span style="color:#7f1d1d; font-weight:700;">AI</span>
+      </div>
+      <p>13351 Montana Ave • El Paso, Texas 79938</p>
+      <p>mario@bravoai.co • bravoai.co</p>
+      <p style="margin-top:12px; font-style:italic;">Built by fabricators. For fabricators.</p>
+    </div>
+    
+  </div>
+</body>
+</html>

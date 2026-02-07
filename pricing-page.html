@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bravo AI - Pricing & Packages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .logo .bravo { color: #172554; }
+    .logo .ai { color: #7f1d1d; }
+    
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      color: #64748b;
+      font-size: 16px;
+    }
+    
+    .header h1 {
+      font-size: 36px;
+      color: #172554;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    
+    .header .subtitle {
+      color: #64748b;
+      font-size: 18px;
+    }
+    
+    /* Packages Grid */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    
+    @media (max-width: 768px) {
+      .packages {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .package {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
+      border: 2px solid transparent;
+    }
+    
+    .package.featured {
+      border-color: #7f1d1d;
+      transform: scale(1.02);
+    }
+    
+    .package.featured::before {
+      content: "MOST POPULAR";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #7f1d1d, #991b1b);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .package-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #172554;
+      margin-bottom: 8px;
+    }
+    
+    .package-desc {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 20px;
+      min-height: 40px;
+    }
+    
+    .package-price {
+      font-size: 42px;
+      font-weight: 700;
+      color: #172554;
+      margin-bottom: 4px;
+    }
+    
+    .package-price span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #64748b;
+    }
+    
+    .package-hours {
+      color: #7f1d1d;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    
+    .package-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    
+    .package-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .package-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .package-features .check {
+      color: #22c55e;
+      font-weight: bold;
+    }
+    
+    .package-features .label {
+      color: #64748b;
+      font-size: 12px;
+    }
+    
+    .package-features .value {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    
+    /* Details Section */
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .section h2 {
+      font-size: 24px;
+      color: #172554;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .section h2 .icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #7f1d1d, #172554);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+    
+    /* Payment Terms */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .payment-item {
+      background: #f8fafc;
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 4px solid #7f1d1d;
+    }
+    
+    .payment-item h3 {
+      color: #172554;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    
+    .payment-item .amount {
+      font-size: 28px;
+      font-weight: 700;
+      color: #7f1d1d;
+    }
+    
+    .payment-item .note {
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    
+    /* What's Included */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    
+    @media (max-width: 600px) {
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .included-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+    }
+    
+    .included-item .icon {
+      color: #22c55e;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    
+    /* Support Plans */
+    .support-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .support-table th,
+    .support-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .support-table th {
+      background: #f8fafc;
+      color: #172554;
+      font-weight: 600;
+    }
+    
+    .support-table td:first-child {
+      font-weight: 600;
+    }
+    
+    .support-price {
+      color: #7f1d1d;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    /* Guarantee */
+    .guarantee {
+      background: linear-gradient(135deg, #172554, #1e3a5f);
+      color: white;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .guarantee h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    
+    .guarantee p {
+      font-size: 16px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .cta h2 {
+      font-size: 28px;
+      color: #172554;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #7f1d1d, #991b1b);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .cta-contact {
+      margin-top: 20px;
+      color: #64748b;
+    }
+    
+    .cta-contact a {
+      color: #7f1d1d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+      font-size: 14px;
+    }
+    
+    .footer .logo {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    
+    /* Print Styles */
+    @media print {
+      body { background: white; }
+      .container { padding: 20px; }
+      .package.featured { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-container">
+        <img src="data:image/png;base64,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" alt="Bravo AI Logo" style="height: 60px;">
+      </div>
+      <div class="tagline">AI Solutions for Construction</div>
+      
+      <h1>Implementation Packages</h1>
+      <p class="subtitle">Custom AI systems built around the way you work</p>
+    </div>
+    
+    <!-- Packages -->
+    <div class="packages">
+      
+      <!-- Starter -->
+      <div class="package">
+        <div class="package-name">Starter</div>
+        <div class="package-desc">Perfect for a single department or process</div>
+        <div class="package-price">$12,500</div>
+        <div class="package-hours">40 implementation hours</div>
+        <ul class="package-features">
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Timeline:</span> <span class="value">3 weeks</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Training:</span> <span class="value">2 days (8 hours)</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">AI Assistants:</span> <span class="value">1-2</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Integrations:</span> <span class="value">Basic</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Support:</span> <span class="value">1 month included</span></span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Professional -->
+      <div class="package featured">
+        <div class="package-name">Professional</div>
+        <div class="package-desc">For shops ready to transform multiple workflows</div>
+        <div class="package-price">$22,000</div>
+        <div class="package-hours">70 implementation hours</div>
+        <ul class="package-features">
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Timeline:</span> <span class="value">6 weeks</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Training:</span> <span class="value">2.5 days (12 hours)</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">AI Assistants:</span> <span class="value">3-5</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Integrations:</span> <span class="value">Multiple systems</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Support:</span> <span class="value">1 month included</span></span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Enterprise -->
+      <div class="package">
+        <div class="package-name">Enterprise</div>
+        <div class="package-desc">Full operation transformation with complex integrations</div>
+        <div class="package-price">$40,000</div>
+        <div class="package-hours">130 implementation hours</div>
+        <ul class="package-features">
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Timeline:</span> <span class="value">10 weeks</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Training:</span> <span class="value">5 days (20 hours)</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">AI Assistants:</span> <span class="value">Unlimited</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Integrations:</span> <span class="value">Full ecosystem</span></span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><span class="label">Support:</span> <span class="value">1 month included</span></span>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <!-- Payment Terms -->
+    <div class="section">
+      <h2><span class="icon">💳</span> Payment Terms</h2>
+      <div class="payment-grid">
+        <div class="payment-item">
+          <h3>Project Kickoff</h3>
+          <div class="amount">50%</div>
+          <div class="note">Due upon signing — secures your spot and starts the work. Non-refundable deposit.</div>
+        </div>
+        <div class="payment-item">
+          <h3>Training Complete</h3>
+          <div class="amount">50%</div>
+          <div class="note">Due upon completion of team training. System is live and operational.</div>
+        </div>
+      </div>
+      <p style="margin-top: 20px; color: #64748b; font-size: 14px;">
+        <strong>Additional work outside scope:</strong> $275/hour (via change order)
+      </p>
+    </div>
+    
+    <!-- What's Included -->
+    <div class="section">
+      <h2><span class="icon">📦</span> What's Included in Every Package</h2>
+      <div class="included-grid">
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>Full implementation & setup</strong> — we build and configure everything</span>
+        </div>
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>Custom configuration</strong> — built around your specific workflows</span>
+        </div>
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>System integrations</strong> — connect to your existing software (PowerFab, FabSuite, etc.)</span>
+        </div>
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>Hands-on training</strong> — we train your team until they're confident</span>
+        </div>
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>Documentation</strong> — quick-reference guides for your team</span>
+        </div>
+        <div class="included-item">
+          <span class="icon">✅</span>
+          <span><strong>1 month support</strong> — included free after go-live</span>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 16px; background: #fef2f2; border-radius: 8px; border-left: 4px solid #7f1d1d;">
+        <strong style="color: #7f1d1d;">Client Responsibilities:</strong>
+        <p style="margin-top: 8px; color: #64748b; font-size: 14px;">
+          • Software subscriptions (API costs, third-party tools)<br>
+          • Hardware and mobile devices<br>
+          • Existing system licenses (PowerFab, FabSuite, etc.)<br>
+          • Travel expenses for on-site visits (airfare, lodging, meals, ground transportation — billed at cost or arranged by client)
+        </p>
+      </div>
+    </div>
+    
+    <!-- Ongoing Support -->
+    <div class="section">
+      <h2><span class="icon">🔧</span> Ongoing Support Plans (After Month 1)</h2>
+      <table class="support-table">
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Monthly</th>
+            <th>What's Included</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maintenance</td>
+            <td class="support-price">$1,500</td>
+            <td>Updates, monitoring, bug fixes, 2 hrs/month consulting</td>
+          </tr>
+          <tr>
+            <td>Growth</td>
+            <td class="support-price">$3,500</td>
+            <td>Everything in Maintenance + optimization, new features, 5 hrs/month consulting</td>
+          </tr>
+          <tr>
+            <td>Managed</td>
+            <td class="support-price">$7,500</td>
+            <td>Full management, proactive improvements, unlimited support</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 16px; color: #64748b; font-size: 14px; font-style: italic;">
+        Support plans are optional — choose what fits your needs after the first month.
+      </p>
+    </div>
+    
+    <!-- Guarantee -->
+    <div class="guarantee">
+      <h2>🛡️ 60-Day Results Guarantee</h2>
+      <p>
+        If you don't see measurable improvement in your operations within 60 days of go-live, 
+        we keep working at no additional charge until you do. We're not here to sell software 
+        and disappear — we're here to make your operation run better.
+      </p>
+    </div>
+    
+    <!-- CTA -->
+    <div class="cta">
+      <h2>Ready to Talk?</h2>
+      <p>Book a free 30-minute discovery call. We'll learn about your operation and show you exactly what's possible.</p>
+      <a href="https://calendly.com/mario-bravoai/30min" class="cta-button">Schedule a Call →</a>
+      <div class="cta-contact">
+        Or email us directly: <a href="mailto:mario@bravoai.co">mario@bravoai.co</a>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="160" height="32" style="margin-bottom: 12px;">
+        <defs>
+          <linearGradient id="beamGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#172554"/>
+            <stop offset="100%" style="stop-color:#7f1d1d"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(2, 2) scale(0.7)">
+          <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+          <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+          <rect x="19" y="10" width="10" height="30" fill="url(#beamGrad2)"/>
+          <circle cx="24" cy="25" r="5" fill="#64748b"/>
+        </g>
+        <text x="45" y="28" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="24" fill="#172554">BRAVO</text>
+        <text x="125" y="28" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="24" fill="#7f1d1d">AI</text>
+      </svg>
+      <p>Built by fabricators. For fabricators.</p>
+      <p style="margin-top: 8px;">bravoai.co • mario@bravoai.co • El Paso, Texas</p>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Case Study: Del Bravo Steel Group
 
 ## When Your Shop Runs Smoother Than Your Competitors Think Is Possible
@@ -190,9 +194,14 @@ We're not going to sell you a bunch of software and wish you luck. We'll come in
 
 ---
 
-**Bravo AI**
-El Paso, Texas
-mario@bravoai.co
-[bravoai.co](https://bravoai.co)
+---
 
-*Built by fabricators. For fabricators.*
+<div align="center">
+  <img src="../../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

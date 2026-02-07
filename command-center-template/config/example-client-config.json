@@ -1,0 +1,133 @@
+{
+  "company": {
+    "name": "ABC Steel Fabricators",
+    "shortName": "ABC Steel",
+    "logo": "https://portal.bravoai.co/clients/abc-steel/logo.png",
+    "timezone": "America/Chicago"
+  },
+  
+  "terminology": {
+    "piece": "Mark",
+    "job": "Project",
+    "shipment": "Load",
+    "purchaseOrder": "PO"
+  },
+  
+  "storage": {
+    "receipts": {
+      "folder": "Receipts",
+      "structure": "{year}/{month}/{vendor}",
+      "naming": "{date}_{vendor}_{amount}"
+    },
+    "bols": {
+      "folder": "Shipping/BOLs",
+      "structure": "{job}/{load}"
+    },
+    "mtrs": {
+      "folder": "QC/MTRs",
+      "structure": "{heat}"
+    },
+    "drawings": {
+      "folder": "Drawings",
+      "structure": "{job}/{revision}"
+    }
+  },
+  
+  "costCodes": [
+    { "code": "101", "name": "Raw Material - Beams", "category": "Material" },
+    { "code": "102", "name": "Raw Material - Plate", "category": "Material" },
+    { "code": "103", "name": "Raw Material - HSS", "category": "Material" },
+    { "code": "104", "name": "Raw Material - Angles", "category": "Material" },
+    { "code": "105", "name": "Raw Material - Channel", "category": "Material" },
+    { "code": "110", "name": "Hardware & Bolts", "category": "Material" },
+    { "code": "201", "name": "Fabrication Labor", "category": "Labor" },
+    { "code": "202", "name": "Welding Labor", "category": "Labor" },
+    { "code": "203", "name": "Paint Labor", "category": "Labor" },
+    { "code": "204", "name": "QC Labor", "category": "Labor" },
+    { "code": "301", "name": "Paint & Coating Materials", "category": "Material" },
+    { "code": "401", "name": "Freight - Inbound", "category": "Other" },
+    { "code": "402", "name": "Freight - Outbound", "category": "Other" },
+    { "code": "501", "name": "Detailing", "category": "Subcontract" },
+    { "code": "502", "name": "Galvanizing", "category": "Subcontract" }
+  ],
+  
+  "alerts": {
+    "dailySummary": {
+      "enabled": true,
+      "time": "06:00",
+      "recipients": ["+15551234567", "+15559876543"]
+    },
+    "materialReceived": {
+      "enabled": true,
+      "recipients": ["+15551234567"]
+    },
+    "qcPassed": {
+      "enabled": false,
+      "recipients": []
+    },
+    "qcFailed": {
+      "enabled": true,
+      "recipients": ["+15551234567", "+15559876543"]
+    },
+    "shipmentLoaded": {
+      "enabled": true,
+      "recipients": ["+15551234567"]
+    }
+  },
+  
+  "users": [
+    {
+      "name": "John Smith",
+      "phone": "+15551234567",
+      "email": "john@abcsteel.com",
+      "role": "admin",
+      "departments": ["purchasing", "production", "shipping", "qc", "estimating"]
+    },
+    {
+      "name": "Mike Johnson",
+      "phone": "+15559876543",
+      "email": "mike@abcsteel.com",
+      "role": "manager",
+      "departments": ["production", "shipping"]
+    },
+    {
+      "name": "Carlos Rodriguez",
+      "phone": "+15555551234",
+      "role": "shop",
+      "departments": ["production"]
+    },
+    {
+      "name": "Sarah Davis",
+      "phone": "+15555555678",
+      "email": "sarah@abcsteel.com",
+      "role": "office",
+      "departments": ["purchasing", "estimating"]
+    }
+  ],
+  
+  "integrations": {
+    "powerfab": {
+      "enabled": true,
+      "url": "https://abc-steel.powerfab.com/api",
+      "apiKey": "pk_live_xxxxxxxxxxxx"
+    },
+    "fabsuite": {
+      "enabled": false
+    },
+    "procore": {
+      "enabled": false
+    },
+    "email": {
+      "enabled": true,
+      "provider": "outlook",
+      "address": "shop@abcsteel.com"
+    }
+  },
+  
+  "workflows": {
+    "requirePoForMaterial": true,
+    "requireMtrForReceiving": true,
+    "requireQcBeforePaint": true,
+    "autoGenerateBol": true
+  }
+}

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: #ffffff;
+      color: #374151;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .page { padding: 60px 80px; max-width: 900px; margin: 0 auto; }
+    
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 80px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo .bravo { color: #111827; }
+    .logo .ai { color: #dc2626; }
+    .meta {
+      text-align: right;
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .meta .number {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9ca3af;
+    }
+    
+    /* Title Block */
+    .title-block {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .title-block h1 {
+      font-size: 36px;
+      font-weight: 300;
+      color: #111827;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .title-block .client {
+      font-size: 18px;
+      color: #dc2626;
+      font-weight: 500;
+    }
+    
+    /* Section */
+    .section {
+      margin-bottom: 50px;
+    }
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+    .section p {
+      color: #6b7280;
+    }
+    
+    /* Two Column */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    
+    /* Packages */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 30px 0;
+    }
+    .package {
+      padding: 32px 24px;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .package.featured {
+      border-color: #dc2626;
+      border-width: 2px;
+    }
+    .package-name {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+    .package-price {
+      font-size: 36px;
+      font-weight: 300;
+      color: #111827;
+    }
+    .package-price span {
+      font-size: 14px;
+      color: #9ca3af;
+    }
+    .package-detail {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 2;
+    }
+    
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9ca3af;
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    td {
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+      color: #374151;
+    }
+    
+    /* List */
+    .simple-list {
+      list-style: none;
+    }
+    .simple-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .simple-list li:last-child { border-bottom: none; }
+    .check { color: #10b981; font-size: 18px; }
+    .bullet { color: #d1d5db; }
+    
+    /* Quote Box */
+    .quote-box {
+      background: #fafafa;
+      padding: 40px;
+      border-left: 3px solid #dc2626;
+      margin: 40px 0;
+    }
+    .quote-box h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+    .quote-box p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+    
+    /* Signatures */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .sig-block h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 24px;
+    }
+    .sig-line {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 0;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+    .footer .logo {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <span class="bravo">bravo</span><span class="ai">ai</span>
+      </div>
+      <div class="meta">
+        <div class="number">Proposal</div>
+        <div>#[XXXX] • [DATE]</div>
+      </div>
+    </div>
+    
+    <!-- Title -->
+    <div class="title-block">
+      <h1>AI Operations Proposal</h1>
+      <div class="client">Prepared for [CLIENT COMPANY]</div>
+    </div>
+    
+    <!-- Overview -->
+    <div class="section">
+      <div class="section-label">Overview</div>
+      <h2>The Opportunity</h2>
+      <p>We'll build a custom AI system around the way your shop actually operates — reducing time spent on repetitive questions, automating documentation, and giving your team instant access to the information they need.</p>
+    </div>
+    
+    <!-- Challenges -->
+    <div class="section">
+      <div class="section-label">Discovery</div>
+      <h2>What We Heard</h2>
+      <div class="two-col">
+        <div>
+          <table>
+            <tr>
+              <th>Challenge</th>
+              <th>Impact</th>
+            </tr>
+            <tr>
+              <td>[CHALLENGE 1]</td>
+              <td>[HOURS/WEEK]</td>
+            </tr>
+            <tr>
+              <td>[CHALLENGE 2]</td>
+              <td>[HOURS/WEEK]</td>
+            </tr>
+            <tr>
+              <td>[CHALLENGE 3]</td>
+              <td>[HOURS/WEEK]</td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <p style="color: #6b7280;">These inefficiencies compound daily. Small interruptions add up to significant lost productivity across your operation.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Solution -->
+    <div class="section">
+      <div class="section-label">Solution</div>
+      <h2>What We'll Build</h2>
+      <table>
+        <tr>
+          <th>Component</th>
+          <th>Function</th>
+          <th>Access</th>
+        </tr>
+        <tr>
+          <td>[AI ASSISTANT NAME]</td>
+          <td>[DESCRIPTION]</td>
+          <td>Telegram / SMS</td>
+        </tr>
+        <tr>
+          <td>[AI ASSISTANT NAME]</td>
+          <td>[DESCRIPTION]</td>
+          <td>Telegram / SMS</td>
+        </tr>
+        <tr>
+          <td>[INTEGRATION]</td>
+          <td>[DESCRIPTION]</td>
+          <td>Automated</td>
+        </tr>
+      </table>
+    </div>
+    
+    <!-- Packages -->
+    <div class="section">
+      <div class="section-label">Investment</div>
+      <h2>Select Your Package</h2>
+      
+      <div class="packages">
+        <div class="package">
+          <div class="package-name">Starter</div>
+          <div class="package-price">$12,500</div>
+          <div class="package-detail">
+            40 hours<br>
+            3 weeks<br>
+            2 days training<br>
+            1 month support
+          </div>
+        </div>
+        <div class="package featured">
+          <div class="package-name">Professional</div>
+          <div class="package-price">$22,000</div>
+          <div class="package-detail">
+            70 hours<br>
+            6 weeks<br>
+            2.5 days training<br>
+            1 month support
+          </div>
+        </div>
+        <div class="package">
+          <div class="package-name">Enterprise</div>
+          <div class="package-price">$40,000</div>
+          <div class="package-detail">
+            130 hours<br>
+            10 weeks<br>
+            5 days training<br>
+            1 month support
+          </div>
+        </div>
+      </div>
+      
+      <div class="two-col" style="margin-top: 40px;">
+        <div>
+          <table>
+            <tr><th>Payment Schedule</th><th></th></tr>
+            <tr><td>Upon signing</td><td>50% (non-refundable)</td></tr>
+            <tr><td>Training complete</td><td>50%</td></tr>
+          </table>
+        </div>
+        <div>
+          <p style="color: #6b7280; font-size: 14px;">Additional work outside scope billed at $275/hour via change order.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Guarantee -->
+    <div class="quote-box">
+      <h3>60-Day Results Guarantee</h3>
+      <p>If you don't see measurable improvement in your operations within 60 days of go-live, we continue working at no additional charge until you do.</p>
+    </div>
+    
+    <!-- Included -->
+    <div class="section">
+      <div class="section-label">Scope</div>
+      <h2>What's Included</h2>
+      
+      <div class="two-col">
+        <div>
+          <h4 style="font-size: 13px; color: #111827; margin-bottom: 16px;">We Provide</h4>
+          <ul class="simple-list">
+            <li><span class="check">✓</span> Full setup & configuration</li>
+            <li><span class="check">✓</span> System integrations</li>
+            <li><span class="check">✓</span> Hands-on training</li>
+            <li><span class="check">✓</span> Documentation</li>
+            <li><span class="check">✓</span> 1 month support</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size: 13px; color: #111827; margin-bottom: 16px;">Client Provides</h4>
+          <ul class="simple-list">
+            <li><span class="bullet">○</span> Software subscriptions</li>
+            <li><span class="bullet">○</span> API costs</li>
+            <li><span class="bullet">○</span> Hardware / devices</li>
+            <li><span class="bullet">○</span> Travel expenses (if any)</li>
+            <li><span class="bullet">○</span> Existing licenses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signatures -->
+    <div class="sig-grid">
+      <div class="sig-block">
+        <h4>[CLIENT COMPANY]</h4>
+        <div class="sig-line">Signature ___________________</div>
+        <div class="sig-line">Name ___________________</div>
+        <div class="sig-line">Title ___________________</div>
+        <div class="sig-line">Date ___________________</div>
+      </div>
+      <div class="sig-block">
+        <h4>Bravo AI</h4>
+        <div class="sig-line">Signature ___________________</div>
+        <div class="sig-line">Mario Urquidi</div>
+        <div class="sig-line">Principal</div>
+        <div class="sig-line">Date ___________________</div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="logo">
+        <span class="bravo">bravo</span><span class="ai">ai</span>
+      </div>
+      <p>13351 Montana Ave • El Paso, Texas 79938</p>
+      <p>mario@bravoai.co • bravoai.co</p>
+      <p style="margin-top: 12px; font-style: italic;">Built by fabricators. For fabricators.</p>
+    </div>
+    
+  </div>
+</body>
+</html>

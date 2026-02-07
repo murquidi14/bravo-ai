@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Client Onboarding Checklist
 
 ## Bravo AI — New Client Kickoff
@@ -201,3 +205,15 @@ _________________________________
 ---
 
 *Template version: 1.0 — February 2026*
+
+---
+
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

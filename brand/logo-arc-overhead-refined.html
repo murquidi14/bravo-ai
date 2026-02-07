@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bravo AI - Arc Overhead Refined</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Space Grotesk', sans-serif; 
+      background: #0f172a; 
+      padding: 40px;
+      color: white;
+    }
+    h1 { text-align: center; margin-bottom: 50px; font-size: 28px; }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .concept {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    
+    .concept.light {
+      background: #ffffff;
+    }
+    
+    .concept-label {
+      font-size: 11px;
+      color: #f87171;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+    
+    .concept.light .concept-label {
+      color: #7f1d1d;
+    }
+    
+    .logo-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .logo-text {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #ffffff;
+    }
+    
+    .concept.light .logo-text {
+      color: #172554;
+    }
+    
+    .logo-text .ai { color: #f87171; }
+    .concept.light .logo-text .ai { color: #dc2626; }
+    
+    .tagline {
+      font-size: 9px;
+      color: #64748b;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 20px;
+    }
+    
+    @keyframes arcPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Arc Overhead — Refined Variations</h1>
+  
+  <div class="grid">
+    
+    <!-- VERSION A: Subtle Arc -->
+    <div class="concept">
+      <div class="concept-label">A — Subtle Arc</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 35" width="220" height="40">
+          <path d="M20 32 Q100 5, 180 32" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="100" cy="12" r="3" fill="#f87171"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- VERSION B: Bold Arc -->
+    <div class="concept">
+      <div class="concept-label">B — Bold Arc</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 40" width="220" height="45">
+          <path d="M15 38 Q100 0, 185 38" fill="none" stroke="url(#grad1)" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="100" cy="12" r="5" fill="#f87171"/>
+          <circle cx="100" cy="12" r="3" fill="#ffffff"/>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#64748b"/>
+              <stop offset="50%" stop-color="#f87171"/>
+              <stop offset="100%" stop-color="#64748b"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- VERSION C: Arc with Sparks -->
+    <div class="concept">
+      <div class="concept-label">C — Arc + Sparks</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 45" width="220" height="50">
+          <path d="M20 42 Q100 8, 180 42" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="18" r="4" fill="#ffffff"/>
+          <!-- Sparks -->
+          <circle cx="60" cy="28" r="2" fill="#f87171" opacity="0.7"/>
+          <circle cx="140" cy="28" r="2" fill="#f87171" opacity="0.7"/>
+          <circle cx="80" cy="20" r="1.5" fill="#ffffff" opacity="0.8"/>
+          <circle cx="120" cy="20" r="1.5" fill="#ffffff" opacity="0.8"/>
+          <circle cx="100" cy="8" r="1.5" fill="#f87171"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- VERSION D: Double Arc -->
+    <div class="concept">
+      <div class="concept-label">D — Double Arc</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 40" width="220" height="45">
+          <path d="M25 38 Q100 10, 175 38" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M35 36 Q100 14, 165 36" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="100" cy="16" r="3" fill="#ffffff"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- VERSION E: Arc Underline Combo -->
+    <div class="concept">
+      <div class="concept-label">E — Arc + Underline</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 30" width="220" height="35">
+          <path d="M30 28 Q100 5, 170 28" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="100" cy="10" r="3" fill="#ffffff"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+        <svg viewBox="0 0 200 8" width="200" height="8" style="margin-top: 8px;">
+          <rect x="10" y="2" width="180" height="3" rx="1.5" fill="#64748b"/>
+        </svg>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- VERSION F: Minimal Arc -->
+    <div class="concept">
+      <div class="concept-label">F — Minimal</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 25" width="200" height="28">
+          <path d="M50 24 Q100 8, 150 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <!-- LIGHT BACKGROUND VERSIONS -->
+    <div class="concept light">
+      <div class="concept-label">Light Background — Bold</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 40" width="220" height="45">
+          <path d="M15 38 Q100 0, 185 38" fill="none" stroke="url(#grad2)" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="100" cy="12" r="5" fill="#dc2626"/>
+          <circle cx="100" cy="12" r="3" fill="#ffffff"/>
+          <defs>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#94a3b8"/>
+              <stop offset="50%" stop-color="#dc2626"/>
+              <stop offset="100%" stop-color="#94a3b8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+    <div class="concept light">
+      <div class="concept-label">Light Background — Subtle</div>
+      <div class="logo-area">
+        <svg viewBox="0 0 200 30" width="200" height="32">
+          <path d="M40 28 Q100 6, 160 28" fill="none" stroke="#7f1d1d" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="100" cy="12" r="2.5" fill="#7f1d1d"/>
+        </svg>
+        <span class="logo-text">BRAVO<span class="ai">AI</span></span>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

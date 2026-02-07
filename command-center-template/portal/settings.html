@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Bravo AI Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(90deg, #172554, #1e3a5f);
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    
+    .logo .ai { color: #f87171; }
+    
+    .user-info {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    
+    /* Nav */
+    .nav {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 32px;
+      display: flex;
+      gap: 8px;
+    }
+    
+    .nav a {
+      padding: 16px 20px;
+      text-decoration: none;
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .nav a:hover { color: #172554; }
+    .nav a.active { 
+      color: #172554; 
+      border-color: #f87171;
+    }
+    
+    /* Main */
+    .main {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 0 32px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    .subtitle {
+      color: #64748b;
+      margin-bottom: 32px;
+    }
+    
+    /* Sections */
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #172554;
+    }
+    
+    .section-desc {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: #f87171;
+      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.1);
+    }
+    
+    /* Toggle Switch */
+    .toggle-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .toggle-group:last-child { border: none; }
+    
+    .toggle-label {
+      font-size: 14px;
+    }
+    
+    .toggle-desc {
+      font-size: 12px;
+      color: #64748b;
+    }
+    
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+    
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #d1d5db;
+      border-radius: 24px;
+      transition: 0.3s;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    
+    .toggle input:checked + .toggle-slider {
+      background: #22c55e;
+    }
+    
+    .toggle input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+    
+    /* Table for Cost Codes */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .data-table th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .data-table td {
+      padding: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+    }
+    
+    .data-table tr:hover {
+      background: #f8fafc;
+    }
+    
+    .data-table input {
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+    
+    /* Buttons */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: #172554;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #1e3a5f;
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #64748b;
+      border: 1px solid #d1d5db;
+    }
+    
+    .btn-secondary:hover {
+      background: #f8fafc;
+    }
+    
+    .btn-danger {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    
+    .btn-danger:hover {
+      background: #fee2e2;
+    }
+    
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+    
+    .btn-add {
+      background: #f0fdf4;
+      color: #16a34a;
+      border: 1px dashed #86efac;
+      width: 100%;
+      margin-top: 12px;
+    }
+    
+    .btn-add:hover {
+      background: #dcfce7;
+    }
+    
+    /* Actions Bar */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 24px 0;
+    }
+    
+    /* Badge */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    
+    .badge-green { background: #dcfce7; color: #16a34a; }
+    .badge-gray { background: #f1f5f9; color: #64748b; }
+    
+    /* Status */
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    
+    .status-dot.connected { background: #22c55e; }
+    .status-dot.disconnected { background: #d1d5db; }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">BRAVO<span class="ai">AI</span></div>
+    <div class="user-info">ABC Steel Fabricators · Admin</div>
+  </div>
+  
+  <!-- Nav -->
+  <div class="nav">
+    <a href="#">Dashboard</a>
+    <a href="#">Jobs</a>
+    <a href="#">Material</a>
+    <a href="#">Shipping</a>
+    <a href="#">Reports</a>
+    <a href="#" class="active">Settings</a>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main">
+    
+    <h1>Settings</h1>
+    <p class="subtitle">Customize your Bravo AI installation</p>
+    
+    <!-- Company Info -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Company Information</div>
+          <div class="section-desc">Basic company details</div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" value="ABC Steel Fabricators">
+        </div>
+        <div class="form-group">
+          <label>Short Name</label>
+          <input type="text" value="ABC Steel">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Timezone</label>
+          <select>
+            <option>America/New_York (Eastern)</option>
+            <option selected>America/Chicago (Central)</option>
+            <option>America/Denver (Mountain)</option>
+            <option>America/Los_Angeles (Pacific)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Logo</label>
+          <input type="text" value="https://portal.bravoai.co/clients/abc-steel/logo.png" placeholder="Logo URL">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Terminology -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Terminology</div>
+          <div class="section-desc">What do you call things at your shop?</div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Individual Steel Piece</label>
+          <select>
+            <option selected>Mark</option>
+            <option>Piece</option>
+            <option>Member</option>
+            <option>Item</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project / Job</label>
+          <select>
+            <option>Job</option>
+            <option selected>Project</option>
+            <option>Contract</option>
+            <option>Order</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Shipment / Load</label>
+          <select>
+            <option selected>Load</option>
+            <option>Shipment</option>
+            <option>Truck</option>
+            <option>Delivery</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Purchase Order</label>
+          <select>
+            <option selected>PO</option>
+            <option>Purchase Order</option>
+            <option>Order</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <!-- File Storage -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">File Storage</div>
+          <div class="section-desc">How files are organized in your system</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Receipts Folder Structure</label>
+        <div class="form-row">
+          <input type="text" value="Receipts" placeholder="Root folder">
+          <select>
+            <option selected>{year}/{month}/{vendor}</option>
+            <option>{vendor}/{year}/{month}</option>
+            <option>{year}/{vendor}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>BOL Folder Structure</label>
+        <div class="form-row">
+          <input type="text" value="Shipping/BOLs" placeholder="Root folder">
+          <select>
+            <option selected>{job}/{load}</option>
+            <option>{job}/{date}</option>
+            <option>{year}/{job}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>MTR Folder Structure</label>
+        <div class="form-row">
+          <input type="text" value="QC/MTRs" placeholder="Root folder">
+          <select>
+            <option selected>{heat}</option>
+            <option>{vendor}/{heat}</option>
+            <option>{year}/{heat}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cost Codes -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Cost Codes</div>
+          <div class="section-desc">Your cost code structure</div>
+        </div>
+      </div>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" value="101" style="width: 60px;"></td>
+            <td><input type="text" value="Raw Material - Beams"></td>
+            <td>
+              <select style="width: 120px;">
+                <option selected>Material</option>
+                <option>Labor</option>
+                <option>Subcontract</option>
+                <option>Other</option>
+              </select>
+            </td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="102" style="width: 60px;"></td>
+            <td><input type="text" value="Raw Material - Plate"></td>
+            <td>
+              <select style="width: 120px;">
+                <option selected>Material</option>
+                <option>Labor</option>
+                <option>Subcontract</option>
+                <option>Other</option>
+              </select>
+            </td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="201" style="width: 60px;"></td>
+            <td><input type="text" value="Fabrication Labor"></td>
+            <td>
+              <select style="width: 120px;">
+                <option>Material</option>
+                <option selected>Labor</option>
+                <option>Subcontract</option>
+                <option>Other</option>
+              </select>
+            </td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+          </tr>
+          <tr>
+            <td><input type="text" value="401" style="width: 60px;"></td>
+            <td><input type="text" value="Freight - Inbound"></td>
+            <td>
+              <select style="width: 120px;">
+                <option>Material</option>
+                <option>Labor</option>
+                <option>Subcontract</option>
+                <option selected>Other</option>
+              </select>
+            </td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-add">+ Add Cost Code</button>
+    </div>
+    
+    <!-- Alerts -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Alert Preferences</div>
+          <div class="section-desc">Control when and how you're notified</div>
+        </div>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Daily Summary</div>
+          <div class="toggle-desc">Receive a summary of the day's activity every morning</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Material Received</div>
+          <div class="toggle-desc">Alert when new material is logged into inventory</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">QC Passed</div>
+          <div class="toggle-desc">Alert for every QC pass (can be noisy)</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">QC Failed</div>
+          <div class="toggle-desc">Alert when a piece fails QC inspection</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Shipment Loaded</div>
+          <div class="toggle-desc">Alert when a truck is loaded and BOL generated</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Workflows -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Workflow Rules</div>
+          <div class="section-desc">Business rules and requirements</div>
+        </div>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Require PO for Material</div>
+          <div class="toggle-desc">Material must be linked to a PO when received</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Require MTR for Receiving</div>
+          <div class="toggle-desc">MTR must be uploaded when receiving material</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Require QC Before Paint</div>
+          <div class="toggle-desc">Pieces must pass QC before moving to paint</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">Auto-Generate BOL</div>
+          <div class="toggle-desc">Automatically create BOL when loading truck</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Integrations -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Integrations</div>
+          <div class="section-desc">Connect to your other systems</div>
+        </div>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">
+            <span class="status-dot connected"></span>
+            PowerFab
+            <span class="badge badge-green">Connected</span>
+          </div>
+          <div class="toggle-desc">abc-steel.powerfab.com</div>
+        </div>
+        <button class="btn btn-secondary btn-sm">Configure</button>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">
+            <span class="status-dot disconnected"></span>
+            FabSuite
+            <span class="badge badge-gray">Not Connected</span>
+          </div>
+          <div class="toggle-desc">Connect your FabSuite instance</div>
+        </div>
+        <button class="btn btn-secondary btn-sm">Connect</button>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">
+            <span class="status-dot disconnected"></span>
+            Procore
+            <span class="badge badge-gray">Not Connected</span>
+          </div>
+          <div class="toggle-desc">Connect your Procore account</div>
+        </div>
+        <button class="btn btn-secondary btn-sm">Connect</button>
+      </div>
+      
+      <div class="toggle-group">
+        <div>
+          <div class="toggle-label">
+            <span class="status-dot connected"></span>
+            Email
+            <span class="badge badge-green">Connected</span>
+          </div>
+          <div class="toggle-desc">shop@abcsteel.com (Outlook)</div>
+        </div>
+        <button class="btn btn-secondary btn-sm">Configure</button>
+      </div>
+    </div>
+    
+    <!-- Save Actions -->
+    <div class="actions">
+      <button class="btn btn-secondary">Cancel</button>
+      <button class="btn btn-primary">Save Changes</button>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

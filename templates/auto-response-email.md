@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Bravo AI - Auto Response Email
 
 **Subject:** Thanks for Reaching Out – Let's Talk AI 🤖
@@ -30,4 +34,14 @@ Founder, Bravo AI
 
 ---
 
-*Bravo AI – Custom AI solutions for businesses that build.*
+---
+
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

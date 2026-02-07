@@ -1,0 +1,367 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bravo AI Client Configuration",
+  "description": "Customizable settings for each client installation",
+  "type": "object",
+  "properties": {
+    "company": {
+      "type": "object",
+      "title": "Company Information",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Company Name",
+          "description": "Your company name as it appears in reports and messages"
+        },
+        "shortName": {
+          "type": "string",
+          "title": "Short Name",
+          "description": "Abbreviated name for space-constrained displays"
+        },
+        "logo": {
+          "type": "string",
+          "title": "Logo URL",
+          "description": "URL or path to company logo"
+        },
+        "timezone": {
+          "type": "string",
+          "title": "Timezone",
+          "default": "America/Chicago",
+          "enum": [
+            "America/New_York",
+            "America/Chicago",
+            "America/Denver",
+            "America/Los_Angeles",
+            "America/Phoenix"
+          ]
+        }
+      },
+      "required": ["name"]
+    },
+    
+    "terminology": {
+      "type": "object",
+      "title": "Terminology",
+      "description": "What do you call things at your shop?",
+      "properties": {
+        "piece": {
+          "type": "string",
+          "title": "Individual Steel Piece",
+          "default": "Mark",
+          "enum": ["Mark", "Piece", "Member", "Item"]
+        },
+        "job": {
+          "type": "string",
+          "title": "Project/Job",
+          "default": "Job",
+          "enum": ["Job", "Project", "Contract", "Order"]
+        },
+        "shipment": {
+          "type": "string",
+          "title": "Shipment/Load",
+          "default": "Load",
+          "enum": ["Load", "Shipment", "Truck", "Delivery"]
+        },
+        "purchaseOrder": {
+          "type": "string",
+          "title": "Purchase Order",
+          "default": "PO",
+          "enum": ["PO", "Purchase Order", "Order"]
+        }
+      }
+    },
+    
+    "storage": {
+      "type": "object",
+      "title": "File Storage",
+      "description": "How files are organized",
+      "properties": {
+        "receipts": {
+          "type": "object",
+          "title": "Receipts",
+          "properties": {
+            "folder": {
+              "type": "string",
+              "title": "Root Folder",
+              "default": "Receipts"
+            },
+            "structure": {
+              "type": "string",
+              "title": "Folder Structure",
+              "default": "{year}/{month}/{vendor}",
+              "enum": [
+                "{year}/{month}/{vendor}",
+                "{vendor}/{year}/{month}",
+                "{year}/{vendor}",
+                "{vendor}/{year}",
+                "{year}/{month}"
+              ]
+            },
+            "naming": {
+              "type": "string",
+              "title": "File Naming",
+              "default": "{date}_{vendor}_{amount}",
+              "enum": [
+                "{date}_{vendor}_{amount}",
+                "{vendor}_{date}_{amount}",
+                "{date}_{description}",
+                "{vendor}_{description}_{date}"
+              ]
+            }
+          }
+        },
+        "bols": {
+          "type": "object",
+          "title": "Bills of Lading",
+          "properties": {
+            "folder": {
+              "type": "string",
+              "title": "Root Folder",
+              "default": "Shipping/BOLs"
+            },
+            "structure": {
+              "type": "string",
+              "title": "Folder Structure",
+              "default": "{job}/{load}",
+              "enum": [
+                "{job}/{load}",
+                "{job}/{date}",
+                "{year}/{job}",
+                "{customer}/{job}"
+              ]
+            }
+          }
+        },
+        "mtrs": {
+          "type": "object",
+          "title": "Mill Test Reports",
+          "properties": {
+            "folder": {
+              "type": "string",
+              "title": "Root Folder",
+              "default": "QC/MTRs"
+            },
+            "structure": {
+              "type": "string",
+              "title": "Folder Structure",
+              "default": "{heat}",
+              "enum": [
+                "{heat}",
+                "{vendor}/{heat}",
+                "{year}/{heat}",
+                "{job}/{heat}"
+              ]
+            }
+          }
+        },
+        "drawings": {
+          "type": "object",
+          "title": "Drawings & Submittals",
+          "properties": {
+            "folder": {
+              "type": "string",
+              "title": "Root Folder",
+              "default": "Drawings"
+            },
+            "structure": {
+              "type": "string",
+              "title": "Folder Structure",
+              "default": "{job}/{revision}",
+              "enum": [
+                "{job}/{revision}",
+                "{job}/{type}",
+                "{customer}/{job}"
+              ]
+            }
+          }
+        }
+      }
+    },
+    
+    "costCodes": {
+      "type": "array",
+      "title": "Cost Codes",
+      "description": "Your cost code structure",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Description"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category",
+            "enum": ["Material", "Labor", "Equipment", "Subcontract", "Overhead", "Other"]
+          }
+        },
+        "required": ["code", "name"]
+      }
+    },
+    
+    "alerts": {
+      "type": "object",
+      "title": "Alert Preferences",
+      "properties": {
+        "dailySummary": {
+          "type": "object",
+          "title": "Daily Summary",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enable Daily Summary",
+              "default": true
+            },
+            "time": {
+              "type": "string",
+              "title": "Send Time",
+              "default": "06:00",
+              "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            "recipients": {
+              "type": "array",
+              "title": "Recipients",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "materialReceived": {
+          "type": "object",
+          "title": "Material Received",
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "recipients": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "qcPassed": {
+          "type": "object",
+          "title": "QC Passed",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "recipients": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "qcFailed": {
+          "type": "object",
+          "title": "QC Failed",
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "recipients": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "shipmentLoaded": {
+          "type": "object",
+          "title": "Shipment Loaded",
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "recipients": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    
+    "users": {
+      "type": "array",
+      "title": "Users",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "title": "Name" },
+          "phone": { "type": "string", "title": "Phone Number" },
+          "email": { "type": "string", "title": "Email" },
+          "role": {
+            "type": "string",
+            "title": "Role",
+            "enum": ["admin", "manager", "shop", "field", "office", "readonly"]
+          },
+          "departments": {
+            "type": "array",
+            "title": "Departments",
+            "items": {
+              "type": "string",
+              "enum": ["purchasing", "production", "shipping", "qc", "estimating", "field"]
+            }
+          }
+        },
+        "required": ["name", "phone", "role"]
+      }
+    },
+    
+    "integrations": {
+      "type": "object",
+      "title": "Integrations",
+      "properties": {
+        "powerfab": {
+          "type": "object",
+          "title": "PowerFab",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "url": { "type": "string", "title": "API URL" },
+            "apiKey": { "type": "string", "title": "API Key", "format": "password" }
+          }
+        },
+        "fabsuite": {
+          "type": "object",
+          "title": "FabSuite",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "connectionString": { "type": "string", "title": "Connection String", "format": "password" }
+          }
+        },
+        "procore": {
+          "type": "object",
+          "title": "Procore",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "clientId": { "type": "string" },
+            "clientSecret": { "type": "string", "format": "password" }
+          }
+        },
+        "email": {
+          "type": "object",
+          "title": "Email",
+          "properties": {
+            "enabled": { "type": "boolean", "default": false },
+            "provider": { "type": "string", "enum": ["gmail", "outlook", "smtp"] },
+            "address": { "type": "string", "format": "email" }
+          }
+        }
+      }
+    },
+    
+    "workflows": {
+      "type": "object",
+      "title": "Workflow Settings",
+      "properties": {
+        "requirePoForMaterial": {
+          "type": "boolean",
+          "title": "Require PO for Material",
+          "description": "Material must be linked to a PO when received",
+          "default": true
+        },
+        "requireMtrForReceiving": {
+          "type": "boolean",
+          "title": "Require MTR for Receiving",
+          "description": "MTR must be uploaded when receiving material",
+          "default": true
+        },
+        "requireQcBeforePaint": {
+          "type": "boolean",
+          "title": "Require QC Before Paint",
+          "description": "Pieces must pass QC before moving to paint",
+          "default": true
+        },
+        "autoGenerateBol": {
+          "type": "boolean",
+          "title": "Auto-Generate BOL",
+          "description": "Automatically create BOL when loading truck",
+          "default": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bravo AI - Cover Options Round 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Space Grotesk', sans-serif; background: #f1f5f9; padding: 40px; }
+    h1 { text-align: center; margin-bottom: 12px; color: #172554; }
+    .subtitle { text-align: center; margin-bottom: 40px; color: #64748b; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
+    .option { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .option-label { padding: 16px 24px; background: #172554; color: white; font-weight: 600; font-size: 14px; }
+    .cover-preview { aspect-ratio: 8.5/11; position: relative; }
+    
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 24px; letter-spacing: -0.5px; }
+    .logo .ai { color: #dc2626; }
+    .ibeam { width: 28px; height: 30px; }
+    
+    /* ========== G: Left Rail ========== */
+    .cover-g {
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      height: 100%;
+    }
+    .cover-g .rail {
+      background: linear-gradient(180deg, #172554 0%, #7f1d1d 100%);
+    }
+    .cover-g .main {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      background: white;
+    }
+    .cover-g .logo { color: #172554; }
+    .cover-g .content { margin-top: auto; }
+    .cover-g .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #7f1d1d; margin-bottom: 16px; font-weight: 600; }
+    .cover-g .title { font-size: 30px; font-weight: 700; color: #172554; line-height: 1.2; margin-bottom: 12px; }
+    .cover-g .subtitle-text { font-size: 14px; color: #64748b; margin-bottom: 40px; }
+    .cover-g .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 12px; color: #94a3b8; }
+    .cover-g .meta strong { display: block; color: #172554; font-size: 14px; margin-top: 4px; font-weight: 600; }
+    
+    /* ========== H: Top Band ========== */
+    .cover-h {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+    }
+    .cover-h .band {
+      height: 140px;
+      background: linear-gradient(135deg, #172554 0%, #1e3a5f 100%);
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cover-h .band .logo { color: white; }
+    .cover-h .band .logo .ai { color: #f87171; }
+    .cover-h .band .doc-type { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 2px; }
+    .cover-h .body {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-h .title { font-size: 32px; font-weight: 700; color: #172554; line-height: 1.2; margin-bottom: 12px; }
+    .cover-h .subtitle-text { font-size: 15px; color: #64748b; margin-bottom: auto; }
+    .cover-h .client-box {
+      background: #f8fafc;
+      padding: 24px;
+      border-radius: 8px;
+      border-left: 4px solid #7f1d1d;
+    }
+    .cover-h .client-box .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; }
+    .cover-h .client-box .name { font-size: 18px; font-weight: 600; color: #172554; margin-bottom: 4px; }
+    .cover-h .client-box .date { font-size: 13px; color: #64748b; }
+    
+    /* ========== I: Centered Elegant ========== */
+    .cover-i {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px;
+      height: 100%;
+    }
+    .cover-i .logo { color: #172554; margin-bottom: 60px; }
+    .cover-i .line { width: 60px; height: 2px; background: #7f1d1d; margin-bottom: 30px; }
+    .cover-i .title { font-size: 28px; font-weight: 700; color: #172554; margin-bottom: 10px; }
+    .cover-i .subtitle-text { font-size: 14px; color: #64748b; margin-bottom: 60px; }
+    .cover-i .meta { font-size: 13px; color: #94a3b8; line-height: 2; }
+    .cover-i .meta strong { color: #172554; font-weight: 600; }
+    
+    /* ========== J: Bottom Hero ========== */
+    .cover-j {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+    }
+    .cover-j .top {
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .cover-j .logo { color: #172554; }
+    .cover-j .date { font-size: 12px; color: #94a3b8; }
+    .cover-j .spacer { flex: 1; }
+    .cover-j .hero {
+      background: #172554;
+      padding: 50px;
+      color: white;
+    }
+    .cover-j .hero .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #f87171; margin-bottom: 16px; }
+    .cover-j .hero .title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .cover-j .hero .subtitle-text { font-size: 14px; opacity: 0.7; }
+    .cover-j .footer {
+      padding: 24px 50px;
+      background: #7f1d1d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cover-j .footer .label { font-size: 11px; text-transform: uppercase; opacity: 0.7; letter-spacing: 1px; }
+    .cover-j .footer .value { font-size: 15px; font-weight: 500; margin-top: 4px; }
+    
+    /* ========== K: Card Style ========== */
+    .cover-k {
+      background: #f8fafc;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .cover-k .logo { color: #172554; margin-bottom: 40px; }
+    .cover-k .card {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-k .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #7f1d1d; margin-bottom: 20px; font-weight: 600; }
+    .cover-k .title { font-size: 28px; font-weight: 700; color: #172554; line-height: 1.2; margin-bottom: 10px; }
+    .cover-k .subtitle-text { font-size: 14px; color: #64748b; margin-bottom: auto; }
+    .cover-k .divider { height: 1px; background: #e2e8f0; margin: 24px 0; }
+    .cover-k .meta { display: flex; justify-content: space-between; font-size: 13px; }
+    .cover-k .meta .label { color: #94a3b8; margin-bottom: 4px; }
+    .cover-k .meta .value { color: #172554; font-weight: 600; }
+    
+    /* ========== L: Asymmetric Modern ========== */
+    .cover-l {
+      background: white;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100%;
+    }
+    .cover-l .header {
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .cover-l .logo { color: #172554; }
+    .cover-l .header .badge {
+      background: #172554;
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+    .cover-l .body {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cover-l .accent { width: 50px; height: 4px; background: linear-gradient(90deg, #7f1d1d, #dc2626); margin-bottom: 24px; }
+    .cover-l .title { font-size: 34px; font-weight: 700; color: #172554; line-height: 1.15; margin-bottom: 16px; }
+    .cover-l .subtitle-text { font-size: 15px; color: #64748b; max-width: 80%; }
+    .cover-l .footer {
+      padding: 30px 50px;
+      background: linear-gradient(90deg, #172554, #1e3a5f);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+    }
+    .cover-l .footer .item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 4px; }
+    .cover-l .footer .item .value { font-size: 14px; font-weight: 500; }
+
+  </style>
+</head>
+<body>
+  <h1>Cover Options — Round 2</h1>
+  <p class="subtitle">More variations in the clean, structured style you liked</p>
+  
+  <div class="grid">
+    
+    <!-- G: Left Rail -->
+    <div class="option">
+      <div class="option-label">G — Left Rail</div>
+      <div class="cover-preview cover-g">
+        <div class="rail"></div>
+        <div class="main">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+              <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+              <circle cx="24" cy="25" r="4" fill="#172554"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="content">
+            <div class="tag">Proposal</div>
+            <div class="title">AI Integration for Modern Fabrication</div>
+            <div class="subtitle-text">Operational Intelligence & Workflow Automation</div>
+            <div class="meta">
+              <div>Prepared for<br><strong>ABC Steel Fabricators</strong></div>
+              <div>Date<br><strong>February 6, 2026</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- H: Top Band -->
+    <div class="option">
+      <div class="option-label">H — Top Band</div>
+      <div class="cover-preview cover-h">
+        <div class="band">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#ffffff"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#f87171"/>
+              <rect x="19" y="10" width="10" height="30" fill="#64748b"/>
+              <circle cx="24" cy="25" r="4" fill="#f87171"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="doc-type">Proposal</div>
+        </div>
+        <div class="body">
+          <div class="title">AI Integration for Modern Fabrication</div>
+          <div class="subtitle-text">Operational Intelligence & Workflow Automation</div>
+          <div class="client-box">
+            <div class="label">Prepared for</div>
+            <div class="name">ABC Steel Fabricators</div>
+            <div class="date">February 6, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- I: Centered Elegant -->
+    <div class="option">
+      <div class="option-label">I — Centered Elegant</div>
+      <div class="cover-preview cover-i">
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+            <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+            <circle cx="24" cy="25" r="4" fill="#172554"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="line"></div>
+        <div class="title">AI Integration Proposal</div>
+        <div class="subtitle-text">Operational Intelligence for Modern Fabrication</div>
+        <div class="meta">
+          <strong>ABC Steel Fabricators</strong><br>
+          February 6, 2026
+        </div>
+      </div>
+    </div>
+    
+    <!-- J: Bottom Hero -->
+    <div class="option">
+      <div class="option-label">J — Bottom Hero</div>
+      <div class="cover-preview cover-j">
+        <div class="top">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+              <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+              <circle cx="24" cy="25" r="4" fill="#172554"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="date">February 2026</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="hero">
+          <div class="tag">Proposal</div>
+          <div class="title">AI Integration for Modern Fabrication</div>
+          <div class="subtitle-text">Operational Intelligence & Workflow Automation</div>
+        </div>
+        <div class="footer">
+          <div>
+            <div class="label">Prepared for</div>
+            <div class="value">ABC Steel Fabricators</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- K: Card Style -->
+    <div class="option">
+      <div class="option-label">K — Card Style</div>
+      <div class="cover-preview cover-k">
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+            <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+            <circle cx="24" cy="25" r="4" fill="#172554"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="card">
+          <div class="tag">Proposal</div>
+          <div class="title">AI Integration for Modern Fabrication</div>
+          <div class="subtitle-text">Operational Intelligence & Workflow Automation</div>
+          <div class="divider"></div>
+          <div class="meta">
+            <div>
+              <div class="label">Prepared for</div>
+              <div class="value">ABC Steel Fabricators</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="label">Date</div>
+              <div class="value">February 6, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- L: Asymmetric Modern -->
+    <div class="option">
+      <div class="option-label">L — Asymmetric Modern</div>
+      <div class="cover-preview cover-l">
+        <div class="header">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+              <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+              <circle cx="24" cy="25" r="4" fill="#172554"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="badge">Proposal</div>
+        </div>
+        <div class="body">
+          <div class="accent"></div>
+          <div class="title">AI Integration for Modern Fabrication</div>
+          <div class="subtitle-text">Operational Intelligence & Workflow Automation</div>
+        </div>
+        <div class="footer">
+          <div class="item">
+            <div class="label">Prepared for</div>
+            <div class="value">ABC Steel Fabricators</div>
+          </div>
+          <div class="item" style="text-align: right;">
+            <div class="label">Date</div>
+            <div class="value">February 6, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

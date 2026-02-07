@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Statement of Work
 
 **SOW #[NUMBER]**
@@ -149,7 +153,15 @@ Client agrees to:
 
 Work beyond the included hours or outside the defined scope will be billed at **$275/hour** via change order.
 
-### 6.4 Ongoing Support (After Month 1)
+### 6.4 Travel Expenses
+
+On-site visits, if required, are billed separately:
+- **Airfare, lodging, ground transportation** — at cost or arranged by Client
+- **Meals/incidentals** — $100/day per diem
+
+*Travel requires prior approval. Remote work is the default unless on-site is requested.*
+
+### 6.5 Ongoing Support (After Month 1)
 
 | Plan | Monthly | What's Included |
 |------|---------|-----------------|
@@ -246,3 +258,15 @@ Date: _________________________
 ---
 
 *This SOW is governed by the Master Service Agreement dated [MSA DATE].*
+
+---
+
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bravo AI - Cover Page Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Space Grotesk', sans-serif; background: #f1f5f9; padding: 40px; }
+    h1 { text-align: center; margin-bottom: 40px; color: #172554; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
+    .option { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .option-label { padding: 16px 24px; background: #172554; color: white; font-weight: 600; font-size: 14px; }
+    .cover-preview { aspect-ratio: 8.5/11; position: relative; }
+    
+    /* Logo base */
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 24px; letter-spacing: -0.5px; }
+    .logo .ai { color: #dc2626; }
+    .logo svg { flex-shrink: 0; }
+    
+    /* ========== OPTION A: Clean Minimal (Modern 2 style) ========== */
+    .cover-a {
+      background: #ffffff;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-a .logo { color: #172554; margin-bottom: auto; }
+    .cover-a .accent { width: 80px; height: 4px; background: linear-gradient(90deg, #7f1d1d, #dc2626); margin-bottom: 24px; }
+    .cover-a .title { font-size: 32px; font-weight: 700; color: #172554; margin-bottom: 12px; }
+    .cover-a .subtitle { font-size: 16px; color: #64748b; margin-bottom: 32px; }
+    .cover-a .meta { font-size: 13px; color: #94a3b8; line-height: 1.8; margin-top: auto; }
+    
+    /* ========== OPTION B: Bold Split ========== */
+    .cover-b {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+    }
+    .cover-b .left {
+      background: linear-gradient(135deg, #172554 0%, #1e3a5f 100%);
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+    .cover-b .logo { color: white; }
+    .cover-b .logo .ai { color: #f87171; }
+    .cover-b .left .title { font-size: 28px; font-weight: 700; margin-top: auto; line-height: 1.2; }
+    .cover-b .left .title span { color: #f87171; }
+    .cover-b .right {
+      background: #7f1d1d;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 50px 40px;
+      color: white;
+    }
+    .cover-b .right .client { font-size: 14px; opacity: 0.7; margin-bottom: 8px; }
+    .cover-b .right .client-name { font-size: 20px; font-weight: 600; margin-bottom: 24px; }
+    .cover-b .right .date { font-size: 13px; opacity: 0.6; }
+    
+    /* ========== OPTION C: Geometric Modern ========== */
+    .cover-c {
+      background: #172554;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-c::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, #7f1d1d 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cover-c::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      border: 3px solid rgba(248,113,113,0.3);
+      border-radius: 50%;
+    }
+    .cover-c .logo { color: white; position: relative; z-index: 1; }
+    .cover-c .logo .ai { color: #f87171; }
+    .cover-c .content { position: relative; z-index: 1; margin-top: auto; color: white; }
+    .cover-c .tag { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #f87171; margin-bottom: 16px; }
+    .cover-c .title { font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+    .cover-c .client { font-size: 16px; opacity: 0.8; margin-bottom: 8px; }
+    .cover-c .date { font-size: 13px; opacity: 0.5; }
+    
+    /* ========== OPTION D: Editorial Stack ========== */
+    .cover-d {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-d .header {
+      padding: 40px 50px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cover-d .logo { color: #172554; }
+    .cover-d .date-badge { font-size: 12px; color: #64748b; }
+    .cover-d .hero {
+      flex: 1;
+      background: linear-gradient(180deg, #172554 0%, #1e3a5f 100%);
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cover-d .hero .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: #f87171; margin-bottom: 20px; }
+    .cover-d .hero .title { font-size: 34px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 16px; }
+    .cover-d .hero .subtitle { font-size: 15px; color: rgba(255,255,255,0.7); }
+    .cover-d .footer {
+      padding: 30px 50px;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cover-d .footer .for { font-size: 12px; color: #94a3b8; }
+    .cover-d .footer .client { font-size: 16px; font-weight: 600; color: #172554; }
+    
+    /* ========== OPTION E: Corner Accent ========== */
+    .cover-e {
+      background: white;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .cover-e::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #7f1d1d, #dc2626);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+    .cover-e .logo { color: #172554; position: relative; z-index: 1; }
+    .cover-e .content { margin-top: auto; }
+    .cover-e .divider { width: 60px; height: 3px; background: #7f1d1d; margin-bottom: 24px; }
+    .cover-e .title { font-size: 32px; font-weight: 700; color: #172554; line-height: 1.2; margin-bottom: 16px; }
+    .cover-e .subtitle { font-size: 14px; color: #64748b; margin-bottom: 40px; }
+    .cover-e .meta { display: flex; gap: 40px; font-size: 13px; color: #94a3b8; }
+    .cover-e .meta strong { display: block; color: #172554; font-size: 15px; margin-top: 4px; }
+    
+    /* ========== OPTION F: Full Dark Premium ========== */
+    .cover-f {
+      background: linear-gradient(160deg, #0f172a 0%, #172554 50%, #1e3a5f 100%);
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .cover-f .glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(127,29,29,0.3) 0%, transparent 70%);
+    }
+    .cover-f .logo { color: white; position: relative; z-index: 1; }
+    .cover-f .logo .ai { color: #f87171; text-shadow: 0 0 20px rgba(248,113,113,0.5); }
+    .cover-f .content { margin: auto 0; text-align: center; position: relative; z-index: 1; }
+    .cover-f .title { font-size: 28px; font-weight: 700; color: white; margin-bottom: 12px; }
+    .cover-f .subtitle { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .cover-f .bottom { margin-top: auto; display: flex; justify-content: space-between; color: white; position: relative; z-index: 1; }
+    .cover-f .bottom .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; margin-bottom: 6px; }
+    .cover-f .bottom .value { font-size: 15px; font-weight: 500; }
+    
+    /* I-beam logo SVG */
+    .ibeam { width: 28px; height: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Cover Page Options — Pick Your Favorite</h1>
+  
+  <div class="grid">
+    
+    <!-- OPTION A: Clean Minimal -->
+    <div class="option">
+      <div class="option-label">A — Clean Minimal (Modern 2 Style)</div>
+      <div class="cover-preview cover-a">
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+            <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+            <circle cx="24" cy="25" r="4" fill="#172554"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="accent"></div>
+        <div class="title">AI Integration Proposal</div>
+        <div class="subtitle">Operational Intelligence for Modern Fabrication</div>
+        <div class="meta">
+          <strong>Prepared for</strong>
+          ABC Steel Fabricators<br><br>
+          <strong>Date</strong>
+          February 6, 2026
+        </div>
+      </div>
+    </div>
+    
+    <!-- OPTION B: Bold Split -->
+    <div class="option">
+      <div class="option-label">B — Bold Split</div>
+      <div class="cover-preview cover-b">
+        <div class="left">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#ffffff"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#f87171"/>
+              <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+              <circle cx="24" cy="25" r="4" fill="#f87171"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="title">AI Integration<br><span>Proposal</span></div>
+        </div>
+        <div class="right">
+          <div class="client">Prepared for</div>
+          <div class="client-name">ABC Steel Fabricators</div>
+          <div class="date">February 6, 2026</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- OPTION C: Geometric Modern -->
+    <div class="option">
+      <div class="option-label">C — Geometric Modern</div>
+      <div class="cover-preview cover-c">
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#ffffff"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#f87171"/>
+            <rect x="19" y="10" width="10" height="30" fill="#64748b"/>
+            <circle cx="24" cy="25" r="4" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="content">
+          <div class="tag">Proposal</div>
+          <div class="title">AI Integration for<br>Modern Fabrication</div>
+          <div class="client">ABC Steel Fabricators</div>
+          <div class="date">February 6, 2026</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- OPTION D: Editorial Stack -->
+    <div class="option">
+      <div class="option-label">D — Editorial Stack</div>
+      <div class="cover-preview cover-d">
+        <div class="header">
+          <div class="logo">
+            <svg class="ibeam" viewBox="0 0 48 50">
+              <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+              <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+              <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+              <circle cx="24" cy="25" r="4" fill="#172554"/>
+            </svg>
+            BRAVO<span class="ai">AI</span>
+          </div>
+          <div class="date-badge">February 2026</div>
+        </div>
+        <div class="hero">
+          <div class="tag">Proposal</div>
+          <div class="title">AI Integration for<br>Modern Fabrication</div>
+          <div class="subtitle">Operational Intelligence & Workflow Automation</div>
+        </div>
+        <div class="footer">
+          <div>
+            <div class="for">Prepared for</div>
+            <div class="client">ABC Steel Fabricators</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- OPTION E: Corner Accent -->
+    <div class="option">
+      <div class="option-label">E — Corner Accent</div>
+      <div class="cover-preview cover-e">
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#172554"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#7f1d1d"/>
+            <rect x="19" y="10" width="10" height="30" fill="#94a3b8"/>
+            <circle cx="24" cy="25" r="4" fill="#172554"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="content">
+          <div class="divider"></div>
+          <div class="title">AI Integration<br>Proposal</div>
+          <div class="subtitle">Operational Intelligence for Modern Fabrication</div>
+          <div class="meta">
+            <div>Prepared for<br><strong>ABC Steel Fabricators</strong></div>
+            <div>Date<br><strong>February 6, 2026</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- OPTION F: Full Dark Premium -->
+    <div class="option">
+      <div class="option-label">F — Full Dark Premium</div>
+      <div class="cover-preview cover-f">
+        <div class="glow"></div>
+        <div class="logo">
+          <svg class="ibeam" viewBox="0 0 48 50">
+            <rect x="0" y="0" width="48" height="10" rx="2" fill="#ffffff"/>
+            <rect x="0" y="40" width="48" height="10" rx="2" fill="#f87171"/>
+            <rect x="19" y="10" width="10" height="30" fill="#64748b"/>
+            <circle cx="24" cy="25" r="4" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+        <div class="content">
+          <div class="title">AI Integration Proposal</div>
+          <div class="subtitle">Operational Intelligence for Modern Fabrication</div>
+        </div>
+        <div class="bottom">
+          <div>
+            <div class="label">Prepared for</div>
+            <div class="value">ABC Steel Fabricators</div>
+          </div>
+          <div style="text-align: right;">
+            <div class="label">Date</div>
+            <div class="value">February 6, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

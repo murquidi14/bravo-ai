@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Master Service Agreement
 
 **BRAVO AI MASTER SERVICE AGREEMENT**
@@ -43,9 +47,16 @@ Client agrees to pay Consultant the fees specified in each SOW.
 - Client is responsible for all costs of collection, including reasonable attorneys' fees
 
 ### 2.3 Expenses
-Pre-approved expenses will be reimbursed at cost. Travel expenses require prior written approval.
+Pre-approved expenses will be reimbursed at cost.
 
-### 2.4 Taxes
+### 2.4 Travel Expenses
+On-site visits, if required, are billed separately. Travel expenses (airfare, lodging, meals, ground transportation) are the Client's responsibility, either:
+- **Billed at cost** — Consultant books and invoices actual expenses, OR
+- **Arranged directly by Client** — Client books flights, hotel, and rental car
+
+Travel requires prior written approval. Per diem for meals/incidentals: $100/day unless otherwise agreed.
+
+### 2.5 Taxes
 Fees do not include taxes. Client is responsible for all applicable taxes, excluding taxes based on Consultant's income.
 
 ---
@@ -242,3 +253,15 @@ Date: _________________________
 ## EXHIBIT A: STATEMENT OF WORK
 
 *[Attach SOW(s) here]*
+
+---
+
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

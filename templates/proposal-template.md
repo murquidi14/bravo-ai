@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Project Proposal
 
 ---
@@ -139,7 +143,6 @@ Work outside the original scope: **$275/hour** (via change order)
 
 ## What's Included
 
-✅ All AI software and model costs  
 ✅ Full setup and configuration for your operation  
 ✅ System integrations as specified  
 ✅ Hands-on training for your team  
@@ -216,10 +219,14 @@ Date: _________________________
 
 ---
 
-**Bravo AI**  
-13351 Montana Ave  
-El Paso, Texas 79938  
-mario@bravoai.co  
-www.bravoai.co
+---
 
-*Built by fabricators. For fabricators.*
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

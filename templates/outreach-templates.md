@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="300">
+</div>
+
 # Cold Outreach Templates
 
 ## Bravo AI — Sales Outreach
@@ -260,3 +264,15 @@ Either way, hope business is good.
 ---
 
 *Keep it human. Keep it short. Keep it real.*
+
+---
+
+<div align="center">
+  <img src="../assets/logo-full.png" alt="Bravo AI" width="200">
+  
+  **Bravo AI**  
+  13351 Montana Ave • El Paso, Texas 79938  
+  📧 mario@bravoai.co • 🌐 bravoai.co  
+  
+  *Built by fabricators. For fabricators.*
+</div>

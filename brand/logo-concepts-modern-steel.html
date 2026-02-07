@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bravo AI - Modern Steel Concepts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Space Grotesk', sans-serif; 
+      background: #0f172a; 
+      padding: 40px;
+      color: white;
+    }
+    h1 { text-align: center; margin-bottom: 16px; font-size: 28px; }
+    .subtitle { text-align: center; color: #64748b; margin-bottom: 50px; }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .concept {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .concept.full-width {
+      grid-column: span 2;
+    }
+    
+    .concept-label {
+      font-size: 12px;
+      color: #f87171;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+    
+    .logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      min-height: 80px;
+    }
+    
+    .logo-text {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    
+    .logo-text .ai { color: #f87171; }
+    
+    .tagline {
+      font-size: 9px;
+      color: #64748b;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #334155;
+    }
+    
+    .description {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    
+    .variations {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+    }
+    
+    .var-label {
+      font-size: 10px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Modern Steel — Clean & Bold</h1>
+  <p class="subtitle">Minimalist, geometric, industrial-modern</p>
+  
+  <div class="grid">
+    
+    <!-- CONCEPT 1: Abstract Steel Angle -->
+    <div class="concept">
+      <div class="concept-label">1 — Steel Angle</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Abstract L-angle shape -->
+            <polygon points="5,5 15,5 15,35 45,35 45,45 5,45" fill="#ffffff"/>
+            <!-- Accent corner -->
+            <rect x="15" y="35" width="8" height="10" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Structural steel angle — foundational, strong. The red accent marks the intelligence.</div>
+    </div>
+    
+    <!-- CONCEPT 2: Stacked Plates -->
+    <div class="concept">
+      <div class="concept-label">2 — Stacked Steel</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Three stacked plates -->
+            <rect x="5" y="8" width="40" height="8" rx="1" fill="#64748b"/>
+            <rect x="5" y="20" width="40" height="8" rx="1" fill="#94a3b8"/>
+            <rect x="5" y="32" width="40" height="10" rx="1" fill="#ffffff"/>
+            <!-- AI glow on top plate -->
+            <rect x="30" y="32" width="15" height="10" rx="1" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Steel plates stacked. Layers of strength. The red layer = the AI intelligence layer.</div>
+    </div>
+    
+    <!-- CONCEPT 3: Geometric B -->
+    <div class="concept">
+      <div class="concept-label">3 — Geometric B</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- B made of geometric steel shapes -->
+            <rect x="8" y="5" width="8" height="40" fill="#ffffff"/>
+            <!-- Top angle -->
+            <polygon points="16,5 35,5 35,13 16,13" fill="#94a3b8"/>
+            <polygon points="35,5 40,9 40,17 35,21 35,5" fill="#94a3b8"/>
+            <!-- Middle bar -->
+            <rect x="16" y="21" width="14" height="8" fill="#64748b"/>
+            <!-- Bottom with glow -->
+            <polygon points="16,29 40,29 40,37 35,45 16,45" fill="#f87171"/>
+          </svg>
+          RAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Letter B built from steel plate shapes. Industrial, geometric, modern.</div>
+    </div>
+    
+    <!-- CONCEPT 4: Tube / HSS -->
+    <div class="concept">
+      <div class="concept-label">4 — Steel Tube</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Square tube / HSS cross-section -->
+            <rect x="5" y="5" width="40" height="40" rx="3" fill="none" stroke="#94a3b8" stroke-width="4"/>
+            <!-- Inner glow -->
+            <rect x="14" y="14" width="22" height="22" rx="2" fill="#172554"/>
+            <!-- Center AI core -->
+            <circle cx="25" cy="25" r="8" fill="#f87171"/>
+            <circle cx="25" cy="25" r="4" fill="#ffffff"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Square tube (HSS) cross-section with AI core inside. Structure + intelligence.</div>
+    </div>
+    
+    <!-- CONCEPT 5: Minimal Beam -->
+    <div class="concept">
+      <div class="concept-label">5 — Minimal Beam</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Super minimal wide-flange shape -->
+            <rect x="5" y="5" width="40" height="5" fill="#ffffff"/>
+            <rect x="21" y="10" width="8" height="25" fill="#94a3b8"/>
+            <rect x="5" y="35" width="40" height="5" fill="#ffffff"/>
+            <!-- Small accent -->
+            <circle cx="25" cy="22" r="3" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Ultra-clean wide flange. Just the essence. Tiny red dot = AI activation.</div>
+    </div>
+    
+    <!-- CONCEPT 6: Abstract Mark -->
+    <div class="concept">
+      <div class="concept-label">6 — Abstract Steel</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Abstract angled shapes suggesting steel -->
+            <polygon points="5,40 20,5 28,5 13,40" fill="#ffffff"/>
+            <polygon points="22,40 37,5 45,5 30,40" fill="#94a3b8"/>
+            <!-- Connecting element -->
+            <rect x="13" y="38" width="17" height="4" fill="#f87171"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Two abstract steel forms leaning, connected by AI. Dynamic, architectural.</div>
+    </div>
+    
+    <!-- CONCEPT 7: Connected Nodes -->
+    <div class="concept">
+      <div class="concept-label">7 — Steel Network</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 50 50" width="48" height="48">
+            <!-- Nodes connected like a structure -->
+            <circle cx="10" cy="10" r="5" fill="#94a3b8"/>
+            <circle cx="40" cy="10" r="5" fill="#94a3b8"/>
+            <circle cx="10" cy="40" r="5" fill="#94a3b8"/>
+            <circle cx="40" cy="40" r="5" fill="#94a3b8"/>
+            <circle cx="25" cy="25" r="7" fill="#f87171"/>
+            
+            <!-- Connections (like steel members) -->
+            <line x1="10" y1="10" x2="25" y2="25" stroke="#64748b" stroke-width="3"/>
+            <line x1="40" y1="10" x2="25" y2="25" stroke="#64748b" stroke-width="3"/>
+            <line x1="10" y1="40" x2="25" y2="25" stroke="#64748b" stroke-width="3"/>
+            <line x1="40" y1="40" x2="25" y2="25" stroke="#64748b" stroke-width="3"/>
+            
+            <!-- Center glow -->
+            <circle cx="25" cy="25" r="3" fill="#ffffff"/>
+          </svg>
+          BRAVO<span class="ai">AI</span>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Steel structure nodes connected to central AI hub. Network intelligence.</div>
+    </div>
+    
+    <!-- CONCEPT 8: Sharp Monogram -->
+    <div class="concept">
+      <div class="concept-label">8 — BA Mark</div>
+      <div class="logo-area">
+        <div class="logo-text">
+          <svg viewBox="0 0 55 50" width="52" height="48">
+            <!-- B and A combined -->
+            <polygon points="5,45 5,5 25,5 30,10 30,18 22,22 32,22 37,27 37,40 32,45" fill="#ffffff"/>
+            <!-- B cutouts -->
+            <polygon points="12,12 22,12 24,14 24,18 12,18" fill="#1e293b"/>
+            <polygon points="12,28 28,28 30,30 30,38 28,40 12,40" fill="#1e293b"/>
+            
+            <!-- A -->
+            <polygon points="35,45 45,5 50,5 50,45 43,45 43,28 40,28 40,45" fill="#f87171"/>
+            <!-- A crossbar -->
+            <rect x="40" y="32" width="10" height="4" fill="#1e293b"/>
+          </svg>
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">B + A monogram. Steel plate construction aesthetic. Bold, industrial, unique.</div>
+    </div>
+    
+    <!-- FULL WIDTH COMPARISON -->
+    <div class="concept full-width">
+      <div class="concept-label">Wordmark Only Options</div>
+      <div class="logo-area">
+        <div style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
+          
+          <!-- Option A: Line accent -->
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size: 48px; font-weight: 700; letter-spacing: -1px;">BRAVO<span style="color: #f87171;">AI</span></span>
+            <div style="width: 200px; height: 4px; background: linear-gradient(90deg, #64748b, #f87171); margin-top: 8px; border-radius: 2px;"></div>
+          </div>
+          
+          <!-- Option B: Box accent -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 8px; height: 40px; background: #f87171; border-radius: 2px;"></div>
+            <span style="font-size: 48px; font-weight: 700; letter-spacing: -1px;">BRAVO<span style="color: #f87171;">AI</span></span>
+          </div>
+          
+          <!-- Option C: Brackets -->
+          <div style="display: flex; align-items: center;">
+            <span style="font-size: 48px; font-weight: 300; color: #64748b; margin-right: 4px;">[</span>
+            <span style="font-size: 48px; font-weight: 700; letter-spacing: -1px;">BRAVO<span style="color: #f87171;">AI</span></span>
+            <span style="font-size: 48px; font-weight: 300; color: #f87171; margin-left: 4px;">]</span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="tagline">Forged in Steel · Powered by AI · Built for All</div>
+      <div class="description">Sometimes the wordmark is enough. Clean typography with subtle steel accents.</div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

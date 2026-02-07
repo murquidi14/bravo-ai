@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Dashboard — Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --border: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-red: #991b1b;
+      --accent-red-light: #dc2626;
+      --accent-blue: #1e40af;
+      --accent-green: #16a34a;
+      --accent-yellow: #ca8a04;
+      --critical: #ef4444;
+      --watch: #f59e0b;
+      --info: #22c55e;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+    
+    /* Top Navigation */
+    .top-nav {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    
+    .logo span {
+      color: var(--accent-red-light);
+    }
+    
+    .job-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    
+    .job-selector select {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    /* Tab Navigation */
+    .tab-nav {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 0;
+    }
+    
+    .tab {
+      padding: 1rem 1.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    
+    .tab:hover {
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+    
+    .tab.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--accent-red-light);
+    }
+    
+    .tab-badge {
+      background: var(--accent-red);
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 10px;
+      margin-left: 0.5rem;
+    }
+    
+    /* Main Content */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+    /* Message Board */
+    .message-board {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .section-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .section-title .icon {
+      font-size: 1.1rem;
+    }
+    
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--accent-red);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-red-light);
+    }
+    
+    .btn-secondary {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+    
+    /* Messages */
+    .messages-list {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    
+    .message {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    
+    .message:hover {
+      background: var(--bg-card-hover);
+    }
+    
+    .message.pinned {
+      background: rgba(220, 38, 38, 0.1);
+      border-left: 3px solid var(--accent-red-light);
+    }
+    
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+    
+    .message-author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .author-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
+    .avatar-fab { background: #3b82f6; }
+    .avatar-field { background: #22c55e; }
+    .avatar-gc { background: #a855f7; }
+    
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .author-company {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .message-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .priority-badge {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .priority-critical { background: var(--critical); }
+    .priority-watch { background: var(--watch); }
+    .priority-info { background: var(--info); }
+    
+    .message-time {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .message-content {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+    
+    .message-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: var(--bg-dark);
+      color: var(--text-secondary);
+    }
+    
+    .tag-piece {
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+    }
+    
+    .pin-icon {
+      color: var(--accent-red-light);
+      font-size: 0.8rem;
+    }
+    
+    /* Compose Area */
+    .compose-area {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-dark);
+    }
+    
+    .compose-input {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-end;
+    }
+    
+    .compose-input textarea {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+    }
+    
+    .compose-input textarea:focus {
+      outline: none;
+      border-color: var(--accent-red-light);
+    }
+    
+    .compose-input textarea::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .compose-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-icon:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+    
+    .btn-icon.recording {
+      background: var(--critical);
+      border-color: var(--critical);
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    /* Right Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    /* Status Summary Cards */
+    .status-summary {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    
+    .status-card {
+      background: var(--bg-card);
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .status-card:hover {
+      background: var(--bg-card-hover);
+    }
+    
+    .status-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .status-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .status-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    
+    .status-subtext {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Quick Links */
+    .quick-links {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    
+    .quick-link:last-child {
+      border-bottom: none;
+    }
+    
+    .quick-link:hover {
+      background: var(--bg-card-hover);
+    }
+    
+    .quick-link .icon {
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+    }
+    
+    .quick-link .label {
+      flex: 1;
+      font-size: 0.9rem;
+    }
+    
+    .quick-link .count {
+      background: var(--bg-dark);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    
+    .quick-link .count.alert {
+      background: var(--critical);
+      color: white;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .tab-nav {
+        overflow-x: auto;
+      }
+      
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+      
+      .main-content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="logo">BRAVO<span>AI</span></div>
+    
+    <div class="job-selector">
+      <span>📁</span>
+      <select>
+        <option>Downtown Tower — DT-2026-042</option>
+        <option>Westside Office — WO-2026-018</option>
+        <option>Airport Terminal — AT-2025-099</option>
+      </select>
+    </div>
+    
+    <div class="user-menu">
+      <span style="color: var(--text-secondary); font-size: 0.85rem;">Del Bravo Steel</span>
+      <div class="user-avatar">MU</div>
+    </div>
+  </nav>
+  
+  <!-- Tab Navigation -->
+  <nav class="tab-nav">
+    <a href="#" class="tab active">
+      <span>📋</span> Shared Dashboard
+    </a>
+    <a href="#" class="tab">
+      <span>🔩</span> Shop
+    </a>
+    <a href="#" class="tab">
+      <span>🏗️</span> Field
+    </a>
+    <a href="#" class="tab">
+      <span>📊</span> GC View
+    </a>
+    <a href="#" class="tab">
+      <span>📐</span> Drawings
+      <span class="tab-badge">3</span>
+    </a>
+    <a href="#" class="tab">
+      <span>❓</span> RFIs
+      <span class="tab-badge">2</span>
+    </a>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Message Board -->
+    <section class="message-board">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="icon">📢</span>
+          Message Board
+        </h2>
+        <button class="btn btn-primary">+ New Message</button>
+      </div>
+      
+      <div class="messages-list">
+        <!-- Pinned Message -->
+        <div class="message pinned">
+          <div class="message-header">
+            <div class="message-author">
+              <div class="author-avatar avatar-gc">LM</div>
+              <div class="author-info">
+                <span class="author-name">Lisa Martinez</span>
+                <span class="author-company">Turner Construction (GC)</span>
+              </div>
+            </div>
+            <div class="message-meta">
+              <span class="pin-icon">📌</span>
+              <span class="priority-badge priority-critical"></span>
+              <span class="message-time">2 hours ago</span>
+            </div>
+          </div>
+          <div class="message-content">
+            <strong>CRITICAL:</strong> Erector needs Area C steel by March 15. This is the critical path. Please confirm fabrication schedule can meet this date.
+          </div>
+          <div class="message-tags">
+            <span class="tag">📅 Deadline: Mar 15</span>
+            <span class="tag tag-piece">📍 Area C</span>
+          </div>
+        </div>
+        
+        <!-- Message 2 -->
+        <div class="message">
+          <div class="message-header">
+            <div class="message-author">
+              <div class="author-avatar avatar-field">JR</div>
+              <div class="author-info">
+                <span class="author-name">Juan Rodriguez</span>
+                <span class="author-company">XYZ Ironworks (Erector)</span>
+              </div>
+            </div>
+            <div class="message-meta">
+              <span class="priority-badge priority-watch"></span>
+              <span class="message-time">35 min ago</span>
+            </div>
+          </div>
+          <div class="message-content">
+            Wind advisory today — crew not going to site. No deliveries please. We'll resume tomorrow weather permitting.
+          </div>
+          <div class="message-tags">
+            <span class="tag">🌬️ Weather Hold</span>
+            <span class="tag">🚚 No Deliveries</span>
+          </div>
+        </div>
+        
+        <!-- Message 3 -->
+        <div class="message">
+          <div class="message-header">
+            <div class="message-author">
+              <div class="author-avatar avatar-fab">CM</div>
+              <div class="author-info">
+                <span class="author-name">Carlos Mendez</span>
+                <span class="author-company">Del Bravo Steel (Fab)</span>
+              </div>
+            </div>
+            <div class="message-meta">
+              <span class="priority-badge priority-info"></span>
+              <span class="message-time">1 hour ago</span>
+            </div>
+          </div>
+          <div class="message-content">
+            Load #47 ready for dispatch. 24 pieces, Area B columns. Holding per weather advisory. Will ship first thing tomorrow AM.
+          </div>
+          <div class="message-tags">
+            <span class="tag">🚚 Load #47</span>
+            <span class="tag tag-piece">📍 Area B</span>
+            <span class="tag">24 pieces</span>
+          </div>
+        </div>
+        
+        <!-- Message 4 - Tagged to Piece -->
+        <div class="message">
+          <div class="message-header">
+            <div class="message-author">
+              <div class="author-avatar avatar-field">DR</div>
+              <div class="author-info">
+                <span class="author-name">Derek Reyes</span>
+                <span class="author-company">XYZ Ironworks (Erector)</span>
+              </div>
+            </div>
+            <div class="message-meta">
+              <span class="priority-badge priority-watch"></span>
+              <span class="message-time">Yesterday</span>
+            </div>
+          </div>
+          <div class="message-content">
+            B-42 shear plate off. Holes don't line up on west connection. Need shop to confirm — possible fab error or wrong drawing?
+          </div>
+          <div class="message-tags">
+            <span class="tag tag-piece">🔩 Piece: B-42</span>
+            <span class="tag">⚠️ Issue</span>
+            <span class="tag">📸 2 photos</span>
+          </div>
+        </div>
+        
+        <!-- Message 5 - Response -->
+        <div class="message">
+          <div class="message-header">
+            <div class="message-author">
+              <div class="author-avatar avatar-fab">SM</div>
+              <div class="author-info">
+                <span class="author-name">Sarah Martinez</span>
+                <span class="author-company">Del Bravo Steel (Fab)</span>
+              </div>
+            </div>
+            <div class="message-meta">
+              <span class="priority-badge priority-info"></span>
+              <span class="message-time">Yesterday</span>
+            </div>
+          </div>
+          <div class="message-content">
+            Confirmed fab error on B-42. New shear plate cutting now. Will ship replacement on Load #52 tomorrow. Sorry about that!
+          </div>
+          <div class="message-tags">
+            <span class="tag tag-piece">🔩 RE: B-42</span>
+            <span class="tag">✅ Resolved</span>
+            <span class="tag">🚚 Load #52</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Compose Area -->
+      <div class="compose-area">
+        <div class="compose-input">
+          <textarea placeholder="Type a message or send a voice note..." rows="1"></textarea>
+          <div class="compose-actions">
+            <button class="btn-icon" title="Attach photo">📷</button>
+            <button class="btn-icon" title="Tag piece">🔩</button>
+            <button class="btn-icon" title="Voice note" id="voiceBtn">🎤</button>
+            <button class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Right Sidebar -->
+    <aside class="sidebar">
+      <!-- Status Summary -->
+      <section class="status-summary">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">📦</span>
+            Received Summary
+          </h2>
+        </div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-icon">🔩</div>
+            <div class="status-value">142</div>
+            <div class="status-label">Steel (tons)</div>
+            <div class="status-subtext">of 210 (68%)</div>
+          </div>
+          <div class="status-card">
+            <div class="status-icon">🔧</div>
+            <div class="status-value">85%</div>
+            <div class="status-label">Bolts</div>
+            <div class="status-subtext">15% pending</div>
+          </div>
+          <div class="status-card">
+            <div class="status-icon">📐</div>
+            <div class="status-value">12k</div>
+            <div class="status-label">Deck (SF)</div>
+            <div class="status-subtext">of 18k (67%)</div>
+          </div>
+          <div class="status-card">
+            <div class="status-icon">📏</div>
+            <div class="status-value">48</div>
+            <div class="status-label">Joists</div>
+            <div class="status-subtext">of 72 (67%)</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quick Links -->
+      <section class="quick-links">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">⚡</span>
+            Quick Access
+          </h2>
+        </div>
+        <a href="#" class="quick-link">
+          <span class="icon">🏗️</span>
+          <span class="label">3D Model</span>
+          <span class="count">Live</span>
+        </a>
+        <a href="#" class="quick-link">
+          <span class="icon">📐</span>
+          <span class="label">Shop Drawings</span>
+          <span class="count">Rev 5</span>
+        </a>
+        <a href="#" class="quick-link">
+          <span class="icon">❓</span>
+          <span class="label">Open RFIs</span>
+          <span class="count alert">2</span>
+        </a>
+        <a href="#" class="quick-link">
+          <span class="icon">📅</span>
+          <span class="label">Load Schedule</span>
+          <span class="count">Next: Tue</span>
+        </a>
+        <a href="#" class="quick-link">
+          <span class="icon">📄</span>
+          <span class="label">BOLs</span>
+          <span class="count">47 total</span>
+        </a>
+        <a href="#" class="quick-link">
+          <span class="icon">📝</span>
+          <span class="label">Daily Reports</span>
+          <span class="count">Today</span>
+        </a>
+      </section>
+    </aside>
+  </main>
+  
+  <script>
+    // Voice button toggle
+    const voiceBtn = document.getElementById('voiceBtn');
+    voiceBtn.addEventListener('click', function() {
+      this.classList.toggle('recording');
+      if (this.classList.contains('recording')) {
+        this.textContent = '⏹️';
+      } else {
+        this.textContent = '🎤';
+      }
+    });
+    
+    // Auto-resize textarea
+    const textarea = document.querySelector('.compose-input textarea');
+    textarea.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+  </script>
+</body>
+</html>

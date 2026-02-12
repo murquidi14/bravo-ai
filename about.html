@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Bravo AI — Built by Steel People. Powered by AI.</title>
+<meta name="description" content="Bravo AI was founded by steel fabricators and erectors who built the platform they wished existed. AI-powered Command Centers for structural steel contractors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#F97316;--gold:#FBBF24;--deep:#EA580C;--dark:#0a0a0a;--white:#F5F5F4;
+  --gray-400:#9ca3af;--gray-600:#4b5563;--gray-800:#1f1f1f;--gray-900:#141414;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--dark);color:var(--white);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rajdhani',sans-serif;font-weight:700;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:120px 0}
+@media(max-width:768px){.section{padding:80px 0}}
+.label{font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:20px}
+.section-sub{font-size:1.1rem;color:var(--gray-400);max-width:640px;line-height:1.7}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--deep));color:#fff;box-shadow:0 0 40px rgba(249,115,22,0.25)}
+.btn-primary:hover{box-shadow:0 0 60px rgba(249,115,22,0.4);transform:translateY(-2px)}
+.btn-outline{border:2px solid var(--orange);color:var(--orange);background:transparent}
+.btn-outline:hover{background:var(--orange);color:#fff}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.beam{height:4px;background:linear-gradient(90deg,transparent,var(--orange),var(--gold),var(--orange),transparent);border-radius:2px;margin:0 auto;max-width:200px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:background 0.3s,backdrop-filter 0.3s}
+nav.scrolled{background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(249,115,22,0.1)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--white);transition:color 0.3s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--orange)}
+.nav-cta{padding:10px 24px;font-size:0.85rem}
+.mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);padding:24px;gap:20px;border-bottom:1px solid rgba(249,115,22,0.1)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{height:36px;width:auto}
+.logo-wordmark{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:0.02em;line-height:1;color:var(--white)}
+.logo-wordmark .ai{color:var(--orange)}
+
+/* CTA */
+.cta-section{position:relative;overflow:hidden}
+.cta-inner{text-align:center;padding:80px 40px;border-radius:24px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(234,88,12,0.03));position:relative}
+.cta-inner h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:16px}
+.cta-inner p{font-size:1.1rem;color:var(--gray-400);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+footer{padding:48px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-copy{font-size:0.85rem;color:var(--gray-600)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:0.85rem;color:var(--gray-400);transition:color 0.3s}
+.footer-links a:hover{color:var(--orange)}
+
+/* ABOUT-SPECIFIC */
+.about-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:3rem}
+@media(max-width:768px){.about-card{padding:2rem 1.5rem}}
+.about-card p{color:var(--gray-400);font-size:1.05rem;line-height:1.8;margin-bottom:1.2rem}
+.about-card p:last-child{margin-bottom:0}
+.highlight{color:var(--white);font-weight:500}
+.vision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px}
+.vision-card{padding:28px;border-radius:16px;border:1px solid rgba(249,115,22,0.15);background:rgba(249,115,22,0.03);transition:all 0.3s}
+.vision-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px)}
+.vision-card .v-icon{font-size:2rem;margin-bottom:12px}
+.vision-card h4{font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;color:var(--white)}
+.vision-card p{font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:0}
+.feature-card{transition:all 0.3s}
+.feature-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <a href="index.html" class="logo" style="flex-direction:column;gap:2px;align-items:center;">
+      <svg width="52" height="16" viewBox="0 0 175 55" fill="none">
+        <path d="M0 50L35 30L55 36L87 12L120 36L140 30L175 50" stroke="#F5F5F4" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M70 18L72 23.5L78 23.5L73.5 27L75 32.5L70 29L65 32.5L66.5 27L62 23.5L68 23.5Z" fill="#F97316"/>
+      </svg>
+      <span class="logo-wordmark" style="font-size:0.9rem;letter-spacing:0.04em;">BRAVO<span class="ai">AI</span></span>
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html#problem">Problem</a>
+      <a href="index.html#solution">Platform</a>
+      <a href="index.html#ai-assistant">AI Assistant</a>
+      <a href="index.html#mobile">Mobile</a>
+      <a href="index.html#ecosystem">Ecosystem</a>
+      <a href="about.html" class="active">About</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Get a Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="min-height:60vh;display:flex;align-items:center;position:relative;padding-top:100px;padding-bottom:60px;overflow:hidden;">
+  <div class="grid-bg"></div>
+  <div style="position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,0.12),transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(251,191,36,0.06),transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="reveal" style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);font-size:0.8rem;font-weight:500;color:var(--orange);margin-bottom:32px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite;"></span> El Paso, Texas
+      </div>
+      <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.8rem,7vw,5rem);margin-bottom:24px;background:linear-gradient(135deg,var(--white) 0%,var(--gray-400) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">About <span style="background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bravo AI</span></h1>
+      <p class="reveal reveal-delay-2" style="font-size:1.2rem;color:var(--gray-400);max-width:600px;margin:0 auto;line-height:1.8;">We've run the shop. Managed the crews. Chased the RFIs. Bravo AI is what happens when real steel experience meets real AI — a platform built from the inside out, specifically for you.</p>
+    </div>
+  </div>
+  <style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}</style>
+</section>
+
+<!-- OUR STORY -->
+<section class="section" id="story" style="background:var(--gray-900);position:relative;">
+  <div class="grid-bg"></div>
+  <div class="container" style="max-width:900px;position:relative;z-index:1;">
+    <div class="label reveal text-center">Our Story</div>
+    <h2 class="section-title reveal text-center">Built by Steel People.</h2>
+    <div class="about-card reveal" style="margin-top:48px;">
+      <p>
+        <span class="highlight">We run a fab shop and erection crew in El Paso, Texas.</span> Like everyone in this industry, we relied on whiteboards, group texts, spreadsheets, and a patchwork of software that never quite fit. Job tracking was chaos. Status updates took hours. The same questions got asked ten times a day.
+      </p>
+      <blockquote style="border-left:3px solid var(--orange);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-size:1.2rem;color:var(--white);">
+        "We tried every tool on the market. None of them were built for how a steel shop actually runs."
+      </blockquote>
+      <p>
+        So we built our own. <span class="highlight">We used AI to create a platform that understands steel terminology, fabrication workflows, and field operations.</span> BOLs generate themselves. QC reports are automated. Every piece, every heat number, every shipment — tracked in real time from one place.
+      </p>
+      <p>
+        <span class="highlight">The results were immediate.</span> Administrative overhead dropped. Supervisors went back to supervising. Decisions got faster because the information was always one question away. We scaled output without scaling headaches.
+      </p>
+      <p>
+        When other fabricators and erectors started asking how we did it, we realized this wasn't just our problem — <span class="highlight">it's the industry's problem.</span> Every steel company is duct-taping the same broken workflow together. So we founded Bravo AI to bring this platform to every shop that needs it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="section" id="offer" style="position:relative;">
+  <div class="grid-bg"></div>
+  <div class="container" style="max-width:900px;position:relative;z-index:1;">
+    <div class="label reveal text-center">What We Offer</div>
+    <h2 class="section-title reveal text-center">AI-Powered Command Centers<br>for Steel Contractors.</h2>
+    <div class="about-card reveal" style="margin-top:48px;">
+      <p>
+        <span class="highlight">Bravo AI builds Command Centers — intelligent, connected platforms purpose-built for structural steel operations.</span> We replace the 6-7 disconnected tools your shop currently juggles with a single system where every module talks to every other module. Estimating feeds purchasing. Production feeds shipping. Shipping feeds the field. The field feeds job costing. And it all flows back to accounting-ready reports — without a single re-entry.
+      </p>
+      <p>
+        Every Command Center comes with a <span class="highlight">dedicated AI assistant</span> that knows your jobs, your data, and your workflows. It answers questions by voice or text, creates POs, generates BOLs, files daily reports, and flags problems before they cost you money. It's like adding a PM who never sleeps, never forgets, and works 24/7.
+      </p>
+      <p>
+        <span class="highlight">We're not just a software company — we're a steel company that builds software.</span> We understand the difference between a W14x30 and a W14x34. We know what it means when the crane's sitting idle because steel didn't ship on time. We built this platform because we needed it ourselves — and now we're bringing it to every fabricator, erector, and contractor who's tired of the workaround workflow.
+      </p>
+    </div>
+    <div class="vision-grid reveal" style="margin-top:32px;">
+      <div class="vision-card">
+        <div class="v-icon">🏭</div>
+        <h4>Fabrication Command Center</h4>
+        <p>Bid tracking, estimating, drawings, purchasing, production control, QC, shipping, and job costing — all connected. Run your entire shop from one place.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">🏗️</div>
+        <h4>Erection Command Center</h4>
+        <p>Crew management, equipment tracking, install progress, daily reports by voice, man hours, safety docs, and field-to-office visibility in real time.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">📊</div>
+        <h4>Shared Dashboard</h4>
+        <p>Fabricators, erectors, and GCs share one portal per job. Same data, different views. Everyone sees what they need — nothing gets lost in translation.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">🤖</div>
+        <h4>AI Assistant — Included</h4>
+        <p>Every subscription includes an unlimited AI assistant. Voice or text. Dedicated email. Photo scanning. Proactive alerts. It knows your operation inside and out.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">🛠️</div>
+        <h4>Custom AI Consulting</h4>
+        <p>Need something beyond the platform? We build custom AI solutions for construction companies — workflow automation, document processing, integrations with your existing tools.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">🤝</div>
+        <h4>Steel-First Support</h4>
+        <p>No ticket queues. No overseas call centers. When you need help, you talk to people who understand steel — because we come from this industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VISION -->
+<section class="section" id="vision" style="background:var(--gray-900);position:relative;">
+  <div class="grid-bg"></div>
+  <div class="container" style="max-width:900px;position:relative;z-index:1;">
+    <div class="label reveal text-center">Our Vision</div>
+    <h2 class="section-title reveal text-center">The Future of Construction<br>Is Connected.</h2>
+    <div class="about-card reveal" style="margin-top:48px;">
+      <p>
+        <span class="highlight">The construction industry is one of the least digitized industries on the planet.</span> Trillion-dollar projects are still managed with spreadsheets, phone calls, and paper forms. Information gets lost between trades. Decisions get made on stale data. Entire schedules slip because someone didn't get an update in time.
+      </p>
+      <p>
+        We believe AI will fundamentally transform how construction projects are planned, executed, and delivered. Not by replacing the skilled tradespeople who build our world — but by <span class="highlight">eliminating the busywork that buries them.</span> Less time on data entry. Less time chasing updates. Less time in spreadsheets. More time doing the work that actually matters.
+      </p>
+      <p>
+        Our vision starts with structural steel — because that's where we come from and what we know best. But the problem we're solving isn't unique to steel. <span class="highlight">Every trade, every subcontractor, every GC is fighting the same battle:</span> disconnected tools, duplicated effort, and zero real-time visibility across the project.
+      </p>
+      <p>
+        We're building toward a future where every participant on a construction project — from the detailer to the ironworker to the general contractor — <span class="highlight">shares one connected source of truth.</span> Where AI handles the administrative overhead so humans can focus on building. Where "Where's my steel?" is a question nobody ever needs to ask again.
+      </p>
+    </div>
+    <div class="vision-grid reveal" style="margin-top:32px;">
+      <div class="vision-card">
+        <div class="v-icon">🔗</div>
+        <h4>Connect Every Trade</h4>
+        <p>Fabricators, erectors, GCs, detailers — all on one platform. No more islands of information. One job, one truth, many views.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">⚡</div>
+        <h4>Eliminate Manual Work</h4>
+        <p>AI handles data entry, document processing, status updates, and reporting. Humans make decisions. Machines handle the busywork.</p>
+      </div>
+      <div class="vision-card">
+        <div class="v-icon">🌐</div>
+        <h4>Industry-Wide Transformation</h4>
+        <p>Starting with steel. Expanding to every trade. Our goal: make disconnected construction workflows a thing of the past.</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:48px;padding:32px;border-radius:16px;border:2px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.04);">
+      <p style="font-size:1.3rem;color:var(--white);font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;line-height:1.4;">Forged in Steel. Powered by AI. Built for All.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section" id="founder" style="position:relative;">
+  <div class="grid-bg"></div>
+  <div class="container" style="max-width:900px;position:relative;z-index:1;">
+    <div class="label reveal text-center">Leadership</div>
+    <h2 class="section-title reveal text-center">Meet the Founder.</h2>
+    <div class="reveal" style="margin-top:48px;display:flex;justify-content:center;">
+      <div style="max-width:600px;width:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:3rem;text-align:center;">
+        <div style="width:140px;height:140px;border-radius:50%;overflow:hidden;margin:0 auto 24px;border:3px solid rgba(249,115,22,0.3);">
+          <img src="assets/mario-headshot.jpg" alt="Mario Urquidi" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <h3 style="font-size:1.5rem;margin-bottom:4px;">Mario Urquidi</h3>
+        <p style="color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:20px;">Founder & CEO</p>
+        <p style="color:var(--gray-400);font-size:1rem;line-height:1.8;text-align:left;">
+          Mario runs <span style="color:var(--white);font-weight:500;">Del Bravo Steel</span> and <span style="color:var(--white);font-weight:500;">Del Bravo Erectors</span> in El Paso, Texas. After years of fighting the same disconnected tools every steel company deals with, he combined his deep industry knowledge with AI to build the platform he always wished existed. Bravo AI is the result — a company founded by a steel contractor, for steel contractors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section section" id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="label">Get Started</div>
+      <h2 class="section-title">Ready to Connect<br>Your Operation?</h2>
+      <p>See how Bravo AI can replace your disconnected tools with one platform built for structural steel.</p>
+      
+      <form id="contact-form" style="max-width:500px;margin:32px auto 0;text-align:left;" onsubmit="submitContact(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Name *</label>
+            <input type="text" name="name" required placeholder="John Smith" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Company</label>
+            <input type="text" name="company" placeholder="Your Steel Co" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Email *</label>
+            <input type="email" name="email" required placeholder="john@company.com" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Phone</label>
+            <input type="tel" name="phone" placeholder="(915) 555-0100" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div style="grid-column:1/-1;">
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">How can we help? *</label>
+            <select name="interest" required style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:#1a1a1a;color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+              <option value="demo" style="background:#1a1a1a;color:#fff;">Book a Demo</option>
+              <option value="call" style="background:#1a1a1a;color:#fff;">Schedule a Call</option>
+              <option value="question" style="background:#1a1a1a;color:#fff;">General Question</option>
+              <option value="fabrication" style="background:#1a1a1a;color:#fff;">Fabrication Platform</option>
+              <option value="erection" style="background:#1a1a1a;color:#fff;">Erection Platform</option>
+              <option value="both" style="background:#1a1a1a;color:#fff;">Both Platforms</option>
+            </select>
+          </div>
+          <div style="grid-column:1/-1;">
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Message (optional)</label>
+            <textarea name="message" rows="3" placeholder="Tell us about your operation..." style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;resize:vertical;"></textarea>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:24px;">
+          <button type="submit" id="submit-btn" style="display:inline-flex;align-items:center;gap:8px;padding:16px 48px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--deep));color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;box-shadow:0 0 40px rgba(249,115,22,0.25);">
+            Send Message →
+          </button>
+          <div id="form-status" style="margin-top:12px;font-size:0.9rem;"></div>
+        </div>
+      </form>
+
+      <div style="margin-top:20px;text-align:center;">
+        <p style="font-size:0.85rem;color:var(--gray-600);">Or email us directly at <a href="mailto:info@bravoai.co" style="color:var(--orange);">info@bravoai.co</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+async function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+  const data = Object.fromEntries(new FormData(form));
+  btn.textContent = 'Sending...';
+  btn.style.opacity = '0.7';
+  try {
+    const res = await fetch('https://formspree.io/f/maqdnjre', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      status.innerHTML = '<span style="color:#22c55e;">✅ Thank you! We\'ll be in touch shortly.</span>';
+      form.reset();
+    } else { throw new Error('API error'); }
+  } catch (err) {
+    const subject = encodeURIComponent('Bravo AI Demo Request — ' + (data.company || data.name));
+    const body = encodeURIComponent('Name: ' + data.name + '\nCompany: ' + (data.company || 'N/A') + '\nEmail: ' + data.email + '\nPhone: ' + (data.phone || 'N/A') + '\nInterest: ' + data.interest + '\nMessage: ' + (data.message || 'N/A'));
+    window.location.href = 'mailto:info@bravoai.co?subject=' + subject + '&body=' + body;
+    status.innerHTML = '<span style="color:var(--orange);">📧 Opening your email client — send it and we\'ll get back to you ASAP.</span>';
+  }
+  btn.textContent = 'Send Message →';
+  btn.style.opacity = '1';
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="gap:10px">
+          <svg width="90" height="28" viewBox="0 0 175 55" fill="none">
+            <path d="M0 50L35 30L55 36L87 12L120 36L140 30L175 50" stroke="#F5F5F4" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M70 18L72 23.5L78 23.5L73.5 27L75 32.5L70 29L65 32.5L66.5 27L62 23.5L68 23.5Z" fill="#F97316"/>
+          </svg>
+          <span class="logo-wordmark" style="font-size:1.1rem">BRAVO<span class="ai">AI</span></span>
+        </a>
+        <span class="footer-copy">© 2026 Bravo AI. Forged in steel. Powered by AI.</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:info@bravoai.co">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{document.querySelector('.nav-links').classList.remove('open')})
+});
+</script>
+</body>
+</html>

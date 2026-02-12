@@ -1,813 +1,1399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bravo AI | AI Solutions for Construction</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #0f1219;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --accent: #172554;
-            --accent-red: #7f1d1d;
-            --accent-glow: rgba(23, 37, 84, 0.5);
-            --gradient-1: linear-gradient(135deg, #172554 0%, #1e3a8a 50%, #7f1d1d 100%);
-            --gradient-2: linear-gradient(135deg, #7f1d1d 0%, #172554 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated background grid */
-        .bg-grid {
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bg-glow-1 {
-            top: -200px;
-            right: -100px;
-            background: var(--accent);
-        }
-
-        .bg-glow-2 {
-            bottom: -200px;
-            left: -100px;
-            background: #8b5cf6;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.5rem 2rem;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        .logo-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-bravo {
-            color: #ffffff;
-        }
-
-        .logo-ai {
-            color: #ef4444;
-            text-shadow: 0 0 20px rgba(239, 68, 68, 0.7), 0 0 40px rgba(239, 68, 68, 0.4);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(to bottom, rgba(10, 10, 15, 0.7) 0%, rgba(10, 10, 15, 0.85) 50%, rgba(10, 10, 15, 1) 100%), url('assets/hero-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge span {
-            width: 8px;
-            height: 8px;
-            background: #991b1b;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .gradient-text {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Features Section */
-        .section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            border-color: rgba(99, 102, 241, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            color: #f87171;
-            text-shadow: 0 0 30px rgba(248, 113, 113, 0.5);
-        }
-
-        .stat p {
-            color: #ffffff;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--bg-secondary);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-story {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-top: 3rem;
-        }
-
-        .about-story p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-story p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-story .highlight {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .about-story .quote {
-            border-left: 3px solid;
-            border-image: var(--gradient-1) 1;
-            padding-left: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-            font-size: 1.25rem;
-            color: var(--text-primary);
-        }
-
-        .about-founder {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .founder-avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .founder-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .founder-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .founder-info p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 3rem;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-1);
-        }
-
-        .contact h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact > p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            padding: 0.875rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: rgba(99, 102, 241, 0.5);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .form-group select option {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 500px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-form .btn-primary {
-            margin-top: 1rem;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            width: 100%;
-        }
-
-        .form-note {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 6rem;
-                background-attachment: scroll; /* Fixed attachment doesn't work on mobile */
-            }
-
-            .cta-box {
-                padding: 2rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bravo AI — From Bid to Billing. One Platform. | AI-Powered Steel Software</title>
+<meta name="description" content="Bravo AI replaces 6-7 disconnected tools with one connected platform built for structural steel. From estimating to accounting — one entry flows everywhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --orange:#F97316;--gold:#FBBF24;--deep:#EA580C;--dark:#0a0a0a;--white:#F5F5F4;
+  --gray-400:#9ca3af;--gray-600:#4b5563;--gray-800:#1f1f1f;--gray-900:#141414;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--dark);color:var(--white);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Rajdhani',sans-serif;font-weight:700;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em}
+a{color:inherit;text-decoration:none}
+
+/* Utility */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:120px 0}
+@media(max-width:768px){.section{padding:80px 0}}
+.label{font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:20px}
+.section-sub{font-size:1.1rem;color:var(--gray-400);max-width:640px;line-height:1.7}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* Button */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--deep));color:#fff;box-shadow:0 0 40px rgba(249,115,22,0.25)}
+.btn-primary:hover{box-shadow:0 0 60px rgba(249,115,22,0.4);transform:translateY(-2px)}
+.btn-outline{border:2px solid var(--orange);color:var(--orange);background:transparent}
+.btn-outline:hover{background:var(--orange);color:#fff}
+
+/* Grid pattern background */
+.grid-bg{position:absolute;inset:0;background-image:
+  linear-gradient(rgba(249,115,22,0.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(249,115,22,0.03) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none}
+
+/* Beam divider */
+.beam{height:4px;background:linear-gradient(90deg,transparent,var(--orange),var(--gold),var(--orange),transparent);border-radius:2px;margin:0 auto;max-width:200px}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:background 0.3s,backdrop-filter 0.3s}
+nav.scrolled{background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(249,115,22,0.1)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--white);transition:color 0.3s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:10px 24px;font-size:0.85rem}
+.mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);padding:24px;gap:20px;border-bottom:1px solid rgba(249,115,22,0.1)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;overflow:hidden}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,0.12),transparent 70%);pointer-events:none}
+.hero-glow-2{position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(251,191,36,0.06),transparent 70%);pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero-content{max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;border:1px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.08);font-size:0.8rem;font-weight:500;color:var(--orange);margin-bottom:32px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);margin-bottom:24px;background:linear-gradient(135deg,var(--white) 0%,var(--gray-400) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 span{background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.2rem;color:var(--gray-400);max-width:560px;margin-bottom:40px;line-height:1.8}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;margin-top:72px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06)}
+.hero-stats .stat{text-align:left}
+.hero-stats .stat-num{font-family:'Rajdhani',sans-serif;font-size:2.2rem;font-weight:700;color:var(--orange)}
+.hero-stats .stat-label{font-size:0.85rem;color:var(--gray-400);margin-top:4px}
+
+/* ============ PROBLEM ============ */
+.problem{position:relative;background:var(--gray-900)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
+.pain-card{padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);transition:all 0.3s}
+.pain-card:hover{border-color:rgba(249,115,22,0.2);background:rgba(249,115,22,0.03)}
+.pain-icon{font-size:1.4rem;margin-bottom:12px}
+.pain-card h4{font-size:1rem;margin-bottom:6px;font-weight:600;font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0}
+.pain-card p{font-size:0.9rem;color:var(--gray-400);line-height:1.6}
+.problem-stat{display:flex;align-items:center;gap:16px;margin-top:48px;padding:24px 32px;border-radius:12px;border:1px solid rgba(234,88,12,0.3);background:linear-gradient(135deg,rgba(234,88,12,0.08),rgba(249,115,22,0.04))}
+.problem-stat .num{font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--orange);line-height:1}
+.problem-stat p{color:var(--gray-400);font-size:1rem}
+
+/* ============ SOLUTION ============ */
+.solution{position:relative}
+.lifecycle{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;background:rgba(255,255,255,0.04);border-radius:16px;overflow:hidden}
+@media(max-width:900px){.lifecycle{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.lifecycle{grid-template-columns:1fr}}
+.lc-item{padding:36px 28px;background:var(--dark);position:relative;transition:all 0.3s}
+.lc-item:hover{background:rgba(249,115,22,0.04)}
+.lc-item::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--gold));transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.lc-item:hover::after{transform:scaleX(1)}
+.lc-num{font-family:'Rajdhani',sans-serif;font-size:0.75rem;font-weight:600;color:var(--deep);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.lc-icon{font-size:1.8rem;margin-bottom:12px}
+.lc-item h4{font-size:1.05rem;margin-bottom:6px;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0}
+.lc-item p{font-size:0.85rem;color:var(--gray-400);line-height:1.6}
+.lc-expand{max-height:0;overflow:hidden;transition:max-height 0.4s ease,margin 0.4s ease,opacity 0.3s ease;opacity:0;margin-top:0}
+.lc-item.expanded .lc-expand{max-height:300px;opacity:1;margin-top:16px;padding-top:16px;border-top:1px solid rgba(249,115,22,0.15)}
+.lc-item.expanded{background:rgba(249,115,22,0.06)}
+.lc-item.expanded::after{transform:scaleX(1)}
+.lc-expand .mp-features{margin-top:12px}
+.lc-item::before{content:'+';position:absolute;top:16px;right:16px;font-size:1.2rem;color:var(--gray-600);font-weight:300;transition:transform 0.3s}
+.lc-item.expanded::before{content:'−';color:var(--orange)}
+.flow-callout{margin-top:48px;text-align:center;padding:32px;border-radius:12px;border:1px solid rgba(251,191,36,0.2);background:linear-gradient(135deg,rgba(251,191,36,0.05),transparent)}
+.flow-callout p{font-size:1.15rem;font-weight:500;color:var(--white)}
+.flow-callout p span{color:var(--gold)}
+
+/* ============ ECOSYSTEM ============ */
+.ecosystem{background:var(--gray-900);position:relative}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:768px){.eco-grid{grid-template-columns:1fr}.cta-options{grid-template-columns:1fr!important}}
+.eco-card{padding:40px 32px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:var(--dark);position:relative;overflow:hidden;transition:all 0.3s}
+.eco-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px)}
+.eco-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--gold))}
+.eco-icon{font-size:2.4rem;margin-bottom:20px}
+.eco-card h3{font-size:1.3rem;margin-bottom:8px;font-family:'Rajdhani',sans-serif}
+.eco-role{font-size:0.8rem;color:var(--orange);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+.eco-card p{font-size:0.95rem;color:var(--gray-400);line-height:1.7}
+.eco-bottom{text-align:center;margin-top:48px}
+.eco-bottom p{font-size:1.1rem;color:var(--gray-400)}
+.eco-bottom p strong{color:var(--white)}
+
+/* ============ WHY ============ */
+.why{position:relative}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;margin-top:56px}
+.why-item{display:flex;gap:20px;align-items:flex-start}
+.why-icon-wrap{flex-shrink:0;width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(249,115,22,0.15),rgba(249,115,22,0.05));display:flex;align-items:center;justify-content:center}
+.why-icon-wrap svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.why-item h4{font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:6px}
+.why-item p{font-size:0.9rem;color:var(--gray-400);line-height:1.6}
+
+/* ============ PROOF ============ */
+.proof{background:var(--gray-900);position:relative}
+.proof-content{text-align:center;max-width:700px;margin:0 auto}
+.proof-quote{font-size:1.4rem;font-weight:300;line-height:1.8;color:var(--white);margin-top:40px;font-style:italic}
+.proof-author{margin-top:24px;color:var(--gray-400);font-size:0.95rem}
+.proof-logos{display:flex;justify-content:center;gap:48px;margin-top:56px;opacity:0.4;flex-wrap:wrap}
+.proof-logos span{font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-400)}
+
+/* ============ CTA ============ */
+.cta-section{position:relative;overflow:hidden}
+.cta-inner{text-align:center;padding:80px 40px;border-radius:24px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(234,88,12,0.03));position:relative}
+.cta-inner h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:16px}
+.cta-inner p{font-size:1.1rem;color:var(--gray-400);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-contact{display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap}
+.cta-contact a{display:flex;align-items:center;gap:8px;color:var(--gray-400);font-size:0.95rem;transition:color 0.3s}
+.cta-contact a:hover{color:var(--orange)}
+
+/* ============ FOOTER ============ */
+footer{padding:48px 0;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-copy{font-size:0.85rem;color:var(--gray-600)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:0.85rem;color:var(--gray-400);transition:color 0.3s}
+.footer-links a:hover{color:var(--orange)}
+
+/* Logo */
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{height:36px;width:auto}
+.logo-wordmark{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:0.03em;line-height:1}
+.logo-wordmark .ai{color:var(--orange)}
+.logo-wordmark{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:0.02em;line-height:1;color:var(--white)}
+.logo-wordmark .ai{color:var(--orange)}
+
+/* ============ REAL-TIME VISIBILITY ============ */
+.realtime{position:relative;background:var(--gray-900)}
+.rt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:768px){.rt-grid{grid-template-columns:1fr}}
+.rt-card{padding:36px 28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:var(--dark);transition:all 0.3s}
+.rt-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px)}
+.rt-card h4{font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:10px}
+.rt-card p{font-size:0.9rem;color:var(--gray-400);line-height:1.7}
+.rt-icon{font-size:2rem;margin-bottom:16px}
+.rt-flow{display:flex;align-items:center;justify-content:center;gap:0;margin-top:56px;flex-wrap:wrap}
+.rt-flow-step{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 28px;border-radius:12px;border:1px solid rgba(249,115,22,0.2);background:rgba(249,115,22,0.04);min-width:140px}
+.rt-flow-step .step-icon{font-size:1.6rem}
+.rt-flow-step .step-label{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--white)}
+.rt-flow-arrow{font-size:1.4rem;color:var(--orange);padding:0 8px}
+@media(max-width:600px){.rt-flow-arrow{transform:rotate(90deg);padding:8px 0}}
+.qr-svg{width:56px;height:56px;margin-bottom:16px}
+
+/* ============ ECOSYSTEM EXPANDED ============ */
+.eco-centerpiece{margin-top:64px;padding:48px 40px;border-radius:20px;border:2px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.04),rgba(234,88,12,0.02));position:relative}
+.eco-centerpiece h3{font-family:'Rajdhani',sans-serif;font-size:clamp(1.4rem,3vw,2rem);text-align:center;margin-bottom:8px}
+.eco-centerpiece .eco-role{text-align:center;margin-bottom:32px}
+.eco-hub{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:40px}
+.eco-hub-node{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 24px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);min-width:130px;transition:all 0.3s}
+.eco-hub-node:hover{border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.05)}
+.eco-hub-node .node-icon{font-size:1.8rem}
+.eco-hub-node .node-label{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.95rem;text-transform:uppercase;color:var(--white)}
+.eco-hub-center{padding:24px 28px;border-radius:14px;border:2px solid var(--orange);background:linear-gradient(135deg,rgba(249,115,22,0.12),rgba(249,115,22,0.04));min-width:160px}
+.eco-hub-center .node-label{color:var(--orange)}
+.eco-hub-arrow{font-size:1.6rem;color:var(--orange);padding:0 12px}
+@media(max-width:700px){.eco-hub-arrow{transform:rotate(90deg);padding:8px 0}}
+.eco-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.eco-feat{padding:24px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);transition:all 0.3s}
+.eco-feat:hover{border-color:rgba(249,115,22,0.2);background:rgba(249,115,22,0.03)}
+.eco-feat h4{font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:6px}
+.eco-feat p{font-size:0.88rem;color:var(--gray-400);line-height:1.6}
+.eco-feat-icon{font-size:1.3rem;margin-bottom:10px}
+
+/* ============ MODULE TABS ============ */
+.module-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:56px;justify-content:center}
+.module-tab{padding:10px 18px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:var(--gray-400);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;transition:all 0.3s;white-space:nowrap}
+.module-tab:hover{border-color:rgba(249,115,22,0.4);color:var(--white);background:rgba(249,115,22,0.06)}
+.module-tab.active{border-color:var(--orange);background:rgba(249,115,22,0.12);color:var(--orange);box-shadow:0 0 20px rgba(249,115,22,0.15)}
+.module-panel-wrap{position:relative;margin-top:32px;min-height:260px}
+.module-panel{display:none;padding:48px 40px;border-radius:20px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.05),rgba(10,10,10,0.9));animation:panelIn 0.4s ease}
+.module-panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.mp-num{font-family:'Rajdhani',sans-serif;font-size:0.75rem;font-weight:600;color:var(--deep);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.mp-icon{font-size:2.5rem;margin-bottom:16px}
+.module-panel h3{font-family:'Rajdhani',sans-serif;font-size:1.6rem;margin-bottom:12px}
+.module-panel p{font-size:1rem;color:var(--gray-400);line-height:1.8;max-width:700px}
+.mp-features{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.mp-features span{padding:6px 16px;border-radius:100px;font-size:0.8rem;background:rgba(249,115,22,0.1);color:var(--orange);font-weight:500;font-family:'Inter',sans-serif}
+@media(max-width:768px){.module-panel{padding:32px 24px}}
+.feature-card{transition:all 0.3s}
+.feature-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+
+/* ============ PROGRESSIVE DISCLOSURE ============ */
+.expandable-content{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height 0.6s cubic-bezier(.16,1,.3,1),opacity 0.4s ease,margin 0.4s ease;
+  margin-top:0;
+}
+.expandable-content.expanded{
+  opacity:1;
+  margin-top:24px;
+}
+.expand-trigger{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  border:1px solid rgba(249,115,22,0.3);
+  border-radius:100px;
+  background:rgba(249,115,22,0.06);
+  color:var(--orange);
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:0.9rem;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:all 0.3s;
+  margin-top:32px;
+}
+.expand-trigger:hover{
+  background:rgba(249,115,22,0.12);
+  border-color:rgba(249,115,22,0.5);
+}
+.expand-trigger .arrow{
+  transition:transform 0.3s;
+  display:inline-block;
+}
+.expand-trigger.active .arrow{
+  transform:rotate(180deg);
+}
+.expand-wrap{text-align:center}
+</style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 60 60">
-                    <defs>
-                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#3b82f6"/>
-                            <stop offset="50%" style="stop-color:#1e3a8a"/>
-                            <stop offset="100%" style="stop-color:#b91c1c"/>
-                        </linearGradient>
-                    </defs>
-                    <g transform="translate(6, 5)">
-                        <rect x="0" y="0" width="48" height="10" rx="2" fill="#1e3a8a"/>
-                        <rect x="0" y="40" width="48" height="10" rx="2" fill="#991b1b"/>
-                        <rect x="19" y="10" width="10" height="30" fill="url(#logo-grad)"/>
-                        <circle cx="24" cy="25" r="10" fill="none" stroke="url(#logo-grad)" stroke-width="2"/>
-                        <circle cx="24" cy="25" r="5" fill="#ffffff"/>
-                        <circle cx="5" cy="5" r="3" fill="#60a5fa"/>
-                        <circle cx="43" cy="5" r="3" fill="#60a5fa"/>
-                        <circle cx="5" cy="45" r="3" fill="#f87171"/>
-                        <circle cx="43" cy="45" r="3" fill="#f87171"/>
-                    </g>
-                </svg>
-                <span class="logo-text"><span class="logo-bravo">BRAVO</span><span class="logo-ai">AI</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="https://calendly.com/mario-bravoai/30min" target="_blank" class="btn btn-primary">Get Started</a>
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="logo" style="flex-direction:column;gap:2px;align-items:center;">
+      <!-- Bravo AI Logo — Locked Feb 9, 2026 -->
+      <svg width="52" height="16" viewBox="0 0 175 55" fill="none">
+        <path d="M0 50L35 30L55 36L87 12L120 36L140 30L175 50" stroke="#F5F5F4" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M70 18L72 23.5L78 23.5L73.5 27L75 32.5L70 29L65 32.5L66.5 27L62 23.5L68 23.5Z" fill="#F97316"/>
+      </svg>
+      <span class="logo-wordmark" style="font-size:0.9rem;letter-spacing:0.04em;">BRAVO<span class="ai">AI</span></span>
+    </a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Platform</a>
+      <a href="#ai-assistant">AI Assistant</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#mobile">Mobile</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="about.html">About</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Get a Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge reveal"><span class="dot"></span> Now in Early Access</div>
+      <h1 class="reveal reveal-delay-1">From Bid to Billing.<br><span>One Platform.</span></h1>
+      <p class="reveal reveal-delay-2" style="font-size:1.2rem;color:var(--gray-400);max-width:560px;margin-bottom:40px;line-height:1.8;">The structural steel platform that replaces 6-7 disconnected tools with one connected system. Built by steel people, powered by AI.</p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="#cta" class="btn btn-primary">Request a Demo →</a>
+        <a href="#solution" class="btn btn-outline">See How It Works</a>
+      </div>
+      <div class="hero-stats reveal reveal-delay-4">
+        <div class="stat"><div class="stat-num">9</div><div class="stat-label">Modules, One Platform</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Command Centers</div></div>
+        <div class="stat"><div class="stat-num">0</div><div class="stat-label">Data Re-Entry</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPARK LOGO DIVIDER -->
+<section style="padding:60px 0;background:var(--dark);text-align:center;position:relative;">
+  <div style="max-width:300px;margin:0 auto;">
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(249,115,22,0.25),transparent);margin-bottom:32px;"></div>
+    <svg width="210" height="165" viewBox="0 0 220 170" style="display:block;margin:0 auto;">
+      <line x1="62" y1="28" x2="108" y2="86" stroke="#F97316" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="110" cy="89" r="14" fill="#F97316" opacity="0.12"/>
+      <circle cx="110" cy="89" r="9" fill="#FBBF24" opacity="0.4"/>
+      <circle cx="110" cy="89" r="5" fill="#FBBF24" opacity="0.75"/>
+      <circle cx="110" cy="89" r="2.5" fill="#fff" opacity="0.95"/>
+      <line x1="114" y1="85" x2="132" y2="70" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+      <line x1="116" y1="88" x2="136" y2="82" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="114" y1="93" x2="130" y2="102" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="113" y1="84" x2="124" y2="72" stroke="#F97316" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="116" y1="91" x2="138" y2="92" stroke="#F97316" stroke-width="1" stroke-linecap="round"/>
+      <line x1="114" y1="96" x2="126" y2="108" stroke="#F97316" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="135" cy="67" r="2" fill="#FBBF24"/>
+      <circle cx="139" cy="80" r="1.5" fill="#FBBF24"/>
+      <circle cx="133" cy="105" r="1.5" fill="#FBBF24"/>
+      <circle cx="127" cy="69" r="1" fill="#FBBF24"/>
+      <circle cx="141" cy="90" r="1" fill="#F97316"/>
+      <circle cx="129" cy="111" r="1" fill="#F97316"/>
+      <line x1="82" y1="94" x2="145" y2="94" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+      <text x="110" y="132" text-anchor="middle" fill="#a3a3a3" font-family="'Saira Stencil One',sans-serif" font-size="22">BRAVO</text>
+      <text x="110" y="162" text-anchor="middle" fill="#F97316" font-family="'Saira Stencil One',sans-serif" font-size="34" letter-spacing="4">SPARK</text>
+    </svg>
+    <p style="font-size:0.85rem;color:#f5f5f4;letter-spacing:0.15em;text-transform:uppercase;margin-top:16px;font-family:'Rajdhani',sans-serif;font-weight:600;">Powered by AI</p>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(249,115,22,0.25),transparent);margin-top:32px;"></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem section" id="problem">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="label reveal">The Problem</div>
+    <h2 class="section-title reveal">"Where's My Steel?"</h2>
+    <p class="section-sub reveal"><strong>Sound familiar?</strong> Your estimating lives in a spreadsheet. Production is on a whiteboard. Shipping updates come through group texts. Drawing revisions get buried in email chains. Your erector is calling asking where the steel is, your GC wants a progress update, and you're flipping between 6 apps trying to find the answer. Every handoff — shop to field, fab to erector, you to the GC — is a chance for something to fall through the cracks. And in steel, when something falls through the cracks, it costs real money.</p>
+    <div class="pain-grid">
+      <!-- First 4 visible -->
+      <div class="pain-card reveal">
+        <div class="pain-icon">📊</div>
+        <h4>Estimating in one system</h4>
+        <p>Your bid lives in a spreadsheet that nobody else can access or update in real time.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon">🏭</div>
+        <h4>Production in another</h4>
+        <p>Shop floor schedules disconnected from estimating and field data. Constant phone calls to sync up.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon">📁</div>
+        <h4>Drawings on a shared drive</h4>
+        <p>Version control by filename. "Final_v3_REVISED_USE-THIS.pdf" — and nobody's sure which is current.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-icon">📝</div>
+        <h4>Timesheets on paper</h4>
+        <p>Handwritten hours collected on Friday. Entered Monday. Job costing is always two weeks behind.</p>
+      </div>
+    </div>
+    <!-- Remaining 8 pain cards hidden -->
+    <div class="expandable-content" id="problem-more">
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-icon">💻</div>
+          <h4>Accounting in QuickBooks</h4>
+          <p>Data manually re-keyed from your PM tool. Invoices disconnected from actual job progress.</p>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span></span>
-                Now serving Texas & beyond
-            </div>
-            <h1>The Future of <span class="gradient-text">Construction</span> is Here</h1>
-            <p>We bring AI-powered automation to steel fabrication and construction companies. Less paperwork. Faster decisions. More building.</p>
-            <div class="hero-buttons">
-                <a href="https://calendly.com/mario-bravoai/30min" target="_blank" class="btn btn-primary">Book a Demo</a>
-                <a href="#features" class="btn btn-secondary">See How It Works</a>
-            </div>
+        <div class="pain-card reveal reveal-delay-1">
+          <div class="pain-icon">📱</div>
+          <h4>Shipping updates via text</h4>
+          <p>"Hey, did that load leave yet?" — the most common question in structural steel, answered by group text.</p>
         </div>
-    </section>
-
-    <section class="section" id="features">
-        <div class="section-header">
-            <h2>Work Smarter, Not Harder</h2>
-            <p>AI that understands construction. Built by people who've been in the field.</p>
+        <div class="pain-card reveal reveal-delay-2">
+          <div class="pain-icon">📋</div>
+          <h4>POs created manually — every time</h4>
+          <p>Steel, decking, joists, bolts, paint, gas cylinders, welding rods — someone has to stop what they're doing and write up a PO for every single order. Half the time it doesn't get logged until days later — if it gets logged at all.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📋</div>
-                <h3>Automated Documentation</h3>
-                <p>BOLs, QC reports, and delivery tracking that handle themselves. Your crew focuses on building.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>AI Assistants</h3>
-                <p>Custom AI agents that know your shop, your processes, and your people. Available 24/7.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Real-Time Insights</h3>
-                <p>Track shop progress, material inventory, and project timelines from anywhere.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3>Team Communication</h3>
-                <p>AI-powered group chats that keep everyone aligned. Field to shop to office, seamlessly.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Instant Answers</h3>
-                <p>Ask about any job, any piece, any delivery. Get answers in seconds, not hours.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3>Secure & Private</h3>
-                <p>Your data stays yours. Enterprise-grade security with full control.</p>
-            </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <div class="pain-icon">🔩</div>
+          <h4>Consumables? Good luck tracking those</h4>
+          <p>Where did that last tank of argon go? When did we last order 7018 rods? How much are we spending on consumables per job? Nobody knows — because nobody's tracking it.</p>
         </div>
-    </section>
-
-    <section class="section stats">
-        <div class="stats-grid">
-            <div class="stat">
-                <h3>80%</h3>
-                <p>Less time on paperwork</p>
-            </div>
-            <div class="stat">
-                <h3>24/7</h3>
-                <p>AI availability</p>
-            </div>
-            <div class="stat">
-                <h3>2x</h3>
-                <p>Faster decision making</p>
-            </div>
-            <div class="stat">
-                <h3>100%</h3>
-                <p>Your data ownership</p>
-            </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">🕐</div>
+          <h4>Man hours tracked on paper — maybe</h4>
+          <p>Field crew fills out timesheets at the end of the week. How many hours were on job 0029 vs 0028? What was the crane downtime? Nobody knows until payroll — if it even gets recorded accurately.</p>
         </div>
-    </section>
-
-    <section class="section about" id="about">
-        <div class="about-content">
-            <div class="section-header">
-                <h2>Our Story</h2>
-                <p>From steel fabricators to AI builders. We created the tools we wished existed—now we're sharing them with the industry.</p>
-            </div>
-            
-            <div class="about-story">
-                <p>
-                    <span class="highlight">We own and operate a steel fabrication facility and erection company in Texas.</span> Like most in this industry, we built our business on hard work, good relationships, and getting the job done right. But as we grew, so did the complexity — and the inefficiencies that come with it.
-                </p>
-                
-                <p>
-                    Job tracking lived on whiteboards. Critical updates came through endless group texts. Our team spent hours every day answering the same questions: <em>Where's that beam? Did the truck leave? What's the status on this job?</em> Information was scattered across spreadsheets, emails, and too many apps to count.
-                </p>
-
-                <p>
-                    <span class="highlight">We invested in the solutions the market offered.</span> Project management platforms. ERP systems. Industry-specific software. Each one promised to streamline our operations. And while some had merit, none of them truly fit how our business actually runs. We found ourselves constantly adapting our workflows to accommodate the software — rather than the other way around.
-                </p>
-
-                <p class="quote">
-                    "The tools designed to help us were creating their own inefficiencies. We needed systems that worked the way we work — not systems that forced us to change."
-                </p>
-
-                <p>
-                    That's when we discovered the real potential of AI — not as a buzzword, but as <span class="highlight">a practical tool for building intelligent systems tailored to our specific operations.</span> Systems that understand our terminology, our processes, our people. Systems that answer questions instantly, automate documentation, and connect every part of our operation in real time.
-                </p>
-                
-                <p>
-                    We built AI assistants that know every job, every piece, every delivery status. We automated our bills of lading, QC reports, and material tracking. We connected our shop floor to our office seamlessly. <span class="highlight">For the first time, our technology adapted to us.</span>
-                </p>
-
-                <p>
-                    <span class="highlight">The impact was measurable and immediate.</span> Administrative overhead dropped significantly. Our supervisors returned to supervising. Decision-making accelerated because the information was always accessible. We scaled our output without scaling our headaches.
-                </p>
-
-                <p>
-                    When others in the industry started asking how we transformed our operations, we recognized a larger opportunity. <span class="highlight">Every fabricator, every contractor, every construction company faces these same challenges</span> — and most are still relying on tools that weren't built for how they actually work.
-                </p>
-
-                <p>
-                    <span class="highlight">We believe the future of business belongs to companies that can build systems around their needs</span> — not companies that bend to fit generic software. The ability to create custom, intelligent solutions tailored to your specific operations isn't just an advantage anymore. It's becoming essential.
-                </p>
-
-                <p>
-                    <span class="highlight">That's why we founded Bravo AI.</span> We bring the same AI-driven approach that transformed our own companies to yours. No off-the-shelf software that requires you to change how you operate. No consultants who've never set foot on a job site. Just proven solutions from people who understand this industry — because we live it every day.
-                </p>
-
-                <div class="about-founder">
-                    <div class="founder-avatar"><img src="assets/mario-headshot.jpg" alt="Mario Urquidi"></div>
-                    <div class="founder-info">
-                        <h4>Mario Urquidi</h4>
-                        <p>Founder & CEO, Bravo AI • Owner, Del Bravo Steel & Del Bravo Erectors</p>
-                    </div>
-                </div>
-            </div>
+        <div class="pain-card reveal reveal-delay-1">
+          <div class="pain-icon">🏗️</div>
+          <h4>Daily reports? End-of-day nightmare</h4>
+          <p>Your superintendent finishes a 10-hour day and now has to log into a platform and recreate everything from memory. Equipment used, crew count, work completed, delays, safety notes — all typed up at 7 PM when they're exhausted. Half the details are already forgotten.</p>
         </div>
-    </section>
+        <div class="pain-card reveal reveal-delay-2">
+          <div class="pain-icon">🚜</div>
+          <h4>Equipment time? Just guessing</h4>
+          <p>How many hours was the crane on site? How much downtime waiting on deliveries? What's the actual equipment cost per job? Without real-time tracking, you're estimating your costs — not measuring them.</p>
+        </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <div class="pain-icon">📂</div>
+          <h4>Compliance? Good luck finding it</h4>
+          <p>Insurance certs, safety docs, equipment maintenance records, fuel logs, crane inspections — scattered across filing cabinets, email attachments, and someone's truck. When the auditor shows up or the GC asks for proof of compliance, it's a scramble every single time.</p>
+        </div>
+      </div>
+    </div>
+    <div class="expand-wrap reveal">
+      <button class="expand-trigger" onclick="toggleExpand(this,'problem-more')" data-more="See all challenges" data-less="Show less">See all challenges <span class="arrow">↓</span></button>
+    </div>
+    <div class="problem-stat reveal">
+      <div class="num">5–7</div>
+      <p>The average fab shop uses <strong>5 to 7 disconnected tools</strong> to manage a single job. That's not a workflow — it's a workaround.</p>
+    </div>
+  </div>
+</section>
 
-    <section class="section contact" id="contact">
-        <div class="section-header">
-            <h2>Let's Talk</h2>
-            <p>Ready to see what AI can do for your operation? Tell us about your business.</p>
+<!-- SOLUTION -->
+<section class="solution section" id="solution">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="label reveal text-center">The Solution</div>
+    <h2 class="section-title reveal text-center">The Full Lifecycle.<br>One Platform.</h2>
+    <p class="section-sub reveal text-center mx-auto">Every step of the structural steel lifecycle — connected, automated, and visible to everyone who needs it.</p>
+    <!-- Grid removed — lifecycle cards below are now expandable -->
+    <div class="lifecycle reveal" style="margin-top:32px;">
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">01</div><div class="lc-icon">🎯</div><h4>Bid Dashboard</h4><p>Pipeline from first call to signed contract.</p>
+        <div class="lc-expand">
+          <p>Track opportunities and manage your pipeline from first call to signed contract. See every active bid, its stage, estimated value, and probability of close — all in one view.</p>
+          <div class="mp-features"><span>Pipeline tracking</span><span>Win/loss analytics</span><span>Follow-up reminders</span><span>GC contact management</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">02</div><div class="lc-icon">📋</div><h4>Estimating</h4><p>Material, labor, and equipment — all in one place.</p>
+        <div class="lc-expand">
+          <p>Price the job with confidence. Build estimates from historical data, import tonnage from models, and compare against actuals from past jobs to sharpen your bids over time.</p>
+          <div class="mp-features"><span>Material takeoffs</span><span>Labor projections</span><span>Historical comparisons</span><span>Markup & margin tools</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">03</div><div class="lc-icon">📐</div><h4>Drawings & Submittals</h4><p>Revisions, approvals, always current.</p>
+        <div class="lc-expand">
+          <p>Always know which version is current. Track submittal status per sequence, log RFIs, and keep a full audit trail of every revision — no more "Final_v3_REVISED_USE-THIS.pdf."</p>
+          <div class="mp-features"><span>Revision tracking</span><span>Submittal logs</span><span>RFI management</span><span>Approval workflows</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">04</div><div class="lc-icon">📦</div><h4>Purchasing</h4><p>POs, vendors, and receipts tied to jobs.</p>
+        <div class="lc-expand">
+          <p>Know what's ordered, what's received, and what's outstanding. Track consumables, log receipts by forwarding them to your AI email, and never lose a PO again.</p>
+          <div class="mp-features"><span>PO creation & tracking</span><span>Vendor management</span><span>Receiving logs</span><span>Consumable tracking</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">05</div><div class="lc-icon">🏭</div><h4>Production Control</h4><p>Shop floor scheduling and QC in real time.</p>
+        <div class="lc-expand">
+          <p>Schedule the shop floor. Track fit-up, welding, paint, and QC in real time. Live 3D model viewer auto-synced from Tekla/SDS2 — click any piece to see its full history.</p>
+          <div class="mp-features"><span>Shop scheduling</span><span>QC checklists</span><span>3D model viewer</span><span>Piece-level tracking</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">06</div><div class="lc-icon">🚛</div><h4>Shipping & BOLs</h4><p>Build loads, generate BOLs, track deliveries.</p>
+        <div class="lc-expand">
+          <p>Scan pieces onto a truck, auto-generate the BOL, and notify the erector the moment it rolls out. Every stakeholder sees shipping status in real time.</p>
+          <div class="mp-features"><span>Load building</span><span>Auto BOL generation</span><span>Delivery tracking</span><span>Erector notifications</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">07</div><div class="lc-icon">🏗️</div><h4>Field & Erection</h4><p>Crews, installs, safety, daily reports.</p>
+        <div class="lc-expand">
+          <p>Superintendents can file daily reports by voice note — the AI writes them up. Track crane time, weather delays, and installed piece counts automatically.</p>
+          <div class="mp-features"><span>Crew management</span><span>Install tracking</span><span>Voice daily reports</span><span>Safety documentation</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">08</div><div class="lc-icon">💰</div><h4>Job Costing & Time Tracking</h4><p>Clock hours, track margins in real time.</p>
+        <div class="lc-expand">
+          <p>Workers clock in from their phone, hours auto-allocate to cost codes, and you see estimate vs. actual at any point during the job. No more paper timesheets.</p>
+          <div class="mp-features"><span>Mobile clock-in/out</span><span>Real-time margins</span><span>Estimate vs. actual</span><span>Cost code breakdowns</span><span>Budget alerts</span><span>Payroll export</span></div>
+        </div>
+      </div>
+      <div class="lc-item" onclick="toggleModule(this)" style="cursor:pointer">
+        <div class="lc-num">09</div><div class="lc-icon">📊</div><h4>Accounting-Ready Reports</h4><p>Export-ready for QuickBooks, Sage, Xero.</p>
+        <div class="lc-expand">
+          <p>Clean, export-ready reports your bookkeeper actually wants. PO summaries, labor costs, job costs, and invoice-ready pay apps. We don't touch your books — we just make sure the numbers are right.</p>
+          <div class="mp-features"><span>Pay app generation</span><span>PO summaries</span><span>Labor cost reports</span><span>QuickBooks / Sage / Xero export</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Real-Time Visibility Callout -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;" class="reveal">
+      <div style="text-align:center;padding:24px 16px;border-radius:12px;border:1px solid rgba(249,115,22,0.15);background:rgba(249,115,22,0.03);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">⚡</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:6px;">Instant Updates</div>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Welder marks a piece complete — PM sees it on their dashboard immediately. No waiting for end-of-day reports.</p>
+      </div>
+      <div style="text-align:center;padding:24px 16px;border-radius:12px;border:1px solid rgba(249,115,22,0.15);background:rgba(249,115,22,0.03);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">🔔</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:6px;">Auto-Notifications</div>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Schedule change? Shipment delayed? Everyone who needs to know gets notified instantly. No more phone tag.</p>
+      </div>
+      <div style="text-align:center;padding:24px 16px;border-radius:12px;border:1px solid rgba(249,115,22,0.15);background:rgba(249,115,22,0.03);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">📊</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:6px;">Live Dashboards</div>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Every report, every metric reflects what's happening right now — not yesterday's data. Real-time visibility across your entire operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI ASSISTANT -->
+<section class="section" id="ai-assistant" style="position:relative;overflow:hidden;">
+  <div class="grid-bg"></div>
+  <div style="position:absolute;top:-10%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,0.08),transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="label reveal text-center">Your AI Assistant</div>
+    <h2 class="section-title reveal text-center">Meet Your New<br>Right-Hand Man.</h2>
+    <p class="section-sub reveal text-center mx-auto">Every Bravo AI subscription includes an AI assistant that knows your shop, your jobs, and your data — inside and out. It didn't learn steel from a manual. It was trained on real fabrication and erection operations. Day one, it already speaks your language.</p>
+
+    <!-- Steel Brain Knowledge -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:750px;margin:32px auto 0;">
+      <div class="reveal" style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:1.4rem;margin-bottom:8px;">🔩</div>
+        <p style="font-size:0.85rem;color:var(--white);font-weight:500;margin-bottom:4px;">Speaks Your Language</p>
+        <p style="font-size:0.78rem;color:var(--gray-400);">W14x30 vs W14x34. Submittals vs transmittals. Fit-up vs weldout. It knows the difference.</p>
+      </div>
+      <div class="reveal" style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:1.4rem;margin-bottom:8px;">📊</div>
+        <p style="font-size:0.85rem;color:var(--white);font-weight:500;margin-bottom:4px;">Understands Workflows</p>
+        <p style="font-size:0.78rem;color:var(--gray-400);">Production stages, material traceability, QC gates, shipping protocols — trained on how real shops run.</p>
+      </div>
+      <div class="reveal" style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:1.4rem;margin-bottom:8px;">⚡</div>
+        <p style="font-size:0.85rem;color:var(--white);font-weight:500;margin-bottom:4px;">Day One Expert</p>
+        <p style="font-size:0.78rem;color:var(--gray-400);">No weeks of setup. It arrives knowing estimating, purchasing, fabrication, and erection workflows.</p>
+      </div>
+    </div>
+    
+    <!-- AI Demo Conversation -->
+    <div class="reveal" style="max-width:600px;margin:48px auto 0;">
+      <div style="padding:32px;border-radius:20px;background:var(--gray-900);border:1px solid rgba(255,255,255,0.06);">
+        
+        <!-- User message -->
+        <div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+          <div style="background:linear-gradient(135deg,var(--orange),var(--deep));padding:12px 18px;border-radius:16px 16px 4px 16px;max-width:80%;font-size:0.9rem;">
+            🎤 "What's the status on Cotton Exchange?"
+          </div>
         </div>
         
-        <div class="contact-box">
-            <form class="contact-form" name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="contact">
-                <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" placeholder="John Smith" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company *</label>
-                        <input type="text" id="company" name="company" placeholder="Your Company" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="john@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="business-type">Type of Business *</label>
-                    <select id="business-type" name="business_type" required>
-                        <option value="" disabled selected>Select your industry</option>
-                        <option value="steel-fabrication">Steel Fabrication</option>
-                        <option value="erection-contractor">Erection Contractor</option>
-                        <option value="general-contractor">General Contractor</option>
-                        <option value="structural-engineer">Structural Engineer</option>
-                        <option value="manufacturing">Manufacturing</option>
-                        <option value="other">Other Construction</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Tell us about your challenges</label>
-                    <textarea id="message" name="message" placeholder="What's slowing your operation down? What would you automate if you could?"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Send Message</button>
-                
-                <p class="form-note">We'll get back to you within 24 hours. No spam, no sales pressure.</p>
-            </form>
+        <!-- AI response -->
+        <div style="display:flex;justify-content:flex-start;margin-bottom:20px;">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:14px 18px;border-radius:16px 16px 16px 4px;max-width:85%;font-size:0.85rem;color:var(--gray-400);line-height:1.7;">
+            <strong style="color:var(--white);">Job 0029 — Cotton Exchange:</strong><br>
+            67 total pieces • 41 fabricated • 18 shipped • 8 erected<br>
+            3 POs outstanding ($12,400) • Next shipment: Tuesday AM<br>
+            Job cost: $142K of $185K budget (76.8%)<br>
+            <span style="color:var(--orange);">⚠️ 4 column bases need to ship by Friday — erector has crane scheduled.</span>
+          </div>
         </div>
-    </section>
+        
+        <!-- User message 2 -->
+        <div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+          <div style="background:linear-gradient(135deg,var(--orange),var(--deep));padding:12px 18px;border-radius:16px 16px 4px 16px;max-width:80%;font-size:0.9rem;">
+            "Log a PO — 50lbs of 7018 rods from Airgas, $340, job 0029"
+          </div>
+        </div>
+        
+        <!-- AI response 2 -->
+        <div style="display:flex;justify-content:flex-start;">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:14px 18px;border-radius:16px 16px 16px 4px;max-width:85%;font-size:0.85rem;color:var(--gray-400);line-height:1.7;">
+            ✅ <strong style="color:var(--white);">PO #0029-047 created</strong><br>
+            50 lbs 7018 welding rods • Airgas • $340.00<br>
+            Linked to Job 0029 — Cotton Exchange<br>
+            Job cost updated: $142,340 of $185K budget
+          </div>
+        </div>
+        
+      </div>
+      <p style="text-align:center;margin-top:12px;font-size:0.8rem;color:var(--gray-600);">Real example. Voice note or text. Instant response.</p>
+    </div>
+    
+    <!-- EXPANDABLE: AI Features, Channels, Email, Managed, Summary -->
+    <div class="expand-wrap reveal">
+      <button class="expand-trigger" onclick="toggleExpand(this,'ai-more')" data-more="Explore AI features" data-less="Show less">Explore AI features <span class="arrow">↓</span></button>
+    </div>
+    <div class="expandable-content" id="ai-more">
+    
+    <!-- AI Features Grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:24px;">
+      <div class="feature-card reveal" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🗣️</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Voice or Text — Your Choice</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Send a voice note from the shop floor or a text from your desk. The AI understands both. No typing required — just talk to it like you'd talk to your PM.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🧠</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Knows Your Shop Inside Out</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Your AI knows every job, every piece, every PO, every shipment. Ask it anything — status updates, cost breakdowns, scheduling conflicts. It has the answer in seconds.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">⚡</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Takes Action — Not Just Answers</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">The AI doesn't just report — it works. Create POs, generate BOLs, log daily reports, flag delays, notify your erector. Tell it what to do and it's done.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🔔</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Proactive Alerts</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">The AI doesn't wait to be asked. It flags issues before they become problems. "Heads up — you're at 85% budget on job 0029 with 30% of steel still in the shop."</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">♾️</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Unlimited. Included.</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">No per-query charges. No usage limits. No "you've exceeded your AI plan." The AI assistant is included with every subscription. Ask it 10 times a day or 1,000. Same price.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🔒</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Your Data. Only Yours.</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Your AI only sees YOUR company's data. Completely isolated from other customers. Your jobs, your costs, your operations — private and secure.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">📸</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Snap It, Log It, Done</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Take a photo of a receipt, an MTR, a delivery ticket — send it to the AI and it reads it, extracts the data, and logs it to the right job automatically. No typing. No data entry. Just snap and send.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">📋</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Daily Reports by Voice</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Your super finishes the day and sends a 60-second voice note: crew count, work completed, delays, equipment used. The AI turns it into a formatted daily report — logged, timestamped, and filed to the job. No typing at 7 PM.</p>
+      </div>
+    </div>
+    
+    <!-- Team Channels -->
+    <div class="reveal" style="margin-top:48px;padding:32px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+        <div style="font-size:3rem;flex-shrink:0;">💬</div>
+        <div style="flex:1;min-width:250px;">
+          <h4 style="font-size:1.2rem;font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:8px;">Multiple Channels. One AI Brain.</h4>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;margin-bottom:16px;">Set up separate channels for different departments — or keep it all in one. Fully customizable per client.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">📋 Office & Estimating</div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">🏭 Shop Floor</div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">🚛 Shipping</div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">🏗️ Field Crew</div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">👔 Management</div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);font-size:0.8rem;color:var(--white);">📊 All-In-One</div>
+          </div>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;">Each channel is scoped to its role — the shop floor sees production, shipping sees BOLs, management sees margins. Same AI, different views. A 10-person shop can use one channel for everything. A 100-person operation can have separate channels per department. <strong style="color:var(--white);">Your structure, your rules.</strong></p>
+        </div>
+      </div>
+    </div>
 
-    <footer>
-        <p>13351 Montana, El Paso, Texas 79938 | mario@bravoai.co</p>
-        <p>&copy; 2026 Bravo AI. Building the future of construction.</p>
-    </footer>
+    <!-- Dedicated Email -->
+    <div class="reveal" style="margin-top:48px;padding:32px;border-radius:20px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+        <div style="font-size:3rem;flex-shrink:0;">📧</div>
+        <div style="flex:1;min-width:250px;">
+          <h4 style="font-size:1.2rem;font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:8px;">Your Own AI Email Address</h4>
+          <p style="font-size:0.95rem;color:var(--white);margin-bottom:12px;">Every customer gets a dedicated AI email: <strong style="color:var(--orange);">yourcompany@bravoai.co/forge</strong></p>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;margin-bottom:16px;">Email your AI and it reads, scans, and processes everything automatically:</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">📄 Receipts & expenses</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">🔬 MTRs / Mill certs</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">💰 Invoices</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">🚛 BOLs</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">📋 Bid invitations</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">📐 RFIs & submittals</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">📝 Addendums</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;">📎 Drawing revisions</div>
+          </div>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;">Forward a receipt from your phone → AI scans it, logs the expense, links it to the job. Vendor emails an MTR → AI extracts the heat numbers and matches them to your material. GC sends a bid invite → AI creates the opportunity in your bid dashboard. <strong style="color:var(--white);">No manual data entry. Just forward the email.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Managed & Maintained -->
+    <div class="reveal" style="margin-top:24px;padding:32px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+        <div style="font-size:3rem;flex-shrink:0;">🛡️</div>
+        <div style="flex:1;min-width:250px;">
+          <h4 style="font-size:1.2rem;font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:8px;">Managed, Maintained & Always Up-to-Date</h4>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;margin-bottom:12px;">Your AI runs on our infrastructure — not yours. No servers to manage. No software to install. No patches to apply. When we improve the AI, every customer gets the upgrade automatically. When we add a new feature, it just appears.</p>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.8;">We monitor every agent 24/7. If something goes wrong, we know before you do. Your AI reads your live data — no retraining, no syncing, no stale information. It always knows your current status.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What You Get Summary -->
+    <div class="reveal" style="margin-top:48px;text-align:center;padding:32px;border-radius:16px;border:2px solid rgba(249,115,22,0.3);background:rgba(249,115,22,0.04);">
+      <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);margin-bottom:16px;">Every Subscription Includes</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ Unlimited AI Assistant</div>
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ Dedicated AI Email</div>
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ Voice & Text Support</div>
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ Shared Dashboard</div>
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ All Modules</div>
+        <div style="padding:10px 20px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:0.85rem;color:var(--white);">✅ Automatic Updates</div>
+      </div>
+      <p style="margin-top:20px;font-size:1.2rem;color:var(--white);font-weight:600;">It's like having a PM who never sleeps, never forgets, and knows every detail of every job.</p>
+    </div>
+    
+    </div><!-- /expandable-content ai-more -->
+  </div>
+</section>
+
+<!-- WORKFLOW AUTOMATION -->
+<section class="section" id="workflows" style="position:relative;background:var(--gray-900);">
+  <div class="grid-bg"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="label reveal text-center">Built-In Automation</div>
+    <h2 class="section-title reveal text-center">Workflows That<br>Run Themselves.</h2>
+    <p class="section-sub reveal text-center mx-auto">Most shops spend hours on paperwork that should take seconds. We automated the workflows that eat your day — so your team can focus on building steel, not chasing paper.</p>
+
+    <!-- Workflow Cards — first 3 visible -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:56px;">
+
+      <!-- BOL Auto-Delivery -->
+      <div class="feature-card reveal" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">📦</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Auto BOL Delivery</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">Load ships → photos uploaded → signatures collected → the system automatically emails the complete BOL package to your PM, shop manager, and the GC's superintendent, field engineer, and PM.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Signed BOL</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Packing List</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Load Photos</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Digital Signatures</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">45 minutes of paperwork after every delivery. Blurry photos texted to the GC. "Did you get the BOL?"</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">Zero. The GC has signed documentation before the driver leaves the site.</p>
+        </div>
+      </div>
+
+      <!-- QR Production Tracking -->
+      <div class="feature-card reveal reveal-delay-1" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">📱</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">QR Production Tracking</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">Every piece gets a QR code. Workers scan to update status — CUT → FIT → WELD → QC → PAINT → SHIP. Real-time shop floor visibility from a phone. No whiteboard. No clipboard.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">6-Stage Tracking</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Instant Updates</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">3D Model Sync</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Walk the shop, check the whiteboard, call the foreman. Production meeting just to know what's done.</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">Open your phone. Every piece, every stage, right now. The 3D model lights up in real time.</p>
+        </div>
+      </div>
+
+      <!-- Heat Traceability -->
+      <div class="feature-card reveal reveal-delay-2" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">🔗</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Full Heat Traceability</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">From mill cert to installed piece — one click. Every heat number traces through PO → receiving → inventory → cut list → fabrication → shipment. Complete chain of custody. Audit-ready, always.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Mill Cert → Piece</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">MTR Matching</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Audit Trail</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Digging through filing cabinets for MTRs. "Which heat number went into that column base?"</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">Click the piece. See every heat number, every MTR, every step — from mill to field.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Remaining 4 workflow cards hidden -->
+    <div class="expandable-content" id="workflows-more">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:0;">
+
+      <!-- Transmittal Packages -->
+      <div class="feature-card reveal" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">📋</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Auto Transmittal Packages</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">Release a work package and the system generates everything automatically — cut list, pick list, QR labels, and shop drawings. One click creates the full transmittal package for the shop floor.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Cut Lists</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Pick Lists</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">QR Labels</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Shop Drawings</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Hours creating cut lists manually, printing pick lists, handwriting labels. Every release is a project.</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">One click. Full package generated, formatted, and ready to print. Minutes, not hours.</p>
+        </div>
+      </div>
+
+      <!-- GPS Clock-In -->
+      <div class="feature-card reveal reveal-delay-1" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">📍</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">GPS-Verified Clock-In</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">Workers tap to clock in from their phone. GPS confirms they're at the shop or job site. Hours auto-allocate to cost codes. No paper timesheets, no buddy punching, no end-of-week guessing.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Geofenced</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Auto Cost Codes</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Payroll Ready</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Paper timesheets collected Friday. Entered Monday. Job costing always two weeks behind reality.</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">Real-time labor costs per job. Every hour tracked, verified, and allocated automatically.</p>
+        </div>
+      </div>
+
+      <!-- Receipt Processing -->
+      <div class="feature-card reveal reveal-delay-2" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">📸</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Snap-to-Log Receipts</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">Take a photo of any receipt — gas, materials, supplies. The AI reads it, categorizes it, links it to the right job and cost code, and logs it instantly. Forward invoices and MTRs by email — same thing.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">OCR Scanning</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Auto-Categorize</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">QB Export Ready</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Receipts crumpled in truck consoles. "Where's that Airgas receipt from last Tuesday?"</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">Snap it, send it, done. Every expense tracked, categorized, and ready for your bookkeeper.</p>
+        </div>
+      </div>
+
+      <!-- OSHA Safety Compliance -->
+      <div class="feature-card reveal" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+        <div style="font-size:2rem;margin-bottom:16px;">🦺</div>
+        <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">OSHA-Compliant Safety Program</h4>
+        <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:16px;">The AI builds and maintains your entire OSHA-compliant safety program — toolbox talks, JSAs, fall protection plans, crane lift plans, site-specific safety plans, and pre-task checklists. It schedules training, tracks certifications, logs inspections, and keeps everything audit-ready. When OSHA shows up, you're not scrambling — you're handing them a folder.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Safety Programs</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Toolbox Talks</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">JSAs & Checklists</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Cert Tracking</span>
+          <span style="padding:4px 12px;border-radius:100px;font-size:0.75rem;background:rgba(249,115,22,0.1);color:var(--orange);">Inspection Logs</span>
+        </div>
+        <div style="margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.75rem;color:var(--gray-600);margin-bottom:4px;">BEFORE</div>
+          <p style="font-size:0.8rem;color:var(--gray-400);">Safety binder collecting dust. Expired certs nobody noticed. OSHA shows up and it's a $14,000 fine.</p>
+          <div style="font-size:0.75rem;color:var(--orange);margin:8px 0 4px;">AFTER</div>
+          <p style="font-size:0.8rem;color:var(--white);">AI generates your safety program, schedules training, alerts on expiring certs, and keeps every document audit-ready. Always compliant. Zero scrambling.</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <div class="expand-wrap reveal">
+      <button class="expand-trigger" onclick="toggleExpand(this,'workflows-more')" data-more="See all workflows" data-less="Show less">See all workflows <span class="arrow">↓</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL CHAIN OF CUSTODY — Don Hierro's value prop (Feb 10, 2026) -->
+<section class="section" style="position:relative;overflow:hidden;">
+  <div class="grid-bg"></div>
+  <div style="position:absolute;top:10%;left:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,0.08),transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="label reveal text-center">Industry Game Changer</div>
+    <h2 class="section-title reveal text-center">The Future of Steel<br>Erection is Here.</h2>
+    <p class="section-sub reveal text-center mx-auto">For the first time, fabricators and erectors operate on the same platform. Every piece tracked from the shop floor to the final bolt — in real time, with zero phone calls.</p>
+
+    <!-- Chain visualization -->
+    <div class="reveal" style="max-width:900px;margin:48px auto 0;">
+      <div style="display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:48px;padding:24px;border-radius:16px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);">
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">Fabricated</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">QC'd</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">Shipped</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">Delivered</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">Staged</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(249,115,22,0.15);color:var(--orange);font-size:0.85rem;font-weight:600;">Erected</span>
+        <span style="color:var(--gray-600);font-size:1.2rem;">→</span>
+        <span style="padding:8px 16px;border-radius:8px;background:rgba(34,197,94,0.15);color:#22c55e;font-size:0.85rem;font-weight:600;">✓ Final</span>
+      </div>
+
+      <!-- First 2 value props visible -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:24px;">
+
+        <!-- End the #1 Time Waster -->
+        <div class="feature-card reveal" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+          <div style="font-size:2rem;margin-bottom:16px;">⏱️</div>
+          <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">End the #1 Time Waster</h4>
+          <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;">No more <em>"where's piece B-47?"</em> phone calls. No more crews hunting around laydown areas. No more standing around waiting to figure out what's actually on site. <strong style="color:var(--white);">Your crew knows exactly what they can build TODAY.</strong></p>
+        </div>
+
+        <!-- Bulletproof Accountability -->
+        <div class="feature-card reveal reveal-delay-1" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+          <div style="font-size:2rem;margin-bottom:16px;">🛡️</div>
+          <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Bulletproof Accountability</h4>
+          <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;">The shop can't claim they sent something they didn't scan. The field can't claim they didn't receive something they signed for. <strong style="color:var(--white);">Instant visibility when pieces go missing.</strong> Every handoff is documented.</p>
+        </div>
+      </div>
+
+      <!-- Remaining 2 value props + killer quote hidden -->
+      <div class="expandable-content" id="erection-more">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:24px;">
+        <!-- Complete Digital Chain -->
+        <div class="feature-card reveal" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+          <div style="font-size:2rem;margin-bottom:16px;">🔗</div>
+          <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Digital Chain of Custody</h4>
+          <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;">QR scanning from fab to field. Real-time piece tracking through every stage — fabricated, shipped, delivered, staged, erected. <strong style="color:var(--white);">Zero missing piece mysteries.</strong> Complete traceability on every piece of steel.</p>
+        </div>
+
+        <!-- Competitive Advantage -->
+        <div class="feature-card reveal reveal-delay-1" style="padding:32px;border-radius:16px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));">
+          <div style="font-size:2rem;margin-bottom:16px;">🏆</div>
+          <h4 style="font-size:1.1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Unfair Competitive Advantage</h4>
+          <p style="font-size:0.9rem;color:var(--gray-400);line-height:1.7;">While competitors play phone tag about missing steel, your crew is already setting iron. GCs get accurate progress without asking. <strong style="color:var(--white);">Professional, accountable, efficient — the kind of sub every GC wants on their project.</strong></p>
+        </div>
+        </div>
+
+      <!-- Killer quote -->
+      <div class="reveal" style="text-align:center;margin-top:40px;padding:32px;border-radius:16px;background:rgba(249,115,22,0.04);border:1px solid rgba(249,115,22,0.15);">
+        <p style="font-size:1.25rem;color:var(--white);font-weight:600;line-height:1.6;max-width:700px;margin:0 auto;">Steel delivered at 7 AM → Shaken out by 8 → On the erection plan by 8:15 → In the air by 9.<br><span style="color:var(--orange);">That's the Bravo Spark workflow.</span></p>
+      </div>
+      </div>
+      <div class="expand-wrap reveal">
+        <button class="expand-trigger" onclick="toggleExpand(this,'erection-more')" data-more="Learn more" data-less="Show less">Learn more <span class="arrow">↓</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI STEEL BRAIN -->
+<!-- Steel Brain section merged into AI Assistant above -->
+
+<!-- ESTIMATING FEEDBACK ENGINE -->
+<section class="section" id="feedback-engine" style="position:relative;overflow:hidden;">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="label reveal text-center">Estimating Intelligence</div>
+    <h2 class="section-title reveal text-center">Your Shop Gets <span style="color:var(--orange)">Smarter</span><br>With Every Job.</h2>
+    <p class="section-sub reveal text-center mx-auto">Most fabricators guess their labor rates. Bravo Spark <strong style="color:var(--white)">learns them automatically</strong> — tracking actual hours against your estimates so every future bid is more accurate.</p>
+
+    <div class="beam reveal" style="margin:40px auto"></div>
+
+    <!-- The Flywheel -->
+    <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin:40px auto;max-width:900px;align-items:center;">
+      <div style="text-align:center;padding:20px 16px;flex:1;min-width:140px">
+        <div style="font-size:2.5rem;margin-bottom:8px">📐</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;color:var(--orange)">Estimate</div>
+        <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px">Bid the job with<br>your labor rates</div>
+      </div>
+      <div style="color:var(--orange);font-size:1.5rem;padding:0 4px">→</div>
+      <div style="text-align:center;padding:20px 16px;flex:1;min-width:140px">
+        <div style="font-size:2.5rem;margin-bottom:8px">🔩</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;color:var(--orange)">Fabricate</div>
+        <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px">Build it — hours<br>tracked automatically</div>
+      </div>
+      <div style="color:var(--orange);font-size:1.5rem;padding:0 4px">→</div>
+      <div style="text-align:center;padding:20px 16px;flex:1;min-width:140px">
+        <div style="font-size:2.5rem;margin-bottom:8px">📊</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;color:var(--orange)">Compare</div>
+        <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px">Estimated vs actual<br>hours by station</div>
+      </div>
+      <div style="color:var(--orange);font-size:1.5rem;padding:0 4px">→</div>
+      <div style="text-align:center;padding:20px 16px;flex:1;min-width:140px">
+        <div style="font-size:2.5rem;margin-bottom:8px">🧠</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;color:var(--orange)">Adjust</div>
+        <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px">AI calibrates your<br>rates from real data</div>
+      </div>
+      <div style="color:var(--orange);font-size:1.5rem;padding:0 4px">→</div>
+      <div style="text-align:center;padding:20px 16px;flex:1;min-width:140px">
+        <div style="font-size:2.5rem;margin-bottom:8px">🎯</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;color:var(--orange)">Win More</div>
+        <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px">Bid sharper, win<br>more work</div>
+      </div>
+    </div>
+
+    <!-- Stats/Features + quote hidden -->
+    <div class="expandable-content" id="feedback-more">
+
+    <!-- Stats/Features Grid -->
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px;">
+
+      <div style="background:var(--gray-900);border:1px solid var(--gray-800);border-radius:16px;padding:32px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px">⚡</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--white)">Automatic Tracking</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.6">Every piece flows through your shop — cut, fit, weld, QC, paint. Hours are captured automatically. No clipboards. No spreadsheets.</p>
+      </div>
+
+      <div style="background:var(--gray-900);border:1px solid var(--gray-800);border-radius:16px;padding:32px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px">📈</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--white)">Real Hrs/Ton by Shape</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.6">Know your actual productivity for W-beams vs HSS vs angles vs plates. Your rates, your crew, your shop — not industry averages.</p>
+      </div>
+
+      <div style="background:var(--gray-900);border:1px solid var(--gray-800);border-radius:16px;padding:32px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px">🎯</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;color:var(--white)">Bid With Confidence</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.6">After 3 jobs, your estimates are based on reality. After 10 jobs, you're the most accurate bidder in your market. Data compounds.</p>
+      </div>
+
+    </div>
+
+    <div class="reveal text-center" style="margin-top:48px;">
+      <p style="color:var(--gray-400);font-size:1.05rem;max-width:600px;margin:0 auto;line-height:1.7;font-style:italic;">"Right now you do this manually and it's nearly impossible. Bravo Spark does it automatically — every job makes your next estimate better."</p>
+    </div>
+
+    </div>
+    <div class="expand-wrap reveal">
+      <button class="expand-trigger" onclick="toggleExpand(this,'feedback-more')" data-more="How it works" data-less="Show less">How it works <span class="arrow">↓</span></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- YOUR PHONE + REAL-TIME COMBINED -->
+<section class="section" id="mobile" style="position:relative;background:var(--gray-900);">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="label reveal text-center">Mobile First</div>
+    <h2 class="section-title reveal text-center">Your Phone Is<br>Your Office.</h2>
+    <p class="section-sub reveal text-center mx-auto">Everything you need to run your operation — from the shop floor, the field, or the front seat of your truck. No desktop required. No complicated software. Just your phone.</p>
+    
+    <!-- Phone Capabilities -->
+    <div class="reveal" style="margin-top:48px;display:flex;justify-content:center;">
+      <div style="max-width:500px;width:100%;padding:40px 32px;border-radius:24px;border:2px solid rgba(249,115,22,0.3);background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(10,10,10,0.9));text-align:center;">
+        <div style="font-size:4rem;margin-bottom:16px;">📱</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--orange);margin-bottom:4px;">Everything. From Your Phone.</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:24px;">Powered by AI</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;">
+          <!-- First 6 visible -->
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Create POs</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Track production</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Generate BOLs</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">View 3D models</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Scan QR codes</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Voice commands</span></div>
+        </div>
+        <!-- Remaining 6 hidden -->
+        <div class="expandable-content" id="mobile-more" style="margin-top:0;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-top:12px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">View cut lists</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Send RFIs</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Log daily reports</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Track man hours</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Check job costing</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);"><span style="color:var(--orange);">✓</span><span style="font-size:0.85rem;color:var(--gray-400);">Submit submittals</span></div>
+          </div>
+        </div>
+        <div>
+          <button class="expand-trigger" onclick="toggleExpand(this,'mobile-more')" data-more="See all features" data-less="Show less" style="margin-top:20px;">See all features <span class="arrow">↓</span></button>
+        </div>
+        <p style="margin-top:24px;font-size:0.95rem;color:var(--white);font-weight:500;">If you can send a text, you can run the platform.</p>
+        <p style="margin-top:4px;font-size:0.8rem;color:var(--gray-400);">No training needed. No IT department required. Works on any phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem section" id="ecosystem">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="label reveal text-center">The Ecosystem</div>
+    <h2 class="section-title reveal text-center">The Bridge Between<br>Fab & Field.</h2>
+    <p class="section-sub reveal text-center mx-auto">Right now, the fabricator, erector, and GC are all on different islands. Different tools, different data, different timelines. Our platform puts everyone on the same page — literally.</p>
+
+    <!-- Connection Diagram -->
+    <div class="reveal" style="margin-top:60px;padding:48px 24px;border-radius:24px;border:1px solid rgba(249,115,22,0.2);background:linear-gradient(135deg,rgba(249,115,22,0.04),rgba(10,10,10,0.8));">
+      
+      <!-- Top: The Job -->
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="display:inline-flex;align-items:center;gap:12px;padding:16px 32px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--deep));font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.1em;">📁 THE JOB</div>
+        <p style="color:var(--gray-400);margin-top:12px;font-size:0.9rem;">One project. One source of truth. Everyone sees their view.</p>
+      </div>
+
+      <!-- Connection Lines Down -->
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="width:2px;height:40px;background:linear-gradient(180deg,var(--orange),var(--gold));margin:0 auto;"></div>
+      </div>
+
+      <!-- Shared Dashboard - Center Hub -->
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="display:inline-block;padding:20px 40px;border-radius:16px;border:2px solid var(--orange);background:rgba(249,115,22,0.08);">
+          <div style="font-size:2rem;margin-bottom:8px;">📊</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--orange);">Shared Dashboard</div>
+          <div style="font-size:0.8rem;color:var(--gray-400);margin-top:4px;">Shop Drawings · Erection Drawings · Real-Time 3D Model · RFIs · Schedule · BOLs · Daily Reports · Compliance</div>
+        </div>
+      </div>
+
+      <!-- Three Lines Down -->
+      <div style="display:flex;justify-content:center;gap:0;margin-bottom:24px;">
+        <div style="flex:1;display:flex;justify-content:center;"><div style="width:2px;height:40px;background:linear-gradient(180deg,var(--orange),rgba(249,115,22,0.3));"></div></div>
+        <div style="flex:1;display:flex;justify-content:center;"><div style="width:2px;height:40px;background:linear-gradient(180deg,var(--gold),rgba(251,191,36,0.3));"></div></div>
+        <div style="flex:1;display:flex;justify-content:center;"><div style="width:2px;height:40px;background:linear-gradient(180deg,var(--orange),rgba(249,115,22,0.3));"></div></div>
+      </div>
+
+      <!-- Three Roles -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;min-height:220px;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🔩</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Fabricator</div>
+          <div style="font-size:0.75rem;color:var(--gray-400);line-height:1.6;">Production status<br>Material tracking<br>QC reports<br>Shipping schedule<br>Job costing</div>
+        </div>
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;min-height:220px;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🏗️</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Erector</div>
+          <div style="font-size:0.75rem;color:var(--gray-400);line-height:1.6;">Man hours tracking<br>Equipment & crane time<br>Install tracking<br>Daily reports via voice/text<br>Safety documentation</div>
+        </div>
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;min-height:220px;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">👔</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">General Contractor</div>
+          <div style="font-size:0.75rem;color:var(--gray-400);line-height:1.6;">Overall progress<br>Budget tracking<br>Sub performance<br>Schedule visibility<br>Compliance (COIs, safety, certs)</div>
+        </div>
+      </div>
+
+      <!-- Bottom line -->
+      <div style="text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(249,115,22,0.15);">
+        <p style="color:var(--white);font-weight:600;font-size:1rem;">Same job. Same data. Three different views.</p>
+        <p style="color:var(--gray-400);font-size:0.85rem;margin-top:4px;">Everyone sees what they need. Nothing gets lost in translation.</p>
+      </div>
+    </div>
+
+    <!-- Feature Cards + bottom text hidden -->
+    <div class="expandable-content" id="ecosystem-more">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:24px;">
+      <div class="feature-card reveal" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🔗</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Shared Portal</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">The fab shop shares production status and shipping schedules. The erector shares install progress and field reports. Everyone sees what's relevant to them.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🔑</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">One Link, Full Visibility</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">Share a single link with your erector or fab shop. They log in and see exactly what they need. No setup, no training, no learning curve.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2" style="padding:28px;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+        <div style="font-size:1.5rem;margin-bottom:12px;">🚫</div>
+        <h4 style="font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:8px;">Kill the Phone Tag</h4>
+        <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.7;">"Where's my steel?" "What shipped?" "When's the crew coming?" — All answered by the dashboard, 24/7. No more chasing people for updates.</p>
+      </div>
+    </div>
+
+    <div class="eco-bottom reveal" style="margin-top:48px">
+      <div class="beam" style="margin-bottom:24px"></div>
+      <p><strong>Same data. Three lenses. One shared truth.</strong> Fabricators and erectors working on the same job finally share one portal. No more disconnected communication.</p>
+    </div>
+    </div>
+    <div class="expand-wrap reveal">
+      <button class="expand-trigger" onclick="toggleExpand(this,'ecosystem-more')" data-more="See the details" data-less="Show less">See the details <span class="arrow">↓</span></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Security section moved to info packet / brochure -->
+
+<!-- CONTINUOUS IMPROVEMENT -->
+<!-- "Software That Evolves" section removed — too generic -->
+
+<!-- ABOUT -->
+<section class="section" id="about" style="background:var(--gray-900);position:relative;">
+  <div class="grid-bg"></div>
+  <div class="container" style="max-width:900px;position:relative;z-index:1;">
+    <div class="label reveal text-center">Our Story</div>
+    <h2 class="section-title reveal text-center">Built by Steel People.<br>For Steel People.</h2>
+    <div class="reveal" style="margin-top:48px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(1.5rem,4vw,3rem);">
+      <p style="color:var(--gray-400);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem;">
+        <span style="color:var(--white);font-weight:500;">We run a fab shop and erection crew in El Paso, Texas.</span> Like everyone in this industry, we relied on whiteboards, group texts, spreadsheets, and a patchwork of software that never quite fit. Job tracking was chaos. Status updates took hours. The same questions got asked ten times a day.
+      </p>
+      <blockquote style="border-left:3px solid var(--orange);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-size:1.2rem;color:var(--white);">
+        "We tried every tool on the market. None of them were built for how a steel shop actually runs."
+      </blockquote>
+      <p style="color:var(--gray-400);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem;">
+        So we built our own. <span style="color:var(--white);font-weight:500;">We used AI to create a platform that understands steel terminology, fabrication workflows, and field operations.</span> BOLs generate themselves. QC reports are automated. Every piece, every heat number, every shipment — tracked in real time from one place.
+      </p>
+      <p style="color:var(--gray-400);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem;">
+        <span style="color:var(--white);font-weight:500;">The results were immediate.</span> Administrative overhead dropped. Supervisors went back to supervising. Decisions got faster because the information was always one question away. We scaled output without scaling headaches.
+      </p>
+      <p style="color:var(--gray-400);font-size:1.05rem;line-height:1.8;margin-bottom:0;">
+        When other fabricators and erectors started asking how we did it, we realized this wasn't just our problem — <span style="color:var(--white);font-weight:500;">it's the industry's problem.</span> Every steel company is duct-taping the same broken workflow together. So we founded Bravo AI to bring this platform to every shop that needs it.
+      </p>
+      <div style="display:flex;align-items:center;gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(249,115,22,0.3);">
+          <img src="assets/mario-headshot.jpg" alt="Mario Urquidi" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div>
+          <h4 style="font-size:1.1rem;margin-bottom:0.25rem;">Mario Urquidi</h4>
+          <p style="color:var(--gray-400);font-size:0.9rem;margin:0;">Founder & CEO, Bravo AI<br>Owner, Del Bravo Steel & Del Bravo Erectors</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section section" id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="label">Get Started</div>
+      <h2 class="section-title">Ready to Connect<br>Your Operation?</h2>
+      <p>See how Bravo AI can replace your disconnected tools with one platform built for structural steel.</p>
+      
+      <!-- Contact Form -->
+      <form id="contact-form" style="max-width:500px;margin:32px auto 0;text-align:left;" onsubmit="submitContact(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Name *</label>
+            <input type="text" name="name" required placeholder="John Smith" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Company</label>
+            <input type="text" name="company" placeholder="Your Steel Co" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Email *</label>
+            <input type="email" name="email" required placeholder="john@company.com" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Phone</label>
+            <input type="tel" name="phone" placeholder="(915) 555-0100" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+          </div>
+          <div style="grid-column:1/-1;">
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">How can we help? *</label>
+            <select name="interest" required style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:#1a1a1a;color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;">
+              <option value="demo" style="background:#1a1a1a;color:#fff;">Book a Demo</option>
+              <option value="call" style="background:#1a1a1a;color:#fff;">Schedule a Call</option>
+              <option value="question" style="background:#1a1a1a;color:#fff;">General Question</option>
+              <option value="fabrication" style="background:#1a1a1a;color:#fff;">Fabrication Platform</option>
+              <option value="erection" style="background:#1a1a1a;color:#fff;">Erection Platform</option>
+              <option value="both" style="background:#1a1a1a;color:#fff;">Both Platforms</option>
+            </select>
+          </div>
+          <div style="grid-column:1/-1;">
+            <label style="font-size:0.8rem;color:var(--gray-400);display:block;margin-bottom:4px;">Message (optional)</label>
+            <textarea name="message" rows="3" placeholder="Tell us about your operation..." style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;resize:vertical;"></textarea>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:24px;">
+          <button type="submit" id="submit-btn" style="display:inline-flex;align-items:center;gap:8px;padding:16px 48px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--deep));color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;box-shadow:0 0 40px rgba(249,115,22,0.25);">
+            Send Message →
+          </button>
+          <div id="form-status" style="margin-top:12px;font-size:0.9rem;"></div>
+        </div>
+      </form>
+
+      <div style="margin-top:20px;text-align:center;">
+        <p style="font-size:0.85rem;color:var(--gray-600);">Or email us directly at <a href="mailto:info@bravoai.co" style="color:var(--orange);">info@bravoai.co</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Contact form handler — posts to auto-responder API
+async function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+  const data = Object.fromEntries(new FormData(form));
+  
+  btn.textContent = 'Sending...';
+  btn.style.opacity = '0.7';
+  
+  try {
+    // Send to auto-responder API (via Cloudflare tunnel when available)
+    const res = await fetch('https://formspree.io/f/maqdnjre', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    if (res.ok) {
+      status.innerHTML = '<span style="color:#22c55e;">✅ Thank you! We\'ll be in touch shortly.</span>';
+      form.reset();
+    } else {
+      throw new Error('API error');
+    }
+  } catch (err) {
+    // Fallback: send via mailto
+    const subject = encodeURIComponent('Bravo AI Demo Request — ' + (data.company || data.name));
+    const body = encodeURIComponent('Name: ' + data.name + '\nCompany: ' + (data.company || 'N/A') + '\nEmail: ' + data.email + '\nPhone: ' + (data.phone || 'N/A') + '\nInterest: ' + data.interest + '\nMessage: ' + (data.message || 'N/A'));
+    window.location.href = 'mailto:info@bravoai.co?subject=' + subject + '&body=' + body;
+    status.innerHTML = '<span style="color:var(--orange);">📧 Opening your email client — send it and we\'ll get back to you ASAP.</span>';
+  }
+  
+  btn.textContent = 'Send & Book a Demo →';
+  btn.style.opacity = '1';
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="gap:10px">
+          <svg width="90" height="28" viewBox="0 0 175 55" fill="none">
+            <path d="M0 50L35 30L55 36L87 12L120 36L140 30L175 50" stroke="#F5F5F4" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M70 18L72 23.5L78 23.5L73.5 27L75 32.5L70 29L65 32.5L66.5 27L62 23.5L68 23.5Z" fill="#F97316"/>
+          </svg>
+          <span class="logo-wordmark" style="font-size:1.1rem">BRAVO<span class="ai">AI</span></span>
+        </a>
+        <span class="footer-copy">© 2026 Bravo AI. Forged in steel. Powered by AI.</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:info@bravoai.co">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Module tab switching
+function toggleModule(el){
+  const wasExpanded = el.classList.contains('expanded');
+  document.querySelectorAll('.lc-item.expanded').forEach(item=>item.classList.remove('expanded'));
+  if(!wasExpanded) el.classList.add('expanded');
+}
+
+// Progressive Disclosure
+function toggleExpand(btn, targetId) {
+  const content = document.getElementById(targetId);
+  const isExpanded = content.classList.contains('expanded');
+  
+  if (isExpanded) {
+    // Collapse
+    content.style.maxHeight = '0px';
+    content.classList.remove('expanded');
+    btn.classList.remove('active');
+    btn.innerHTML = btn.dataset.more + ' <span class="arrow">↓</span>';
+  } else {
+    // Expand
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.classList.add('expanded');
+    btn.classList.add('active');
+    btn.innerHTML = btn.dataset.less + ' <span class="arrow">↓</span>';
+    // Re-trigger reveal animations for newly visible elements
+    content.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+  }
+}
+
+// Nav scroll effect
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+
+// Intersection Observer for reveal animations
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{document.querySelector('.nav-links').classList.remove('open')})
+});
+</script>
 </body>
 </html>
-<!-- Deploy: 1770278940 -->
